@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<links>
+    <linkinfo>
+        <title>不连续函数满足f(x+y)=f(x)+f(y)的例子</title>
+        <class>专业数学</class>
+        <author>math001</author>
+        <link>view_432.html</link>
+    </linkinfo>
+
+    <linkinfo>
+        <title>一个比较复杂的中小学排列问题</title>
+        <class>中学数学</class>
+        <author>secret如你</author>
+        <link>view_399.html</link>
+    </linkinfo>
+
+    <linkinfo>
+        <title>有限个基的Hausdoff空间是离散的</title>
+        <class>专业数学</class>
+        <author>math001</author>
+        <link>view_439.html</link>
+    </linkinfo>
+
+    
+    <linkinfo>
+        <title>可导函数f(x)→0，但f(x)不收敛的例子</title>
+        <class>大学数学</class>
+        <author>math001</author>
+        <link>view_427.html</link>
+    </linkinfo>
+
+</links>
