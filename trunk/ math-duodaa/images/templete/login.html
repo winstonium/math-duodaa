@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+
+#userinfoPad {
+	width: 230px;
+	text-align: left;
+	vertical-align: bottom;
+	border: 2px solid #F96;
+	padding-bottom: 15px;
+	background-color: #F1F7FF;
+}
+
+#userinfoPad #userbasefun #username {
+	font-size: 24px;
+	color: #000;
+	display: block;
+}
+
+#userinfoPad #userbasefun ul {
+	list-style-type: none;
+}
+#userinfoPad #userbasefun ul li {
+	text-align: left;
+	vertical-align: bottom;
+	
+}
+#userinfoPad #userbasefun ul li a {
+	text-decoration: none;
+	display: inline-block;
+	color: #03C;
+	font-size: 13px;
+}
+#userinfoPad #userbasefun ul li a:hover {
+	text-decoration: underline;
+	width: 60px;
+}
+
+
+
+#userinfoPad #useraccount ul li font.title {
+	display: inline-block;
+	color: #03C;
+	font-size: 14px;
+}
+#userinfoPad #useraccount ul li font.number {
+	display:inline-block;
+	color: #03C;
+	font-size: 14px;
+}
+#userinfoPad #useraccount ul {
+	list-style-type: none;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#userinfoPad #usercenter
+{
+	text-align:center
+}
+#userinfoPad #usercenter a {
+	display: inline-block;
+	font-size: 10px;
+	color: #990;
+	font-family: "黑体", "隶书";
+	text-decoration: none;
+}
+#userinfoPad #usercenter a:hover {
+
+	text-decoration: underline;
+}
+
+
+#userloginPad {
+	width: 230px;
+	text-align: left;
+	vertical-align: bottom;
+	border: 2px solid #F96;
+	padding-bottom: 15px;
+	background-color: #F1F7FF;
+}
+
+#userloginPad #userlog{
+	font-size: 24px;
+	color: #000;
+	display: block;
+}
+
+
+#userloginPad #useraccount ul div span.title {
+	color: #03C;
+	font-size: 14px;
+	width: 100px;
+	display: block;
+}
+
+#userloginPad #userreg
+{
+	text-align:center
+}
+#userloginPad #userreg a {
+	display: inline-block;
+	font-size: 10px;
+	color: #990;
+	font-family: "黑体", "隶书";
+	text-decoration: none;
+}
+#userloginPad #userreg a:hover {
+
+	text-decoration: underline;
+}
+#userloginPad #useraccount ul div {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#userloginPad #useraccount ul div span a {
+	font-size: 11px;
+	color: #009;
+	text-decoration: none;
+}
+#userloginPad #useraccount ul div span a:hover {
+	
+	text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+<div id="userinfoPad">
+<div id="userbasefun">
+   <ul>
+      <li><strong id="username" style="">leitingok</strong> </li>
+      <li><a href="#" >我的提问</a> <a href="#" >我的回答</a> </a> <a href="#" >兑换奖品</a> </li>
+   </ul>
+   
+</div>
+
+<div id="useraccount">      
+  <ul>
+    <li><font class="title">我的哆分：</font><font>1350</font><a  href="#" target="_blank"></a> </li>
+    <li><font class="title">我的嗒币：</font><font>850</font><a  href="#" target="_blank"></a> </li>
+    <input name="useraccount_logout" type="button"  value="退出"/>
+  </ul>
+  
+</div>
+
+<div id="usercenter"><a href="#" >进入个人中心</a> <a  href="#">修改资料</a></div>
+<div></div>
+</div>
+
+<div id="userloginPad">
+<div id="userbasefun">
+   <ul>
+      <strong id="userlog" >用户登录</strong>
+     
+   </ul>
+</div>
+
+
+<div id="useraccount">      
+ <ul>
+   <div><span class="title">用户名：</span>
+     <span><input id="log_username" type="text" size="16" maxlength="20" /></span>
+   </div>
+   <div>
+     <span class="title">密 码：</span>
+     <span><input name="log_psw" type="password" size="16" maxlength="20" /></span>
+   </div>
+   <div>
+      <span class="title">验证码：</span>
+      <span><input name="log_username" type="text" size="1" maxlength="6" /><a href="#">看不清?点击更换</a></span>
+    </div>
+    <div>
+      
+      <span><input name="log_submit" type="button"  value="登录"/></span>
+    </div>
+    
+ </ul>
+</div>
+
+<div id="userreg"><a href="#" >注册帐户</a> <a  href="#">忘记密码</a></div>
+<div></div>
+</div>
+</body>
+</html>

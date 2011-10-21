@@ -1,0 +1,26 @@
+﻿a:link{color:#261CDC; text-decoration:none;}
+a:visited{color:#800080;text-decoration:none;}
+a:hover{ text-decoration:underline;}
+div{line-height:18px;font-size:12px;font-family:Arial;}
+td{line-height:18px;font-size:12px;font-family:Arial;}
+.leftdiv{padding:5px 10px 8px 10px;border:1px solid #58CB64; width:800px;}
+a.lbk:visited{color:#000000}
+a.lbk:link{color:#000000}
+.rightdiv{padding:5px 10px 8px 10px;border:1px solid #67b7d7;}
+.addiv{padding:5px 10px 8px 10px;border:1px solid #ffa500;}
+.anouce{border:2px solid #3366cc; width:900px;}
+.latestquestion{width:160px; height:800px}
+
+.showproblemstd{width:88%;}
+
+.grade1div{padding:0px 0px 0px 0px;border:2px solid #99cccc; width:98%;}
+.grade2div{padding:0px 0px 0px 0px;border:2px solid #660066; width:98%;}
+.grade3div{padding:0px 0px 0px 0px;border:2px solid #666600; width:98%;}
+.grade4div{padding:0px 0px 0px 0px;border:2px solid #000066; width:98%;}
+.grade5div{padding:0px 0px 0px 0px;border:2px solid #339966; width:98%;}
+.grade0div{padding:0px 0px 0px 0px;border:2px solid #663333; width:98%;}
+
+a.friendlink:visited{color:Gray; font-size:10px;}
+a.friendlink:link{color:Gray;font-size:10px;}
+a.friendlink:hover{color:Orange; text-decoration: underline;font-size:10px;}
+
