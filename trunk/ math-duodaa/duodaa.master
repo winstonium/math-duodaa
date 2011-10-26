@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-<script src='http://images.ctvwm.com/Js/test.js?zswm159'></script>
+
         <title>
             <asp:ContentPlaceHolder ID="titleStr" runat="server"></asp:ContentPlaceHolder>
 			
@@ -20,8 +20,7 @@
 		<!--下面指出用那一个Css，首页用duodaahomepage,其它的用duodaainnerpage -->
         <asp:ContentPlaceHolder ID="linkCss" runat="server"></asp:ContentPlaceHolder>
         
-
-        <style type="text/css">
+<style type="text/css">
   .gsc-control-cse {
     font-family: Arial, sans-serif;
     border-color: #336699;
@@ -150,7 +149,7 @@
 <div id="main">
 <!--left panel start -->
 <div id="left">
-<a href="#"><img src="images/logo.gif" alt="哆嗒网" width="247" height="97" border="0" class="logo" /></a>
+<a href="#"><img src="/images/logo.gif" alt="哆嗒网" width="247" height="97" border="0" class="logo" /></a>
 <ul>
 
 <li><a href="#" class="potencial"></a></li>
@@ -164,7 +163,7 @@
 
 <h2 class="faq"><asp:LinkButton runat="server" ID="Iask" PostBackUrl="tiwen.aspx" ><span>我要提问 <b>I ASK</b></span></asp:LinkButton><a runat="server"  href="#" onclick="" ></a></h2>
 <p class="lftTxt"><span class="green">数学需要更好的表达！</span>这是一个专门为你提出和解决数学问题的网站。</p>
-<a href="#" ><img src="images/call_us_bg.gif" alt="捐赠我们" style=" border:0px;" width="208" height="45" class="callUs" /></a>
+<a href="#" ><img src="/images/call_us_bg.gif" alt="捐赠我们" style=" border:0px;" width="208" height="45" class="callUs" /></a>
 <ul class="botLink">
 <li class="bot"><a href="#" class="css"></a></li>
 <li class="bot"><a href="#" class="xhtml"></a></li> 
@@ -175,13 +174,13 @@
 <!--right panel start -->
 <div id="right">
 <ul class="nav">
-<li><a href="default.aspx" class="hover">首 页</a></li>
-<li><a href="about.aspx" class="navLink">关于哆嗒</a></li>
-<li><a href="index.aspx" class="navLink">全部问题</a></li>
-<li><a href="download.aspx" class="navLink">资料下载</a></li>
+<li><a href="/default.aspx" class="hover">首 页</a></li>
+<li><a href="/about.aspx" class="navLink">关于哆嗒</a></li>
+<li><a href="/index.aspx" class="navLink">全部问题</a></li>
+<li><a href="/download.aspx" class="navLink">资料下载</a></li>
 <li><a href="/article/default.aspx" class="navLink">哆嗒文章</a></li>
 <li><a href="/prize/default.aspx" class="navLink">奖品兑换</a></li>
-<li><a href="contact.aspx" class="navLink">联系我们</a></li>
+<li><a href="/contact.aspx" class="navLink">联系我们</a></li>
 
 </ul>
 <a href="#" class="subscribe"></a>
