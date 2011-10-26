@@ -5,7 +5,7 @@
 哆嗒公告-<%=Application["CnWebName"]%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="linkCss" Runat="Server">
-<link type="text/css" href="~/duodaainnerpage.css" rel="Stylesheet" />
+<link type="text/css" href="/duodaainnerpage.css" rel="Stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
 <!--rightBotMain start -->
