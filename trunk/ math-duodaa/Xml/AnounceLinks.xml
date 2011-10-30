@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <links>
-    <linkinfo>
-        <title>哆嗒网将进行全面改版</title>
-        <link>anouncements\a01.html</link>
-    </linkinfo>
+    
     <linkinfo>
         <title>嗒币换奖品计划即将推出</title>
-        <link>anouncements\a02.html</link>
+        <link>anounce_1.html</link>
+        <content>
+          哆嗒网将推出嗒币兑换奖品计划。目前计划细节正在制定中。敬请期待。
+        </content>
     </linkinfo>
+
+  <linkinfo>
+    <title>哆嗒网将进行全面改版</title>
+    <link>anounce_2.html</link>
+    <content>
+      改正在进行之中，有何意见或者建议，请利用本站“联系方式”中的办法与我们联系。哆嗒网需要大家的支持，谢谢。
+    </content>
+  </linkinfo>
     
 
 </links>
