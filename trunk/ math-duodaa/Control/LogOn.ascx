@@ -80,7 +80,23 @@
       <span><asp:Button ID="log_submit" runat="server" OnClick="logON_Click" BackColor="#eeeeee"  Text="登录" Height="25px" Width="40px" /></span>
     </div>
     
+    <div style="float: left"><span style="font-size: 14px">其它帐号登录：</span><span id="qqLoginBtn"></span></div>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc.js"></script>
+    <script type="text/javascript">
+        QC.Login.insertButton({
+            btnId: 'qqLoginBtn', //插入按钮的html标签id
+            size: 'B_S', //按钮样式，A、B、C为三种样式， 
+            //S、M、L、XL为同一种样式的不同尺寸，支持如下 : 
+            //A_S, A_M, A_L, A_XL; 
+            //B_S, B_M, B_L; 
+            //C_S;
 
+            clientId: '100226499', //appId
+            scope: '', //授权范围，可选
+            redirectURI: 'http://duodaa.com/' // 回调地址，可选
+	
+        });
+</script>
 </div>
 
 <div id="userreg"><a href="Register.aspx" 
