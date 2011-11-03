@@ -349,8 +349,18 @@ public class logic
         cmd.Parameters["@u"].Value = uid;
         cmd.Parameters["@p"].Value = psw;
         OleDbDataReader r1 = cmd.ExecuteReader();
-        if (r1.Read()) return true;
-        else return false;
+        if (r1.Read())
+        {
+            conn.Close();
+            conn.Dispose();
+            return true;
+        }
+        else
+        {
+            conn.Close();
+            conn.Dispose();
+            return false;
+        }
     }
 
   
