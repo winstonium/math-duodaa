@@ -30,12 +30,10 @@ namespace zhidao
 		
 		protected void Application_Start(Object sender, EventArgs e)
 		{
-			Application["CnWebName"]=System.Configuration.ConfigurationSettings.AppSettings["CnWebName"];
-			Application["Description"]=System.Configuration.ConfigurationSettings.AppSettings["Description"];
-			Application["Keywords"]=System.Configuration.ConfigurationSettings.AppSettings["Keywords"];
+			Application["CnWebName"]=System.Configuration.ConfigurationManager.AppSettings["CnWebName"];
+            Application["Description"] = System.Configuration.ConfigurationManager.AppSettings["Description"];
+            Application["Keywords"] = System.Configuration.ConfigurationManager.AppSettings["Keywords"];
 
-         
-            
 		}
 
 
