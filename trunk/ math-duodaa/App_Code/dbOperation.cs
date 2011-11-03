@@ -54,7 +54,8 @@ public class dbOperation
         OleDbCommand cmd = new OleDbCommand(sql, conn);
         cmd.ExecuteNonQuery();
         if (dValue != "") 
-        {cmd=new OleDbCommand("update "+ tName + " set "+ cName +" ='"+dValue +"' where 1=1",conn);
+        {
+        cmd=new OleDbCommand("update "+ tName + " set "+ cName +" ='"+dValue +"' where 1=1",conn);
         cmd.ExecuteNonQuery();
         }
 
