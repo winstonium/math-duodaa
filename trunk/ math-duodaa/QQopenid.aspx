@@ -11,15 +11,21 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
     <br />
     <br />
+    <div id="best" style=" height: 600px;">
+    
     <asp:Label ID="ErrorMsg" runat="server" Text="在利用QQ登录时，发生错误" Visible="false"></asp:Label>
     <div id="qqLoginSuccess" runat="server" style="width: 600px; height: 300px">
     
     <div id="Connenct" runat="server">
     <span style="font-size: 25px; font-family: 幼圆; color: #C18B1E; font-weight: bolder;">
         <br />
-        欢迎您通过腾讯QQ来登录哆嗒网！<br />
-        你可选择一种方式继续操作。</span><br />
         <br />
+        <br />
+        欢迎您通过腾讯QQ来登录哆嗒网！<br />
+        你可选择一种方式继续操作。</span>
+        <br />
+        <br />
+    
     <table style="width:600px">
     <tr style="height: 25px">
    <td colspan="3" style="font-size:15px;width:600px;">1、若已经拥有哆嗒账号，你可以选择绑定账号。</td>
@@ -43,7 +49,22 @@
 				ValidationExpression="[0-9a-zA-Z]{6,20}"></asp:RegularExpressionValidator></td>
    </tr>
 
+   <tr>
+   <th style="font-size:15px;width:50px;">验证码：</th>
+   <td><asp:TextBox ID="log_verify" runat="server" Width="50px" MaxLength="6" BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
+           Height="20px"></asp:TextBox><img id="verifyimg_1" src="/checkimage.aspx" title="看不清，点击换一张图" alt="看不清，点击换一张图" onclick="this.src='checkimage.aspx?f='+Math.random()" /><a href="#" onclick="document.getElementById('verifyimg_1').src='checkimage.aspx?f='+Math.random()" style="font-size: 11px; text-decoration: none" >换一张</a></td>
+   <td></td>
+   </tr>
+
+   <tr style="height:25px">
+   <th style="font-size:15px;width:50px;"><p>协&nbsp;&nbsp;&nbsp;&nbsp;议：</p></th>
+   <td valign="bottom" >
+    <p class="bestTxt2"><br /><asp:CheckBox id="xy1" runat="server" Checked="true" Text=" "></asp:CheckBox> 我已阅读并接受<a class="asker" href='protocal.aspx' target='_blank'>哆嗒协议</a></p></td>
+   <td></td>
+   </tr>
+
    
+
    <tr>
    <th style="font-size:15px;width:100px;"></th>
    <td colspan="2">
@@ -53,7 +74,7 @@
        </td>
    
    </tr>
-
+   
 
    </table>
     </div>
@@ -66,7 +87,7 @@
    <td colspan="3" style="font-size:15px;width:600px;">2、你也可以重新输入QQ号后，创建新的哆嗒账号。</td>
    
    </tr>
-   <tr style="height: 25px">
+   <tr style="height: 15px">
    <th style="font-size:15px;width:100px;">QQ号：</th>
    <td><asp:TextBox ID="qq_Account" runat="server" Width="300px" MaxLength="20" 
            BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
@@ -74,6 +95,13 @@
    <td><asp:RegularExpressionValidator id="RegularExpressionValidator5" runat="server" ErrorMessage="无效的QQ号。<br>如果是邮件QQ请输入对应的数字QQ号。" ControlToValidate="qq_Account"
 											ValidationExpression="[0-9]{0,20}"></asp:RegularExpressionValidator>
        </td>
+   </tr>
+
+   <tr style="height:25px">
+   <th style="font-size:15px;width:50px;"><p>协&nbsp;&nbsp;&nbsp;&nbsp;议：</p></th>
+   <td valign="bottom" >
+    <p class="bestTxt2"><br /><asp:CheckBox id="xy2" runat="server" Checked="true" Text=" "></asp:CheckBox> 我已阅读并接受<a class="asker" href='protocal.aspx' target='_blank'>哆嗒协议</a></p></td>
+   <td></td>
    </tr>
    
    <tr>
@@ -90,9 +118,11 @@
    </table>
 
     </div>
-    
-    
     </div>
+    </div>
+
+
+   
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="buttomContent" Runat="Server">
