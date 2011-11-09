@@ -13,7 +13,7 @@
     <br />
     <div id="best" style=" height: 600px;">
     
-    <asp:Label ID="ErrorMsg" runat="server" Text="在利用QQ登录时，发生错误" Visible="false"></asp:Label>
+    <asp:Label ID="ErrorMsg" runat="server" Text="<br /><br />在利用QQ登录时，发生错误" Visible="false"></asp:Label>
     <div id="qqLoginSuccess" runat="server" style="width: 600px; height: 300px">
     
     <div id="Connenct" runat="server">
@@ -70,7 +70,7 @@
    <td colspan="2">
        <asp:Button ID="ConnectDuodaa" runat="server" Text="绑 定 哆 嗒 账 号" Height="30" 
            Width="300" BackColor="#94A63E" Font-Size="Large" ForeColor="White" 
-           Font-Bold="True" Font-Names="微软雅黑" /> 
+           Font-Bold="True" Font-Names="微软雅黑" onclick="ConnectDuodaa_Click" /> 
        </td>
    
    </tr>
@@ -118,6 +118,19 @@
    </table>
 
     </div>
+    </div>
+
+    <div runat="server" id="qqWelcome" visible="false">
+     <span style="font-size: 25px; font-family: 幼圆; color: #C18B1E; font-weight: bolder;">
+        <br />
+        <br />
+        <br />
+        欢迎<%=GetInfo.getUsernameFromID(Int32.Parse(Session["userid"].ToString())) %>！<br />
+        你已经成功登录哆嗒数学网。</span>
+        <br />
+        <br />
+    
+    
     </div>
     </div>
 
