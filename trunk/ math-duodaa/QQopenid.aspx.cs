@@ -76,11 +76,14 @@ public partial class QQopenid : System.Web.UI.Page
                         Response.AppendCookie(newcookie);
                         //////////////////////////////////////////////////
 
+                        Session["qqOpenid"] = null;
                         Response.Redirect(Request.RawUrl);
                     }
 
                     else
                     {
+                        Session["qqOpenid"] = null;
+                        
                         string currentUser = qzone.GetCurrentUser();
 
                         JavaScriptSerializer json = new JavaScriptSerializer();
@@ -90,6 +93,7 @@ public partial class QQopenid : System.Web.UI.Page
                 }
                 catch (Exception)
                 {
+                    Session["qqOpenid"] = null;
                     ErrorMsg.Visible = true;
                     qqLoginSuccess.Visible = false;
                 }
@@ -136,7 +140,7 @@ public partial class QQopenid : System.Web.UI.Page
                 cmd = new OleDbCommand("update users set OpenID_qq=@qoid where id=@uid",conn);
                 cmd.Parameters.Add("@qoid", OleDbType.Char);
                 cmd.Parameters.Add("@uid", OleDbType.Char, 20);
-                cmd.Parameters["@qoid"].Value = Session["qqOpenid"];
+                cmd.Parameters["@qoid"].Value = Session["qqOpenid"].ToString();
                 cmd.Parameters["@uid"].Value = Session["userid"].ToString();
                 cmd.ExecuteNonQuery();
                 conn.Close();
