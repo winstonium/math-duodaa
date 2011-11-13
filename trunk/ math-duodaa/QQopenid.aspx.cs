@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Web.Script.Serialization;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 public partial class QQopenid : System.Web.UI.Page
 {
@@ -89,6 +90,8 @@ public partial class QQopenid : System.Web.UI.Page
                         JavaScriptSerializer json = new JavaScriptSerializer();
 
                         qquser qq_userinfo = json.Deserialize<qquser>(currentUser);
+
+                        
                     }
                 }
                 catch (Exception)
@@ -203,6 +206,45 @@ public partial class QQopenid : System.Web.UI.Page
         }
     
     }
+
+      protected string genUserId(string qq_nickname)
+      {
+          string newusername;
+          bool IsUsernameDone;
+
+          Regex reg = new Regex(@"[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}");
+          Random rand=new Random();
+
+          if (!reg.IsMatch(qq_nickname.ToString()))
+          {
+
+              newusername = "duodaa";
+              do
+              {
+                  newusername += rand.Next(0, 10).ToString();
+
+                  OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
+                  conn.Open();
+                  OleDbCommand cmd = new OleDbCommand("select id from users where username=@u", conn);
+                  cmd.Parameters.Add("@u", OleDbType.Char, 20);
+                  cmd.Parameters["@u"].Value = log_un.Text.Trim();
+                  OleDbDataReader r1 = cmd.ExecuteReader();
+
+                  IsUsernameDone = r1.Read();
+
+                  r1.Close();
+                  conn.Close();
+                  conn.Dispose();
+              }
+              while (IsUsernameDone);
+              return newusername;
+
+          }
+
+          else { }
+        
+     
+      }
 
 
 }

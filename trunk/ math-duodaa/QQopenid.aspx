@@ -84,14 +84,44 @@
     <br />
      <table style="width:600px">
     <tr style="height: 25px">
-   <td colspan="3" style="font-size:15px;width:600px;">2、你也可以重新输入QQ号后，创建新的哆嗒账号。</td>
+   <td colspan="3" style="font-size:15px;width:600px;">2、你也可以重新输入QQ号后，创建新的哆嗒账号。
+   <p id="UsernameTips" class="bestTxt2" style="font-size: 10px">&nbsp;&nbsp;注意，你将以<asp:Label ID="NewUsername" runat="server"></asp:Label>为用户名创建哆嗒网用户名，如不满意请<a name="changename" class="asker" href="#changename" onclick="showNewUsernameInput()" >修改</a>。</p>
+   </td>
+   
    
    </tr>
+   
+   <tr id="NewUsernameInput" >
+   <th>用户名:</th>
+   <td ><div ><asp:TextBox ID="log_un1" runat="server" Width="300px" MaxLength="20" 
+           BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
+           Height="20px"></asp:TextBox></div></td>
+   <td>
+   <asp:RegularExpressionValidator id="RegularExpressionValidator4" runat="server" ErrorMessage="错误" ControlToValidate="log_un1"
+				ValidationExpression="[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}"></asp:RegularExpressionValidator>
+       <asp:RegularExpressionValidator id="RegularExpressionValidator6" runat="server" ControlToValidate="log_un1"
+				ValidationExpression="\S+"></asp:RegularExpressionValidator>
+   </td>
+    
+   </tr>
+   <script type="text/javascript">
+       document.getElementById("NewUsernameInput").style.visibility = 'hidden';
+
+       function showNewUsernameInput() {
+           if (document.getElementById("NewUsernameInput").style.visibility == 'hidden') {
+               document.getElementById("NewUsernameInput").style.visibility = 'visible';
+               document.getElementById("UsernameTips").style.visibility = 'hidden';          
+           }
+           else document.getElementById("NewUsernameInput").style.visibility = 'hidden'
+       }
+   </script>
+
    <tr style="height: 15px">
    <th style="font-size:15px;width:100px;">QQ号：</th>
    <td><asp:TextBox ID="qq_Account" runat="server" Width="300px" MaxLength="20" 
            BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
-           Height="20px"></asp:TextBox></td>
+           Height="20px"></asp:TextBox>
+           <div></div></td>
    <td><asp:RegularExpressionValidator id="RegularExpressionValidator5" runat="server" ErrorMessage="无效的QQ号。<br>如果是邮件QQ请输入对应的数字QQ号。" ControlToValidate="qq_Account"
 											ValidationExpression="[0-9]{0,20}"></asp:RegularExpressionValidator>
        </td>
