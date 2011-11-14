@@ -83,13 +83,16 @@ public partial class QQopenid : System.Web.UI.Page
 
                     else
                     {
-                        Session["qqOpenid"] = null;
-                        
+                                                
                         string currentUser = qzone.GetCurrentUser();
 
                         JavaScriptSerializer json = new JavaScriptSerializer();
 
                         qquser qq_userinfo = json.Deserialize<qquser>(currentUser);
+
+                        string newuser=genUsername(qq_userinfo.nickname.ToString());
+                        NewUsername.Text =newuser;
+                        log_un1.Text = newuser;
 
                         
                     }
@@ -207,12 +210,12 @@ public partial class QQopenid : System.Web.UI.Page
     
     }
 
-      protected string genUserId(string qq_nickname)
+      protected string genUsername(string qq_nickname)
       {
           string newusername;
           bool IsUsernameDone;
 
-          Regex reg = new Regex(@"[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}");
+          Regex reg = new Regex(@"^[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,12}$");//这里与自行注册的20个字符不一样（12个），是为了为后面的随机数字留出空间
           Random rand=new Random();
 
           if (!reg.IsMatch(qq_nickname.ToString()))
@@ -226,8 +229,8 @@ public partial class QQopenid : System.Web.UI.Page
                   OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
                   conn.Open();
                   OleDbCommand cmd = new OleDbCommand("select id from users where username=@u", conn);
-                  cmd.Parameters.Add("@u", OleDbType.Char, 20);
-                  cmd.Parameters["@u"].Value = log_un.Text.Trim();
+                  cmd.Parameters.Add("@u", OleDbType.Char);
+                  cmd.Parameters["@u"].Value = newusername;
                   OleDbDataReader r1 = cmd.ExecuteReader();
 
                   IsUsernameDone = r1.Read();
@@ -237,11 +240,38 @@ public partial class QQopenid : System.Web.UI.Page
                   conn.Dispose();
               }
               while (IsUsernameDone);
-              return newusername;
+
+              return newusername.ToLower();
 
           }
 
-          else { }
+          else
+          {
+
+              newusername = qq_nickname;
+              do
+              {
+                  OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
+                  conn.Open();
+                  OleDbCommand cmd = new OleDbCommand("select id from users where username=@u", conn);
+                  cmd.Parameters.Add("@u", OleDbType.Char);
+                  cmd.Parameters["@u"].Value = newusername;
+                  OleDbDataReader r1 = cmd.ExecuteReader();
+
+                  
+                  IsUsernameDone = r1.Read();
+
+                  if (IsUsernameDone) newusername += rand.Next(0, 10).ToString();
+
+                  r1.Close();
+                  conn.Close();
+                  conn.Dispose();
+              }
+              while (IsUsernameDone);
+
+              return newusername.ToLower();
+
+          }
         
      
       }

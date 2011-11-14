@@ -85,13 +85,13 @@
      <table style="width:600px">
     <tr style="height: 25px">
    <td colspan="3" style="font-size:15px;width:600px;">2、你也可以重新输入QQ号后，创建新的哆嗒账号。
-   <p id="UsernameTips" class="bestTxt2" style="font-size: 10px">&nbsp;&nbsp;注意，你将以<asp:Label ID="NewUsername" runat="server"></asp:Label>为用户名创建哆嗒网用户名，如不满意请<a name="changename" class="asker" href="#changename" onclick="showNewUsernameInput()" >修改</a>。</p>
+   <p id="UsernameTips" class="bestTxt2" style="font-size: 10px">&nbsp;&nbsp;注意，你将以<asp:Label ID="NewUsername" runat="server"></asp:Label>为用户名创建哆嗒网用户名，如不满意请<a id="changename" class="asker" href="#changename" onclick="showNewUsernameInput()" >修改</a>。</p>
    </td>
    
    
    </tr>
    
-   <tr id="NewUsernameInput" >
+   <tr id="NewUsernameInput" style=" visibility: hidden;" >
    <th>用户名:</th>
    <td ><div ><asp:TextBox ID="log_un1" runat="server" Width="300px" MaxLength="20" 
            BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
@@ -105,9 +105,7 @@
     
    </tr>
    <script type="text/javascript">
-       document.getElementById("NewUsernameInput").style.visibility = 'hidden';
-
-       function showNewUsernameInput() {
+           function showNewUsernameInput() {
            if (document.getElementById("NewUsernameInput").style.visibility == 'hidden') {
                document.getElementById("NewUsernameInput").style.visibility = 'visible';
                document.getElementById("UsernameTips").style.visibility = 'hidden';          
