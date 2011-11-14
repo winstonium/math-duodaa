@@ -35,7 +35,7 @@
 										<asp:TextBox id="username" runat="server" Width="150px" MaxLength="20"></asp:TextBox></TD>
 									<TD>
 										<asp:RegularExpressionValidator id="RegularExpressionValidator3" runat="server" ErrorMessage="用户名不合要求。<br>只可输入长度3到20的字母、数字和汉字。" ControlToValidate="username"
-											ValidationExpression="[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z0-9]{3,20}"></asp:RegularExpressionValidator>
+											ValidationExpression="^[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z0-9]{3,20}$"></asp:RegularExpressionValidator>
                                         <asp:RegularExpressionValidator id="RegularExpressionValidator6" runat="server"  ControlToValidate="username" EnableClientScript="false"
 											ValidationExpression="\S+"></asp:RegularExpressionValidator>
                                             
@@ -47,7 +47,7 @@
 										<asp:TextBox id="password1" runat="server" TextMode="Password" Width="150px" MaxLength="20"></asp:TextBox></TD>
 									<TD>
 										<asp:RegularExpressionValidator id="RegularExpressionValidator4" runat="server" ErrorMessage="密码不合要求。<br>只可输入长度6到20的字母和数字。" ControlToValidate="password1"
-											ValidationExpression="[0-9a-zA-Z]{6,20}"></asp:RegularExpressionValidator></TD>
+											ValidationExpression="^[0-9a-zA-Z]{6,20}$"></asp:RegularExpressionValidator></TD>
 								</TR>
 								<TR>
 									<TD><FONT face="宋体">请重复输入密码(必填)</FONT></TD>
@@ -63,7 +63,7 @@
 										<asp:TextBox id="qq_Account" runat="server" Width="250px" MaxLength="20"></asp:TextBox></TD>
 									<TD>
 										<asp:RegularExpressionValidator id="RegularExpressionValidator5" runat="server" ErrorMessage="无效的QQ号。<br>如果是邮件QQ请输入对应的数字QQ号。" ControlToValidate="qq_Account"
-											ValidationExpression="[0-9]{0,20}"></asp:RegularExpressionValidator></TD>
+											ValidationExpression="^[0-9]{0,20}$"></asp:RegularExpressionValidator></TD>
 								</TR>
 								<TR>
 									<TD><FONT face="宋体">电子邮件地址(必填)</FONT></TD>
@@ -71,7 +71,7 @@
 										<asp:TextBox id="email" runat="server" Width="250px" MaxLength="50"></asp:TextBox></TD>
 									<TD>
 										<asp:RegularExpressionValidator id="RegularExpressionValidator1" runat="server" ErrorMessage="无效的电子邮件格式" ControlToValidate="email"
-											ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator></TD>
+											ValidationExpression="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"></asp:RegularExpressionValidator></TD>
 								</TR>
 								<TR>
 									<TD><FONT face="宋体">性别</FONT></TD>
