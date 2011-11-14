@@ -6,12 +6,12 @@
 哆嗒数学QQ号绑定-<%=Application["CnWebName"]%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="linkCss" Runat="Server">
-<link type="text/css" href="duodaainnerpage.css" rel="Stylesheet" />
+    <link type="text/css" href="duodaainnerpage.css" rel="Stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
     <br />
     <br />
-    <div id="best" style=" height: 600px;">
+    <div id="best" style=" height: 800px;">
     
     <asp:Label ID="ErrorMsg" runat="server" Text="<br /><br />在利用QQ登录时，发生错误" Visible="false"></asp:Label>
     <div id="qqLoginSuccess" runat="server" style="width: 600px; height: 300px">
@@ -37,7 +37,7 @@
            BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
            Height="20px"></asp:TextBox></td>
    <td><asp:RegularExpressionValidator id="RegularExpressionValidator1" runat="server" ErrorMessage="错误" ControlToValidate="log_un"
-				ValidationExpression="[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}"></asp:RegularExpressionValidator>
+				ValidationExpression="^[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}$"></asp:RegularExpressionValidator>
        <asp:RegularExpressionValidator id="RegularExpressionValidator3" runat="server" ControlToValidate="log_un"
 				ValidationExpression="\S+"></asp:RegularExpressionValidator></td>
    </tr>
@@ -46,7 +46,7 @@
    <td><asp:TextBox ID="log_psw" runat="server" Width="300px"  MaxLength="20" TextMode="Password" BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
            Height="20px"></asp:TextBox></td>
    <td><asp:RegularExpressionValidator id="RegularExpressionValidator2" runat="server" ErrorMessage="错误" ControlToValidate="log_psw"
-				ValidationExpression="[0-9a-zA-Z]{6,20}"></asp:RegularExpressionValidator></td>
+				ValidationExpression="^[0-9a-zA-Z]{6,20}$"></asp:RegularExpressionValidator></td>
    </tr>
 
    <tr>
@@ -97,14 +97,18 @@
            BorderColor="#CCCC00" BorderStyle="Solid" BorderWidth="1px" Font-Size="Large" 
            Height="20px"></asp:TextBox></div></td>
    <td>
-   <asp:RegularExpressionValidator id="RegularExpressionValidator4" runat="server" ErrorMessage="错误" ControlToValidate="log_un1"
-				ValidationExpression="[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}"></asp:RegularExpressionValidator>
+   <asp:RegularExpressionValidator id="RegularExpressionValidator4" runat="server" ErrorMessage="用户名不合要求。<br>只可输入长度3到20的字母、数字和汉字。" ControlToValidate="log_un1"
+				ValidationExpression="^[\u0800-\u4e00 \u4e00-\u9fa5 a-zA-Z_0-9]{3,20}$"></asp:RegularExpressionValidator>
        <asp:RegularExpressionValidator id="RegularExpressionValidator6" runat="server" ControlToValidate="log_un1"
 				ValidationExpression="\S+"></asp:RegularExpressionValidator>
    </td>
     
    </tr>
    <script type="text/javascript">
+       if ('<%=log_un1.Text %>' != '<%=NewUsername.Text %>') {
+           document.getElementById("NewUsernameInput").style.visibility = 'visible';
+           document.getElementById("UsernameTips").style.visibility = 'hidden';
+       }
            function showNewUsernameInput() {
            if (document.getElementById("NewUsernameInput").style.visibility == 'hidden') {
                document.getElementById("NewUsernameInput").style.visibility = 'visible';
@@ -121,7 +125,7 @@
            Height="20px"></asp:TextBox>
            <div></div></td>
    <td><asp:RegularExpressionValidator id="RegularExpressionValidator5" runat="server" ErrorMessage="无效的QQ号。<br>如果是邮件QQ请输入对应的数字QQ号。" ControlToValidate="qq_Account"
-											ValidationExpression="[0-9]{0,20}"></asp:RegularExpressionValidator>
+											ValidationExpression="^[0-9]{0,20}$"></asp:RegularExpressionValidator>
        </td>
    </tr>
 
@@ -135,9 +139,9 @@
    <tr>
    <th style="font-size:15px;width:100px;"></th>
    <td colspan="2">
-       <asp:Button ID="Button1" runat="server" Text="创 建 哆 嗒 账 号" Height="30" 
+       <asp:Button ID="CreateNew" runat="server" Text="创 建 哆 嗒 账 号" Height="30" 
            Width="300" BackColor="#94A63E" Font-Size="Large" ForeColor="White" 
-           Font-Bold="True" Font-Names="微软雅黑" /> 
+           Font-Bold="True" Font-Names="微软雅黑" onclick="CreateNew_Click"  /> 
        </td>
    
    </tr>
@@ -167,6 +171,6 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="buttomContent" Runat="Server">
-<uc1:buttom runat="server"  />
+    <uc1:buttom runat="server"  />
 </asp:Content>
 

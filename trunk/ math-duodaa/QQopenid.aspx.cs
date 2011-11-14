@@ -90,10 +90,12 @@ public partial class QQopenid : System.Web.UI.Page
 
                         qquser qq_userinfo = json.Deserialize<qquser>(currentUser);
 
-                        string newuser=genUsername(qq_userinfo.nickname.ToString());
-                        NewUsername.Text =newuser;
-                        log_un1.Text = newuser;
-
+                        if (!IsPostBack)
+                        {
+                            string newuser = genUsername(qq_userinfo.nickname.ToString());
+                            NewUsername.Text = newuser;
+                            log_un1.Text = newuser;
+                        }
                         
                     }
                 }
@@ -115,7 +117,9 @@ public partial class QQopenid : System.Web.UI.Page
         else if (RegularExpressionValidator1.IsValid == false)
         { Response.Write("<script>window.alert('用户名输入有误')</script>"); }
         else if (RegularExpressionValidator2.IsValid == false)
-        { Response.Write("<script>window.alert('密码输入有误')</script>"); }
+        { Response.Write("<script>window.alert('密码输入有误。')</script>"); }
+        else if (!xy1.Checked)
+        { Response.Write("<script>window.alert('哆嗒协议必须同意。谢谢')</script>"); }
         else if (Session["checkcode"].ToString().ToLower() != log_verify.Text.ToLower().Trim())
         {
             Response.Write("<script>window.alert('验证码输入错误！若反复出错，请点击验证码图片换几张图再试。谢谢！')</script>");
@@ -143,14 +147,14 @@ public partial class QQopenid : System.Web.UI.Page
                 //写入QQ的OPENID////////////////////////////////////////////
                 conn = new OleDbConnection(dbConStr.dbConnStr());
                 conn.Open();
-                cmd = new OleDbCommand("update users set OpenID_qq=@qoid where id=@uid",conn);
+                cmd = new OleDbCommand("update users set OpenID_qq=@qoid where id=@uid", conn);
                 cmd.Parameters.Add("@qoid", OleDbType.Char);
                 cmd.Parameters.Add("@uid", OleDbType.Char, 20);
                 cmd.Parameters["@qoid"].Value = Session["qqOpenid"].ToString();
                 cmd.Parameters["@uid"].Value = Session["userid"].ToString();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                
+
                 ////////////////////////////////////////////////////////////
 
                 //写入用户的Cookies////////////////////////////////////////////
@@ -162,7 +166,7 @@ public partial class QQopenid : System.Web.UI.Page
 
                 if (Request.Cookies["userinfo"] == null) newcookie.Values["usercookieid"] = Session["userid"].ToString();
                 else newcookie.Values["usercookieid"] = ((Request.Cookies["userinfo"].Values["usercookieid"] == null || Request.Cookies["userinfo"].Values["usercookieid"].Trim() == "") ? Session["userid"].ToString() : Request.Cookies["userinfo"].Values["usercookieid"]);
-               
+
                 newcookie.Expires = DateTime.Now.AddYears(30);
                 Response.AppendCookie(newcookie);
                 //////////////////////////////////////////////////
@@ -181,7 +185,40 @@ public partial class QQopenid : System.Web.UI.Page
         }
 
     }
+    
+    
+    protected void CreateNew_Click(object sender, EventArgs e)
+    {
+        if (RegularExpressionValidator4.IsValid==false)
+        { Response.Write("<script>window.alert('用户名输入有误。')</script>"); }
+        else if (!RegularExpressionValidator5.IsValid)
+        { Response.Write("<script>window.alert('QQ号输入有误。'); </script>"); }
+        else if (!xy2.Checked)
+        { Response.Write("<script>window.alert('哆嗒协议必须同意。谢谢')</script>"); }
+       
 
+        else
+        {
+            string un,pw,qnumber,em ;
+            string tempwstring = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY0123456789";
+            int i;
+            Random rand=new Random();
+
+            //用户名用输入框中的
+            un = log_un1.Text;
+
+            //生成18位密码字符串
+            pw = "";
+            for (i = 0; i < 18; i++) pw += tempwstring.Substring(rand.Next(tempwstring.Length), 1);
+
+            //QQ号也用输入框中的
+            qnumber = qq_Account.Text;
+
+            //邮箱用qq邮箱
+            em = qnumber + "@qq.com";
+        
+        }
+    }
 
     protected string siteid_qqLogOn(string qqOPENID)
 
@@ -277,6 +314,8 @@ public partial class QQopenid : System.Web.UI.Page
       }
 
 
+
+     
 }
 
 
