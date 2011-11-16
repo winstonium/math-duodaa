@@ -28,6 +28,8 @@ public partial class QQopenid : System.Web.UI.Page
         public string gender { get; set; }
 
     }
+
+    public qquser qu;
     
 
     protected void Page_Load(object sender, EventArgs e)
@@ -89,6 +91,8 @@ public partial class QQopenid : System.Web.UI.Page
                         JavaScriptSerializer json = new JavaScriptSerializer();
 
                         qquser qq_userinfo = json.Deserialize<qquser>(currentUser);
+
+                        qu = qq_userinfo;
 
                         if (!IsPostBack)
                         {
@@ -216,9 +220,69 @@ public partial class QQopenid : System.Web.UI.Page
 
             //邮箱用qq邮箱
             em = qnumber + "@qq.com";
-        
-        }
-    }
+
+            
+                    
+                        OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
+                        conn.Open();
+                        OleDbCommand cmd = new OleDbCommand("select username from users where username=@username", conn);
+                        cmd.Parameters.Add("@username", OleDbType.Char, 20);
+                        cmd.Parameters["@username"].Value = un.Trim();
+                        OleDbDataReader r1 = cmd.ExecuteReader();
+                        if (r1.Read())
+                        {
+                            r1.Close();
+                            Response.Write("<script>window.alert('用户名已经存在，请重新输入一个。')</script>");
+                            
+                        }
+                        else
+                        {
+                            r1.Close();
+                            cmd = new OleDbCommand("insert into users(username,password1,OpenID_qq) values(@username,@password,@opidqq)", conn);
+                            cmd.Parameters.Add("@username", OleDbType.Char, 20);
+                            cmd.Parameters["@username"].Value = un.Trim();
+                            cmd.Parameters.Add("@password", OleDbType.Char, 20);
+                            cmd.Parameters["@password"].Value = pw.Trim();
+                            //下面写入QQ的OpenID
+                            cmd.Parameters.Add("@opidqq", OleDbType.Char);
+                            cmd.Parameters["@opidqq"].Value = Session["qqOpenid"].ToString();
+                            
+                            cmd.ExecuteNonQuery();
+                            
+                            cmd = new OleDbCommand("select id from users where username='" + un.Trim() + "'", conn);
+                            r1 = cmd.ExecuteReader();
+                            r1.Read();
+                            string _id = r1["id"].ToString();
+                            r1.Close();
+                            
+                            cmd = new OleDbCommand("insert into userinformation(userid,sex,email,information,sj,lastlogindate,QQ) values(@userid,@sex,@email,@information,@sj,@lastlogindate,@qq)", conn);
+                            cmd.Parameters.Add("@userid", OleDbType.Integer);
+                            cmd.Parameters.Add("@sex", OleDbType.Char, 2);
+                            cmd.Parameters.Add("@email", OleDbType.Char, 50);
+                            cmd.Parameters.Add("@information", OleDbType.Char, 200);
+                            cmd.Parameters.Add("@sj", OleDbType.Date);
+                            cmd.Parameters.Add("@lastlogindate", OleDbType.Date);
+                            cmd.Parameters.Add("@qq", OleDbType.Char, 20);
+                            cmd.Parameters["@userid"].Value = _id;
+                            cmd.Parameters["@sex"].Value = qu.gender.Trim();
+                            cmd.Parameters["@email"].Value = em.Trim();
+                            cmd.Parameters["@information"].Value = " ";
+                            cmd.Parameters["@sj"].Value = DateTime.Now;
+                            cmd.Parameters["@lastlogindate"].Value = DateTime.Now.AddDays(-1);
+                            cmd.Parameters["@qq"].Value = qnumber.Trim();
+                            if (cmd.ExecuteNonQuery() == 1)
+                            {
+                                Session["userlogin"] = "1";
+                                Session["userid"] = _id;
+                               
+                                this.RegisterClientScriptBlock("tz1", "<script>window.alert('注册成功!今后你可以继续使用这个QQ号登录。');self.location='default.aspx';</script>");
+                            }
+                        }
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            
 
     protected string siteid_qqLogOn(string qqOPENID)
 
