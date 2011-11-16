@@ -123,6 +123,7 @@ namespace zhidao
                         }
                     }
                     conn.Close();
+                    conn.Dispose();
                 }
             }
 		}
