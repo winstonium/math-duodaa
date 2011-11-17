@@ -5,10 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
+using System.Configuration;
+
 
 public partial class Control_LogAndReg : System.Web.UI.UserControl
 {
-    
+
+    public string QQ_AppID = ConfigurationManager.AppSettings["QQ_AppID"];
+
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -119,5 +123,20 @@ public partial class Control_LogAndReg : System.Web.UI.UserControl
         newcookie.Expires = DateTime.Now.AddYears(30);
         Response.AppendCookie(newcookie);
         Response.Redirect(Request.RawUrl);
+    }
+    protected void qqConnetct_Click(object sender, ImageClickEventArgs e)
+    {
+        string qqAppID = ConfigurationManager.AppSettings["QQ_AppID"];
+        string qqKey = ConfigurationManager.AppSettings["QQ_Key"];
+        string callBackUrl = "http://duodaa.com/qqopenid.aspx";
+
+        var context = new QzoneSDK.Context.QzoneContext(qqAppID, qqKey);
+        var requestToken = context.GetRequestToken(callBackUrl);
+
+        Session["requesttokenkey"] = requestToken.TokenKey.ToString();
+        Session["requesttokensecret"] = requestToken.TokenSecret.ToString();
+        string authenticationUrl = context.GetAuthorizationUrl(requestToken, callBackUrl);
+
+        Response.Redirect(authenticationUrl);
     }
 }
