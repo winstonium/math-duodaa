@@ -16,6 +16,7 @@ public partial class Control_LogAndReg : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         
+
         if (Session["userlogin"].ToString() == "0")
         {
             userinfoPad.Visible = false;
@@ -135,8 +136,10 @@ public partial class Control_LogAndReg : System.Web.UI.UserControl
 
         Session["requesttokenkey"] = requestToken.TokenKey.ToString();
         Session["requesttokensecret"] = requestToken.TokenSecret.ToString();
+        
         string authenticationUrl = context.GetAuthorizationUrl(requestToken, callBackUrl);
 
+        if (Session["requesttokenkey"] != null | Session["requesttokensecret"]!=null)
         Response.Redirect(authenticationUrl);
     }
 }
