@@ -17,6 +17,7 @@
 		<meta content=<%=Application["Keywords"].ToString() %> name="keywords" />
 		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"/>
 		<meta http-equiv="Content-Language" content="zh-cn" />
+        <link rel="Shortcut Icon" href="favicon.ico" />
 		<!--下面指出用那一个Css，首页用duodaahomepage,其它的用duodaainnerpage -->
         <asp:ContentPlaceHolder ID="linkCss" runat="server"></asp:ContentPlaceHolder>
         
