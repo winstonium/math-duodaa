@@ -79,7 +79,7 @@ public partial class QQopenid : System.Web.UI.Page
                         Response.AppendCookie(newcookie);
                         //////////////////////////////////////////////////
 
-                        Session["qqOpenid"] = null;
+                        
                         Response.Redirect(Request.RawUrl);
                     }
 
