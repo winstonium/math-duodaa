@@ -51,20 +51,9 @@ public partial class OpenID : System.Web.UI.Page
 
             QzoneSDK.Qzone qzone = new QzoneSDK.Qzone(key, secret, requestTokenKey, requestTokenSecret, verifier,false,"");
 
-            //这里需要将qzone.OAuthTokenKey, qzone.OAuthTokenSecret, qzone.OpenID 存储起来用于后面的API的访问
+            string currentUser = qzone.GetCurrentUser();
 
-            QzoneSDK.Qzone qzone2 = new QzoneSDK.Qzone(key, secret, qzone.OAuthTokenKey, qzone.OAuthTokenSecret, string.Empty, true, qzone.OpenID);
-
-           // Session["qzonesdk"] = qzone2;
-
-            //qzone2 = Session["qzonesdk"] as QzoneSDK.Qzone;
-
-            string currentUser = qzone2.GetCurrentUser();
-
-           // Label1.Text += currentUser;
-           // Label1.Text = currentUser;
-            
-           // Label2.Text = qzone2.OpenID;
+         
 
             JavaScriptSerializer json =new JavaScriptSerializer();
 

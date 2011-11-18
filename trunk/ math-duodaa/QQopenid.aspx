@@ -12,8 +12,18 @@
     <br />
     <br />
     <div id="best" style=" height: 800px;">
+    <div runat="server" ID="ErrorMsg" >
+    <br />
+    <br />
+    在利用QQ登录时，发生错误。
+    <br />
+    请点击下方按纽，尝试重新登陆。<br />
+&nbsp;<asp:ImageButton ID="linkQQ" runat="server" 
+            ImageUrl="~/images/qqConnect_logo_3.png" onclick="linkQQ_Click" />
+    <br />
     
-    <asp:Label ID="ErrorMsg" runat="server" Text="<br /><br />在利用QQ登录时，发生错误" Visible="false"></asp:Label>
+    </div>
+    
     <div id="qqLoginSuccess" runat="server" style="width: 600px; height: 300px">
     
     <div id="Connenct" runat="server">
