@@ -12,7 +12,7 @@
     <br />
     <br />
     <div id="best" style=" height: 800px;">
-    <div runat="server" ID="ErrorMsg" >
+    <div runat="server" ID="ErrorMsg" visible="false" >
     <br />
     <br />
     在利用QQ登录时，发生错误。
