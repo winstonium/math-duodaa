@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading;
 using System.Data;
 using System.Data.OleDb;
+using System.Timers;
 
 
 namespace zhidao 
@@ -34,6 +35,11 @@ namespace zhidao
             Application["Description"] = System.Configuration.ConfigurationManager.AppSettings["Description"];
             Application["Keywords"] = System.Configuration.ConfigurationManager.AppSettings["Keywords"];
 
+            //执行过期时间的的设置
+           //  autoExecute.setExpireState();
+           // System.Timers.Timer setExprireStageTimer =new System.Timers.Timer(15000);
+           // setExprireStageTimer.Elapsed += new ElapsedEventHandler(setExprireStageTimer_Elapsed);
+
 		}
 
 
@@ -41,9 +47,7 @@ namespace zhidao
 		protected void Session_Start(Object sender, EventArgs e)
 		{
 
-
-            //autoExecute.setExpireState();
-
+           
             if (Request.Cookies["userinfo"]!=null )
             {
                 HttpCookie newcookie = Request.Cookies["userinfo"];
@@ -124,8 +128,11 @@ namespace zhidao
 		}
 
         //定时执行的作业
-        
 
+        void setExprireStageTimer_Elapsed(object sender, ElapsedEventArgs e) 
+        {
+            autoExecute.setExpireState();
+        }
       
 
            

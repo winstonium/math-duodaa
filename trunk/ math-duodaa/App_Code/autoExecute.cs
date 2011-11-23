@@ -23,28 +23,25 @@ public class autoExecute
     public static void setExpireState() //将过期问题的state设为2
     {
         
-        OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
-        conn.Open();
+        
         try
         {
+            OleDbConnection conn = new OleDbConnection(dbConStr.dbConnStr());
+            conn.Open();
             OleDbCommand cmd = new OleDbCommand("update problems set state='2' where expiretime < @date and state='0'", conn);
             cmd.Parameters.Add("@date", OleDbType.Date);
             cmd.Parameters["@date"].Value = DateTime.Now;
             cmd.ExecuteNonQuery();
+            conn.Close();
+            conn.Dispose();
             
         }
         catch (Exception)
         {
             throw;
         }
-        finally
-        {
-            
-            conn.Close();
-            
-            
-        }
-
+      
+        
         
 
     }
