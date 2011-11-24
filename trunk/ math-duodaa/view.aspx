@@ -24,11 +24,31 @@
 <a href="default.aspx" class="direction" >哆嗒数学</a> <span class="direction">></span> <a href="<%=view_qGradeLink %>" class="direction"><%=view_qGrade%></a>
 
 <h2><samp><span><%=view_qTitle%></span></samp></h2>
+
  <p class="bestTxt"> <samp id="qState" runat="server"></samp>&nbsp;&nbsp;<samp id="qPrize" runat="server"></samp>&nbsp;&nbsp; <samp ID="qExpireTime" runat="server"></samp></p>    
 
+  <!-- JiaThis Button BEGIN -->
+<div id="ckepop">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a class="jiathis_button_kaixin001">开心网</a>
+	<a href="http://www.jiathis.com/share?uid=1542635" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">    var jiathis_config = { data_track_clickback: true };</script>
+<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=1542635" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<p>&nbsp;</p>
+<br />
+<br />
 <div id="p1" runat="server"></div>
 <div id="p2" runat="server"></div>
 <%=view_qContent%>
+<br />
+<br />
 <p class="bestTxt2">提问人：<asp:LinkButton ID="asker" runat="server" class="asker"></asp:LinkButton><asp:HyperLink ID="qq" runat="server" Target="_blank"></asp:HyperLink>  </p>
 
 
