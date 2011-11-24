@@ -45,9 +45,15 @@ public partial class QQopenid : System.Web.UI.Page
             {
                 try
                 {
-                    string requestTokenKey = Session["requesttokenkey"].ToString();
+                    string requestTokenKey ="";
 
-                    string requestTokenSecret = Session["requesttokensecret"].ToString();
+                    string requestTokenSecret="" ;
+
+                    if (Request.Cookies["userinfo"] != null & Request.Cookies["userinfo"].Values["requesttokenkey"] != null)
+                        requestTokenKey = Request.Cookies["userinfo"].Values["requesttokenkey"];
+
+                    if (Request.Cookies["userinfo"] != null & Request.Cookies["userinfo"].Values["requesttokensecret"] != null)
+                        requestTokenSecret = Request.Cookies["userinfo"].Values["requesttokensecret"];
 
                     string verifier = Request.QueryString["oauth_vericode"];
 
@@ -389,13 +395,17 @@ public partial class QQopenid : System.Web.UI.Page
           var context = new QzoneSDK.Context.QzoneContext(qqAppID, qqKey);
           var requestToken = context.GetRequestToken(callBackUrl);
 
-          Session["requesttokenkey"] = requestToken.TokenKey.ToString();
-          Session["requesttokensecret"] = requestToken.TokenSecret.ToString();
+          System.Web.HttpCookie newcookie = new HttpCookie("userinfo");
+          newcookie.Values["requesttokenkey"] = requestToken.TokenKey.ToString();
+          newcookie.Values["requesttokensecret"] = requestToken.TokenSecret.ToString();
+
+          newcookie.Expires = DateTime.Now.AddMinutes(10);
+          Response.AppendCookie(newcookie);
+
 
           string authenticationUrl = context.GetAuthorizationUrl(requestToken, callBackUrl);
 
-          if (Session["requesttokenkey"] != null | Session["requesttokensecret"] != null)
-              Response.Redirect(authenticationUrl);
+          Response.Redirect(authenticationUrl);
       }
 }
 
