@@ -134,12 +134,16 @@ public partial class Control_LogAndReg : System.Web.UI.UserControl
         var context = new QzoneSDK.Context.QzoneContext(qqAppID, qqKey);
         var requestToken = context.GetRequestToken(callBackUrl);
 
-        Session["requesttokenkey"] = requestToken.TokenKey.ToString();
-        Session["requesttokensecret"] = requestToken.TokenSecret.ToString();
+        System.Web.HttpCookie newcookie = new HttpCookie("userinfo");
+        newcookie.Values["requesttokenkey"] = requestToken.TokenKey.ToString();
+        newcookie.Values["requesttokensecret"] = requestToken.TokenSecret.ToString();
+
+        newcookie.Expires = DateTime.Now.AddMinutes(10);
+        Response.AppendCookie(newcookie);
+
         
         string authenticationUrl = context.GetAuthorizationUrl(requestToken, callBackUrl);
 
-        if (Session["requesttokenkey"] != null | Session["requesttokensecret"]!=null)
         Response.Redirect(authenticationUrl);
     }
 }
