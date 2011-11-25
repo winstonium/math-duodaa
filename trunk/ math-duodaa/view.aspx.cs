@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 public partial class view : System.Web.UI.Page
 {
     public string bestAnswerContent, bestAnswerDoner, elseAnswerStr;
+    public string view_qState;
     public string view_qTitle, view_qGrade, view_qGradeLink, view_qContent,view_answercount;
     public string[] view_pic;
 
@@ -27,6 +28,7 @@ public partial class view : System.Web.UI.Page
         setBestAnswerInfo();
         setAnswerInfo();
         setNotLogin();
+        
        // Response.Write("<script>window.alert('" + EqEditor.Attributes["qID"] + "');</script>");
         
     }
@@ -72,6 +74,7 @@ public partial class view : System.Web.UI.Page
 
             }
 
+            view_qState = qState.InnerHtml ;
             view_qGrade = GetConstant.gradeClassName[Int32.Parse(read1["grade"].ToString())];
             view_qGradeLink = "index.aspx?grade=" + read1["grade"].ToString();
 
