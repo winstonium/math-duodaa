@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<list>
+    <bookinfo id="1">
+        <Title>移动手机话费</Title>
+        <ChineseTitle></ChineseTitle>
+        <Publisher>-1|-1|-1|-1|-1</Publisher>
+        <Author></Author>
+        <Pages></Pages>
+        <ISBN10></ISBN10>
+        <ISBN13></ISBN13>
+    </bookinfo>
+
+  <bookinfo id="2">
+    <Title>移动手机话费</Title>
+    <ChineseTitle></ChineseTitle>
+    <Publisher>-1|-1|-1|-1|-1</Publisher>
+    <Author></Author>
+    <Pages></Pages>
+    <ISBN10></ISBN10>
+    <ISBN13></ISBN13>
+  </bookinfo>
+
+  <bookinfo id="3">
+    <Title>移动手机话费</Title>
+    <ChineseTitle></ChineseTitle>
+    <Publisher>-1|-1|-1|-1|-1</Publisher>
+    <Author></Author>
+    <Pages></Pages>
+    <ISBN10></ISBN10>
+    <ISBN13></ISBN13>
+  </bookinfo>
+
+
+
+
+
+
+</list>
