@@ -1,0 +1,30 @@
+﻿div.downclassdiv
+{
+    padding: 0px;
+    border-width: 0px;
+    margin: 15px 0px 15px 0px;
+    width: 700px;
+    background-color: #F3F6FA;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+div.downtitlediv
+{
+    padding: 0px;
+    border-width: 0px;
+    margin: 10px 0px 10px 0px;
+    width: 200px;
+    text-align: center;
+    top: 0px;
+}
+
+div.downunitdiv
+{
+    border-width: 0px;
+    margin: 15px 0px 15px 0px;
+    width: 650px;
+    height: 100px;
+    background-color: #E9F5EF;
+}
