@@ -2,6 +2,7 @@
 <list>
     <bookinfo id="1">
         <Title>移动手机话费</Title>
+        <Pic></Pic>
         <ChineseTitle></ChineseTitle>
         <Pic></Pic>
         <Publisher>-1|-1|-1|-1|-1</Publisher>
@@ -9,12 +10,17 @@
         <Pages></Pages>
         <ISBN10></ISBN10>
         <ISBN13></ISBN13>
+        <Tag1></Tag1>
+        <Tag2></Tag2>
+        <Tag3></Tag3>
+        <Tag4></Tag4>
         <url1></url1>
         <url2></url2>
     </bookinfo>
 
   <bookinfo id="2">
     <Title>移动手机话费</Title>
+    <Pic></Pic>
     <ChineseTitle></ChineseTitle>
     <Pic></Pic>
     <Publisher>-1|-1|-1|-1|-1</Publisher>
@@ -22,12 +28,17 @@
     <Pages></Pages>
     <ISBN10></ISBN10>
     <ISBN13></ISBN13>
+    <Tag1></Tag1>
+    <Tag2></Tag2>
+    <Tag3></Tag3>
+    <Tag4></Tag4>
     <url1></url1>
     <url2></url2>
   </bookinfo>
 
   <bookinfo id="3">
     <Title>移动手机话费</Title>
+    <Pic></Pic>
     <ChineseTitle></ChineseTitle>
     <Pic></Pic>
     <Publisher>-1|-1|-1|-1|-1</Publisher>
@@ -35,13 +46,12 @@
     <Pages></Pages>
     <ISBN10></ISBN10>
     <ISBN13></ISBN13>
+    <Tag1></Tag1>
+    <Tag2></Tag2>
+    <Tag3></Tag3>
+    <Tag4></Tag4>
     <url1></url1>
     <url2></url2>
   </bookinfo>
-
-
-
-
-
 
 </list>
