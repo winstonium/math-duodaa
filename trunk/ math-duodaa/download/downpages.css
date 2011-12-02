@@ -1,30 +1,104 @@
 ﻿div.downclassdiv
 {
-    padding: 0px;
+    padding: 30px 0px 0px 0px;
     border-width: 0px;
-    margin: 15px 0px 15px 0px;
+    margin: 140px 0px 15px 0px;
     width: 700px;
     background-color: #F3F6FA;
     text-align: center;
     vertical-align: middle;
+    height:430px;
+
+}
+
+div.unitsbar
+{
+    display: block;
+    margin: 0px 0px 0px 5px;
+}
+  
+  
+div.unitsbar div
+{
+     float:left;
+     display: block;
 }
 
 
 div.downtitlediv
 {
-    padding: 0px;
-    border-width: 0px;
-    margin: 10px 0px 10px 0px;
-    width: 200px;
+   
     text-align: center;
-    top: 0px;
+    
 }
+
+div.downtitlediv a
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #808080;
+    width: 70px;
+    display: block;
+    letter-spacing: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+div.downtitlediv a:hover
+{text-decoration: underline;}
+
+div.downtitlediv a:visited
+{}
+
 
 div.downunitdiv
 {
     border-width: 0px;
-    margin: 15px 0px 15px 0px;
-    width: 650px;
+    margin: 10px 5px 10px 5px;
+    width: 220px;
     height: 100px;
     background-color: #E9F5EF;
+    float: left;
+    color: #000000;
+    
 }
+div.downunitdiv div
+{
+    color: #000000; 
+    }
+
+
+div.downclassdiv .unitsmore
+{
+    padding: 0px 15px 0px 0px;
+    text-align: right;
+    
+}
+
+div.downclassdiv .unitsmore a
+{
+    color: #008000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    }
+    
+ div.downclassdiv .unitsmore a:hover
+ {
+    color: #008000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: underline;
+    }   
+    
+div.downclassdiv .unitsmore a:visited
+{
+    color: #008000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    }
+    
+    
