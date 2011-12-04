@@ -2,6 +2,8 @@
 <%@ Register TagPrefix="uc1" TagName="EquationEditor" Src="~/Control/EquationEditor.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="buttom" Src="~/Control/buttom.ascx" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titleStr" Runat="Server">
 资料下载-<%=Application["CnWebName"]%>
 </asp:Content>
@@ -18,6 +20,7 @@
 
 <div class="downclassdiv">
 <div class="downtitlediv"><a href="#" target="_blank">图书</a></div>
+
 <div class="unitsbar">
 <div>
 <div class="downunitdiv">
@@ -56,6 +59,7 @@
     <a href="#" target="_blank">更多...</a>
         </div>
 </div>
+
 
 
 
