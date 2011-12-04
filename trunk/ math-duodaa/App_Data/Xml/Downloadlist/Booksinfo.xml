@@ -2,8 +2,8 @@
 <list>
     <bookinfo id="1">
         <Title>移动手机话费</Title>
-        <Pic></Pic>
         <ChineseTitle></ChineseTitle>
+        <Pic></Pic>
         <Pic></Pic>
         <Publisher>-1|-1|-1|-1|-1</Publisher>
         <Author></Author>
@@ -20,8 +20,8 @@
 
   <bookinfo id="2">
     <Title>移动手机话费</Title>
-    <Pic></Pic>
     <ChineseTitle></ChineseTitle>
+    <Pic></Pic>
     <Pic></Pic>
     <Publisher>-1|-1|-1|-1|-1</Publisher>
     <Author></Author>
@@ -38,9 +38,8 @@
 
   <bookinfo id="3">
     <Title>移动手机话费</Title>
-    <Pic></Pic>
     <ChineseTitle></ChineseTitle>
-    <Pic></Pic>
+    <Pic></Pic>    
     <Publisher>-1|-1|-1|-1|-1</Publisher>
     <Author></Author>
     <Pages></Pages>
