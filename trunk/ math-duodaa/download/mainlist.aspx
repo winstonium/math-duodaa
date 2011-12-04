@@ -8,8 +8,9 @@
 资料下载-<%=Application["CnWebName"]%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="linkCss" Runat="Server">
+    <link type="text/css" href="./downpages.css" rel="Stylesheet" />
 <link type="text/css" href="/duodaainnerpage.css" rel="Stylesheet" />
-<link type="text/css" href="downpages.css" rel="Stylesheet" />
+
     
 </asp:Content>
 
@@ -19,15 +20,21 @@
 
 
 <div class="downclassdiv">
-<div class="downtitlediv"><a href="#" target="_blank">图书</a></div>
+<div class="downtitlediv"><a href="#" target="_blank">精彩图书</a></div>
 
 <div class="unitsbar">
-<div>
+
 <div class="downunitdiv">
-    ddddddddddd<br />
-    ffffffffff</div>
+    <div><a href="#" target="_blank" class="title">Math Analysis</a></div>
+    <div><div class="chinesetitle">数学分析</div>
+    <div><div class="author">David Munkres</div></div>
+</div>
+    
+
 
 </div>
+
+
 <div><div class="downunitdiv">ddddddddddd<br />
     ffffffffff</div></div>
 <div><div class="downunitdiv">ddddddddddd<br />
@@ -64,11 +71,12 @@
 
 
 
+    </div>
 </asp:Content>
 
 
 <asp:Content ID="Content4" ContentPlaceHolderID="buttomContent" Runat="Server">
-<uc1:buttom runat="server"  />
+    <uc1:buttom runat="server"  />
   
 </asp:Content>
 
