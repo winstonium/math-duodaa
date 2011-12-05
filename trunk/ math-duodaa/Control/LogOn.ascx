@@ -77,7 +77,7 @@
   <div style="position: relative;height:20px;padding:8px;">
    <div style="font-size:15px;width:75px;float: left;">验证码：</div>
    <div style="width: 100px; float: left;"><asp:TextBox ID="log_verify" runat="server" Width="50px" MaxLength="6" ></asp:TextBox><img id="verifyimg" src="/checkimage.aspx" title="看不清，点击换一张图" alt="看不清，点击换一张图" onclick="this.src='checkimage.aspx?f='+Math.random()" /><a href="#" onclick="document.getElementById('verifyimg').src='checkimage.aspx?f='+Math.random()" style="font-size: 11px; text-decoration: none" >换一张</a></div>
-   <div style="width: 25px;">&nbsp;</div>
+   
   </div>
 
 
