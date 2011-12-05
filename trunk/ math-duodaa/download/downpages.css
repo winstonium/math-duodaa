@@ -1,27 +1,22 @@
-﻿div.downclassdiv
+﻿table.downclasstab
 {
     padding: 0px 0px 0px 0px;
     border-width: 0px;
     margin: 140px 0px 15px 0px;
     width: 700px;
     background-color: #F3F6FA;
-    text-align: center;
-    vertical-align: middle;
-    height:460px;
-
+    height: 460px;
+    border-spacing: 0px;
+    empty-cells:show;
+    
 }
 
-div.unitsbar
-{
-    display: block;
-    margin: 0px 0px 0px 5px;
-}
-  
   
 
-div.downtitlediv
+
+table.downclasstab td.titletd
 {
-    padding: 20px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
     margin: 0px 0px 15px 0px;
     text-align: center;
     height: 60px;
@@ -30,7 +25,13 @@ div.downtitlediv
     vertical-align: middle;
 }
 
-div.downtitlediv a
+ 
+table.downclasstab td.titletd li
+{
+    margin: 0px 0px 5px 0px;
+}
+
+table.downclasstab td.titletd a
 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
@@ -41,32 +42,47 @@ div.downtitlediv a
  }
 
 
-div.downtitlediv a:hover
+table.downclasstab td.titletd a:hover
 {
     text-decoration: underline;
     }
 
-div.downtitlediv a:visited
-{}
 
 
-div.downunitdiv
+table.downclasstab td.downunittd
 {
-    border-width: 0px;
-    margin: 10px 5px 10px 5px;
-    width: 220px;
-    height: 100px;
+    padding: 5px;
+    border: 5px solid #F3F6FA;
+    margin: 0px;
+    width: 33%;
+    height: auto;
     background-color: #E9F5EF;
-    float: left;
-    color: #000000;
-    
 }
-div.downunitdiv div
+
+table.downclasstab td.more
 {
-    color: #000000; 
+    padding: 10px 20px 10px 10px;
+    text-align: right;
+}
+
+table.downclasstab td.more a
+{
+    color: #008000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
     }
     
-   div.downunitdiv div a.title
+ table.downclasstab td.more a:hover
+ {
+    
+    text-decoration: underline;
+    }   
+
+
+    
+   table.downclasstab td.downunittd ul li a.title
 {
     font-family: 微软雅黑;
     color: #FF9933;
@@ -74,13 +90,13 @@ div.downunitdiv div
     float:none;
     text-decoration:none;
 } 
-  div.downunitdiv div a.title:hover
+  table.downclasstab td.downunittd ul li a.title:hover
 {
     
     text-decoration:underline;
 } 
 
-   div.downunitdiv div div.chinesetitle
+   table.downclasstab td.downunittd ul li.chinesetitle
 {
     font-family: 微软雅黑;
     color:Green;
@@ -88,7 +104,7 @@ div.downunitdiv div
     float:none;
     
 } 
- div.downunitdiv div div.author
+ table.downclasstab td.downunittd ul li.author
 {
     font-family: 微软雅黑;
     color:Blue;
@@ -100,38 +116,33 @@ div.downunitdiv div
 
 
 
-div.downclassdiv .unitsmore
+ table.downclasstab td.downunittd ul li.isbn-10
 {
-    padding: 0px 15px 0px 0px;
-    text-align: right;
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
     
-}
+} 
 
-div.downclassdiv .unitsmore a
+ table.downclasstab td.downunittd ul li.isbn-13
 {
-    color: #008000;
-    font-family: 宋体, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    text-decoration: none;
-    }
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
     
- div.downclassdiv .unitsmore a:hover
- {
-    color: #008000;
-    font-family: 宋体, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    text-decoration: underline;
-    }   
-    
-div.downclassdiv .unitsmore a:visited
+} 
+
+ table.downclasstab td.downunittd ul li.pages
 {
-    color: #008000;
-    font-family: 宋体, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    text-decoration: none;
-    }
+    font-family: 微软雅黑;
+    color:Black;
+    font-size: 9px;
+    float:none;
     
-    
+} 
+
+
+
+

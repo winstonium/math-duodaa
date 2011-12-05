@@ -19,59 +19,125 @@
 
 
 
-<div class="downclassdiv">
-<div class="downtitlediv"><a href="#" target="_blank">精彩图书</a></div>
 
-<div class="unitsbar">
+<table class="downclasstab">
+<tr >
+<td class="titletd" colspan="3" ><a href="3" target="_blank">精彩图书</a></td>
+</tr>
+<tr>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner,Frank W. Warner,Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-<div class="downunitdiv">
-    <div><a href="#" target="_blank" class="title">Math Analysis</a></div>
-    <div><div class="chinesetitle">数学分析</div>
-    <div><div class="author">David Munkres</div></div>
-</div>
-    
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Math Analysis</a></li>
+    <li class="chinesetitle">数学分析</li>
+    <li class="author">陈传璋</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-</div>
+</td>
+</tr>
 
+<tr>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">数学分析</a></li>
+    <li class="chinesetitle">数学分析</li>
+    <li class="author">陈传璋</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
+</td>
+</tr>
 
-</div>
+<tr>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-<div class="unitsbar">
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-</div>
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-<div class="unitsbar">
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-<div><div class="downunitdiv">ddddddddddd<br />
-    ffffffffff</div></div>
-</div>
+</td>
+<td class="downunittd">
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
 
-<div>
-    <a href="#" target="_blank">更多...</a>
-        </div>
-</div>
+</td>
+</tr>
 
+<tr>
+<td colspan="3" class="more"><a href="#" target="_blank">更多...</a></td>
+</tr>
 
+</table>
 
-
-
-    </div>
 </asp:Content>
 
 
