@@ -22,7 +22,7 @@
 
 <table class="downclasstab">
 <tr >
-<td class="titletd" colspan="3" ><a href="3" target="_blank">精彩图书</a></td>
+<td class="titletd" colspan="3" ><a href="#" target="_blank">精彩图书</a></td>
 </tr>
 <tr>
 <td class="downunittd">
@@ -137,6 +137,25 @@
 </tr>
 
 </table>
+
+
+<asp:DataList ID="class1" runat="server" CssClass="downclasstab" ItemStyle-CssClass="downunittd" HeaderStyle-CssClass="titletd" RepeatColumns="3">
+<HeaderTemplate>
+<a href="#" target="_blank">精彩图书</a>
+</HeaderTemplate>
+<ItemTemplate>
+<ul>
+    <li><a href="#" target="_blank" class="title">Foundations of Differentiable Manifolds and Lie Groups</a></li>
+    <li class="chinesetitle">微分流形及李群初步</li>
+    <li class="author">Frank W. Warner,Frank W. Warner,Frank W. Warner(李森生译)</li>
+    <li class="isbn-10">ISBN-10： 0521525586</li>
+    <li class="isbn-13">ISBN-13： 9780521525589</li>
+    <li class="pages">125页</li>
+    </ul>
+
+</ItemTemplate>
+
+</asp:DataList>
 
 </asp:Content>
 
