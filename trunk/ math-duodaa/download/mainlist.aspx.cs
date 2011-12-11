@@ -8,8 +8,8 @@ using System.ComponentModel;
 using System.Security.Permissions;
 using System.Data;
 using System.Data.OleDb;
-
-
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 
 public partial class download_Default : System.Web.UI.Page
@@ -164,9 +164,9 @@ public partial class download_Default : System.Web.UI.Page
 
         OleDbConnection ExcelConn = new OleDbConnection(connString);
         ExcelConn.Open();
-        OleDbDataAdapter mydata = new OleDbDataAdapter("select top 9 * from [sheet1$]", ExcelConn);
-        mydata.Fill(ds);
-        class1.DataSource = ds.Tables[0];
+        OleDbDataAdapter mydata = new OleDbDataAdapter("select top 9 * from [sheet1$] order by id desc", ExcelConn);
+        mydata.Fill(ds,"class1");
+        class1.DataSource = ds.Tables["class1"];
         class1.DataBind();
 
         mydata.Dispose();
