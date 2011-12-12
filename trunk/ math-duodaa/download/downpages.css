@@ -113,7 +113,14 @@ table.downclasstab td.more a
     
 } 
 
-
+ table.downclasstab td.downunittd ul li.publisher
+{
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
+    
+} 
 
 
  table.downclasstab td.downunittd ul li.isbn-10
@@ -143,6 +150,20 @@ table.downclasstab td.more a
     
 } 
 
-
+.showalltab
+{
+    border-width: 0px;
+}
+.showalltab td
+{
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+    border-width: 1px;
+    border-color: #C0C0C0;
+    height: 190px;
+}
+.showalltab .showallunits
+{ 
+    }
 
 

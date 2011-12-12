@@ -24,15 +24,14 @@
 
 <asp:DataList ID="class1" runat="server" CssClass="downclasstab" ItemStyle-CssClass="downunittd" HeaderStyle-CssClass="titletd" RepeatColumns="3" RepeatDirection="Horizontal">
 <HeaderTemplate>
-<a href="#" target="_blank">最新图书</a>
+<a href="books.aspx" target="_blank">图&nbsp;&nbsp;&nbsp;&nbsp;书</a>
 </HeaderTemplate>
 <ItemTemplate>
 <ul>
     <li><a href="bookview_<%#DataBinder.Eval(Container.DataItem,"ID").ToString().Trim()  %>.html" target="_blank" class="title"><%#  DataBinder.Eval(Container.DataItem,"Title").ToString().Trim()  %></a></li>
     <li class="chinesetitle"><%#  DataBinder.Eval(Container.DataItem, "ChineseTitle").ToString().Trim() %></li>
     <li class="author"><%#  DataBinder.Eval(Container.DataItem,"Author").ToString().Trim()  %></li>
-    <li class="isbn-10">ISBN-10：<%#  DataBinder.Eval(Container.DataItem, "ISBN10").ToString().Trim()%></li>
-    <li class="isbn-13">ISBN-13：<%#  DataBinder.Eval(Container.DataItem, "ISBN13").ToString().Trim()%></li>
+    <li class="publisher"><%#  DataBinder.Eval(Container.DataItem, "Publisher").ToString().Trim()%></li>
     <li class="pages"><%#  DataBinder.Eval(Container.DataItem, "Pages").ToString().Trim()%>页</li>
     </ul>
 
@@ -49,6 +48,6 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="buttomContent" Runat="Server">
     <uc1:buttom runat="server"  />
-  
+ 
 </asp:Content>
 

@@ -9,6 +9,7 @@ using System.Data;
 
 public partial class download_books : System.Web.UI.Page
 {
+    public string bkTitle="数学分析", bkChineseTitle;
     protected void Page_Load(object sender, EventArgs e)
     {
 
