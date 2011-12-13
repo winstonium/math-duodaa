@@ -14,27 +14,28 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
 <br />
 
-<webdiyer:AspNetPager runat="server" ID="pager1" 
-        onpagechanged="pager1_PageChanged" 
-         CssClass="paginator"
-         CurrentPageButtonClass="cpb" 
+         <webdiyer:AspNetPager runat="server" ID="pager1" 
+          onpagechanged="pager1_PageChanged" 
+          CssClass="paginator"
+          CurrentPageButtonClass="cpb" 
          
-        >
-        </webdiyer:AspNetPager>
+          >      
+         </webdiyer:AspNetPager>
 <asp:DataList ID="dl1" 
               runat="server"
               CssClass="showalltab" 
               Width="760px"
               >
+              
               <ItemTemplate>
               
              <div class="showallunits">
-                <div class="pic"><a href="#"><img alt="" src="imgs/books/gtm001.png" /></a></div>
+                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="imgs/books/<%#DataBinder.Eval(Container.DataItem, "Pic").ToString().Trim() %>"  /></a></div>
                <div class="showallunitsdetail">
-                <div class="title"><a href="#">一二三四五六七八九十一二</a></div>
-                <div class="chinesetitle">一二三四五六七八九十一二</div>
-                <div class="author">大卫·马克尔</div>
-                <div class="publisher">Splinger</div>
+                <div class="title"><a href="#"><%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %></a></div>
+                <div class="chinesetitle"><%#  DataBinder.Eval(Container.DataItem, "ChineseTitle").ToString().Trim() %></div>
+                <div class="author"><%#  DataBinder.Eval(Container.DataItem, "Author").ToString().Trim() %></div>
+                <div class="publisher"><%#  DataBinder.Eval(Container.DataItem, "Publisher").ToString().Trim() %></div>
                </div>
              </div>
 

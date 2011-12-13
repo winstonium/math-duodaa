@@ -1,4 +1,8 @@
-﻿table.downclasstab
+﻿
+img
+{ border:0;
+    }
+table.downclasstab
 {
     padding: 0px 0px 0px 0px;
     border-width: 0px;
@@ -242,7 +246,12 @@ table.downclasstab td.more a
     float:left;
 }
 
-.paginator { font: 11px Arial, Helvetica, sans-serif;padding:10px 20px 10px 0; margin: 0px;}
+.paginator
+{
+    font: 11px Arial, Helvetica, sans-serif;
+    padding: 20px 20px 10px 5px;
+    margin: 20px 0px 0px 0px;
+}
 .paginator a {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;margin-right:2px}
 .paginator a:visited {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;}
 .paginator .cpb {padding: 1px 6px;font-weight: bold; font-size: 13px;border:none}
