@@ -5,35 +5,55 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleStr" Runat="Server">
-<%=bkTitle %>-<%=bkChineseTitle %>-资料下载-<%=Application["CnWebName"]%>
+全部图书-资料下载-<%=Application["CnWebName"]%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="linkCss" Runat="Server">
    <link type="text/css" href="./downpages.css" rel="Stylesheet" />
 <link type="text/css" href="/duodaainnerpage.css" rel="Stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
+<br />
 
-<table class="showalltab" rules="rows"  width="760">
-<tr>
-<td >
-<div class="showallunits">
-<div ></div>
+<webdiyer:AspNetPager runat="server" ID="pager1" 
+        onpagechanged="pager1_PageChanged" 
+         CssClass="paginator"
+         CurrentPageButtonClass="cpb" 
+         
+        >
+        </webdiyer:AspNetPager>
+<asp:DataList ID="dl1" 
+              runat="server"
+              CssClass="showalltab" 
+              Width="760px"
+              >
+              <ItemTemplate>
+              
+             <div class="showallunits">
+                <div class="pic"><a href="#"><img alt="" src="imgs/books/gtm001.png" /></a></div>
+               <div class="showallunitsdetail">
+                <div class="title"><a href="#">一二三四五六七八九十一二</a></div>
+                <div class="chinesetitle">一二三四五六七八九十一二</div>
+                <div class="author">大卫·马克尔</div>
+                <div class="publisher">Splinger</div>
+               </div>
+             </div>
 
-</div>
+         
+              </ItemTemplate>
+                          
+              </asp:DataList>
 
-</td>
-</tr>
-<tr>
-<td >
-<div class="showallunits">
-<div ></div>
+              <webdiyer:AspNetPager runat="server" ID="AspNetPager2" 
+        onpagechanged="pager1_PageChanged" 
+         CssClass="paginator"
+         CurrentPageButtonClass="cpb" 
+         
+        >
+        </webdiyer:AspNetPager>
 
-</div>
-
-</td>
-</tr>
-</table>
 </asp:Content>
+
+
 
 
 <asp:Content ID="Content4" ContentPlaceHolderID="buttomContent" Runat="Server">
