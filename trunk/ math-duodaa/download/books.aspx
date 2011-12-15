@@ -18,7 +18,7 @@
           onpagechanged="pager1_PageChanged" 
           CssClass="paginator"
           CurrentPageButtonClass="cpb" 
-         
+          EnableUrlRewriting="true" UrlRewritePattern="./books_{0}.html"
           >      
          </webdiyer:AspNetPager>
 <asp:DataList ID="dl1" 
@@ -30,7 +30,7 @@
               <ItemTemplate>
               
              <div class="showallunits">
-                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="imgs/books/<%#DataBinder.Eval(Container.DataItem, "Pic").ToString().Trim() %>"  /></a></div>
+                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="<%# picUrl(DataBinder.Eval(Container.DataItem, "Pic").ToString().Trim()) %>"  /></a></div>
                <div class="showallunitsdetail">
                 <div class="title"><a href="#"><%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %></a></div>
                 <div class="chinesetitle"><%#  DataBinder.Eval(Container.DataItem, "ChineseTitle").ToString().Trim() %></div>
@@ -44,11 +44,11 @@
                           
               </asp:DataList>
 
-              <webdiyer:AspNetPager runat="server" ID="AspNetPager2" 
-        onpagechanged="pager1_PageChanged" 
+              <webdiyer:AspNetPager runat="server" ID="pager2" 
+        onpagechanged="pager2_PageChanged" 
          CssClass="paginator"
          CurrentPageButtonClass="cpb" 
-         
+         EnableUrlRewriting="true" UrlRewritePattern="./books_{0}.html"
         >
         </webdiyer:AspNetPager>
 

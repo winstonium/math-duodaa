@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Data;
+using System.IO;
 
 public partial class download_books : System.Web.UI.Page
 {
@@ -33,7 +34,9 @@ public partial class download_books : System.Web.UI.Page
 
         pds.DataSource = ds.Tables["allbooks"].DefaultView;
         pager1.RecordCount = pds.Count;
+        pager2.RecordCount = pager1.RecordCount;
         pager1.PageSize = 10;
+        pager2.PageSize = pager1.PageSize;
         pds.AllowPaging = true;
         pds.PageSize = pager1.PageSize;
         pds.CurrentPageIndex = pager1.CurrentPageIndex - 1;
@@ -46,11 +49,29 @@ public partial class download_books : System.Web.UI.Page
         mydata.Dispose();
         ExcelConn.Close();
         ExcelConn.Dispose();
+
+        
     }
 
 
     protected void pager1_PageChanged(object sender, EventArgs e)
     {
+        pager2.CurrentPageIndex = pager1.CurrentPageIndex;
         bind();
+    }
+
+    protected void pager2_PageChanged(object sender, EventArgs e)
+    {
+        pager1.CurrentPageIndex = pager2.CurrentPageIndex;
+        bind();
+    }
+
+    protected string picUrl(string url)
+    {
+        string u = @"imgs/books/" + url;
+        return File.Exists(Server.MapPath(u)) ? u : @"imgs/books/nopic.jpg";
+        
+    
+    
     }
 }
