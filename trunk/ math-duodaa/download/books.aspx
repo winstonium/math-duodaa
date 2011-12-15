@@ -18,7 +18,7 @@
           onpagechanged="pager1_PageChanged" 
           CssClass="paginator"
           CurrentPageButtonClass="cpb" 
-          EnableUrlRewriting="true" UrlRewritePattern="./books_{0}.html"
+          EnableUrlRewriting="true" UrlRewritePattern="./books_page{0}.html"
           >      
          </webdiyer:AspNetPager>
 <asp:DataList ID="dl1" 
@@ -48,7 +48,7 @@
         onpagechanged="pager2_PageChanged" 
          CssClass="paginator"
          CurrentPageButtonClass="cpb" 
-         EnableUrlRewriting="true" UrlRewritePattern="./books_{0}.html"
+         EnableUrlRewriting="true" UrlRewritePattern="./books_page{0}.html"
         >
         </webdiyer:AspNetPager>
 
