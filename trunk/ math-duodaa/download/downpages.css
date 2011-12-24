@@ -285,10 +285,36 @@ font-size:1.2em;
 table.allinfo td div.downloadtext
 {
     color: #C60;
-font-weight: bold;
-font-family: verdana,arial,helvetica,sans-serif;
-font-size: small;
+    font-weight: bold;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: small;
+    width: 80px;
+}
+    
+table.allinfo td div.downloadtext1
+{
+    color: #FF0000;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: small;
+    
+}    
+
+table.allinfo td div.downloadtext1 a
+{
+    color:Blue;
     }
+  
+table.allinfo td span.downlink a
+{
+    display: block;
+    margin: 0px 0px 0px 0px;
+    color: #C0C0C0;
+    text-decoration: none;
+    width: 70px;
+    float: left;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
 
 
 .paginator
