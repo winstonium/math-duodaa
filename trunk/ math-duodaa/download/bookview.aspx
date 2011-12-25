@@ -9,10 +9,10 @@
 <link type="text/css" href="/duodaainnerpage.css" rel="Stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" Runat="Server">
-    <table width="700" class="allinfo" >
+    <table width="700" cellpadding="0" cellspacing="0" class="allinfo" >
 <tr>
 <td rowspan="4" class="pictd"><div></div></td>
-<td ><span class="title">世界人民的侦探</span></td>
+<td style="width:580px"><span class="title">世界人民的侦探</span></td>
 </tr>
 
 <tr>
@@ -35,7 +35,9 @@
 <tr>
 <td colspan="2">
 <div id="ins">下载说明：</div>
-
+<p>按以下步骤可以成功下载哆嗒数学网全部资料。</p>
+<p>1、点击本页对应的下下载链接，将跳转到新页面。新页面的上方会出现如下图所示的横条</p>
+<p><img alt="哆嗒数学网下载说明" src="imgs/ins_1.gif" /></p>
 </td>
 </tr>
 
