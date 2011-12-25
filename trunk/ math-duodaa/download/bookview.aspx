@@ -24,7 +24,7 @@
 </tr>
 
 <tr>
-<td>
+<td >
 <div class="downloadtext" style="float:left">下载链接:</div><div class="downloadtext1">第一次下载请务必了解<a href="#ins">下载说明</a>。</div>
 <div></div>
 <span class="downlink"><a href="#" >下载地址1</a></span><span class="downlink"><a href="#">下载地址2</a></span>
@@ -33,11 +33,21 @@
 </tr>
 
 <tr>
-<td colspan="2">
+<td colspan="2" style="padding:0px 0px 0px 10px;">
+<p>&nbsp;</p>
 <div id="ins">下载说明：</div>
+<p>&nbsp;</p>
 <p>按以下步骤可以成功下载哆嗒数学网全部资料。</p>
-<p>1、点击本页对应的下下载链接，将跳转到新页面。新页面的上方会出现如下图所示的横条</p>
-<p><img alt="哆嗒数学网下载说明" src="imgs/ins_1.gif" /></p>
+<p>&nbsp;</p>
+<p>1、点击本页对应的下下载链接，将跳转到新页面。新页面的上方会出现如下图所示的横条。</p>
+<p><img alt="哆嗒数学网下载说明" src="imgs/ins_01.gif" /></p>
+<p>&nbsp;</p>
+<p>2、上图中红圈部分将进行倒计时，当倒计时结束后，在该位置显示将发生变化，如下图所示。</p>
+<p><img alt="哆嗒数学网下载说明" src="imgs/ins_02.gif" /></p>
+<p>&nbsp;</p>
+<p>3、点击红圈中的“跳过广告”将进入119g网盘资源页面。跟据网页提示，即可下载资源。如果发现有资料不能下载请<a href="/contact.aspx" target="_self">联系我们</a>。</p>
+
+
 </td>
 </tr>
 
