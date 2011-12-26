@@ -30,7 +30,7 @@
               <ItemTemplate>
               
              <div class="showallunits">
-                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="<%# picUrl(DataBinder.Eval(Container.DataItem, "Pic").ToString().Trim()) %>"  /></a></div>
+                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="<%# picUrl(DataBinder.Eval(Container.DataItem, "Pics").ToString().Trim()) %>"  /></a></div>
                <div class="showallunitsdetail">
                 <div class="title"><a href="#"><%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %></a></div>
                 <div class="chinesetitle"><%#  DataBinder.Eval(Container.DataItem, "ChineseTitle").ToString().Trim() %></div>
