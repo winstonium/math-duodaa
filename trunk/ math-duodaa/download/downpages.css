@@ -273,6 +273,7 @@ table.allinfo td div.chinesetitle
     font-size: 1.1em;
     color:Gray;
     font-weight: bold;
+    vertical-align:middle;
 }
 
 table.allinfo td span.author

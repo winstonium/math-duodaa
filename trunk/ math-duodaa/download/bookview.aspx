@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="uc1" TagName="buttom" Src="~/Control/buttom.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleStr" Runat="Server">
-<%= booktitle %>-<%=bookchtitle %>资料下载-<%=Application["CnWebName"]%>
+<%= booktitle %>-<%=bookchtitle %>-资料下载-<%=Application["CnWebName"]%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="linkCss" Runat="Server">
     <link type="text/css" href="./downpages.css" rel="Stylesheet" />
@@ -14,7 +14,7 @@
 <table width="700" cellpadding="0" cellspacing="0" class="allinfo" >
 <tr>
 <td rowspan="4" class="pictd">
-<div> <img alt="<%=booktitle %>" title="<%=booktitle %>" src="<%= picUrl(bookpic)%>" /></div>
+<div> <img alt="<%=booktitle %>" title="<%=booktitle %>" src="<%= picUrl(bookpic)%>" width="150" height="150" /></div>
 </td>
 <td style="width:580px">
 <div class="title"> <%=booktitle %></div>
