@@ -260,12 +260,19 @@ table.downclasstab td.more a
     height: 150px;
     border: 1px solid #CCCCCC;
     }   
-table.allinfo td span.title
+table.allinfo td div.title
 {
     font-family: 'Microsoft Yahei' , PMingLiU, Verdana, Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     font-weight: bold;
     color:Black;
+}
+table.allinfo td div.chinesetitle
+{
+    font-family: 'Microsoft Yahei' , PMingLiU, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color:Gray;
+    font-weight: bold;
 }
 
 table.allinfo td span.author

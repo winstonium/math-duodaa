@@ -30,9 +30,9 @@
               <ItemTemplate>
               
              <div class="showallunits">
-                <div class="pic"><a href="" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="<%# picUrl(DataBinder.Eval(Container.DataItem, "Pics").ToString().Trim()) %>"  /></a></div>
+                <div class="pic"><a href="/download/bookview_<%# DataBinder.Eval(Container.DataItem, "ID").ToString().Trim() %>.html" target="_blank"><img alt="<%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %>" src="<%# picUrl(DataBinder.Eval(Container.DataItem, "Pics").ToString().Trim()) %>"  /></a></div>
                <div class="showallunitsdetail">
-                <div class="title"><a href="#"><%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %></a></div>
+                <div class="title"><a href="/download/bookview_<%# DataBinder.Eval(Container.DataItem, "ID").ToString().Trim() %>.html"><%#  DataBinder.Eval(Container.DataItem, "Title").ToString().Trim() %></a></div>
                 <div class="chinesetitle"><%#  DataBinder.Eval(Container.DataItem, "ChineseTitle").ToString().Trim() %></div>
                 <div class="author"><%#  DataBinder.Eval(Container.DataItem, "Author").ToString().Trim() %></div>
                 <div class="publisher"><%#  DataBinder.Eval(Container.DataItem, "Publisher").ToString().Trim() %></div>
