@@ -154,7 +154,7 @@
 <ul>
 
 <li><a href="#" class="potencial"></a></li>
-<li><a href="#" class="ideal"></a></li>
+<li><a href="/download/mainlist.aspx" class="ideal"></a></li>
 <li class="noBdr"><a href="/allproblems/all.aspx" class="innovative"></a></li>
 </ul>
 
@@ -178,7 +178,7 @@
 <li><a href="/default.aspx" class="hover">首 页</a></li>
 <li><a href="/about.aspx" class="navLink">关于哆嗒</a></li>
 <li><a href="/allproblems/all.aspx" class="navLink">全部问题</a></li>
-<li><a href="/download.aspx" class="navLink">资料下载</a></li>
+<li><a href="/download/mainlist.aspx" class="navLink">资料下载</a></li>
 <li><a href="/article/default.aspx" class="navLink">哆嗒文章</a></li>
 <li><a href="/prize/default.aspx" class="navLink">奖品兑换</a></li>
 <li><a href="/contact.aspx" class="navLink">联系我们</a></li>
