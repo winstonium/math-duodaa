@@ -14,7 +14,7 @@
 <table width="700" cellpadding="0" cellspacing="0" class="allinfo" >
 <tr>
 <td rowspan="4" class="pictd">
-<div> <img alt="<%=booktitle %>" title="<%=booktitle %>" src="<%= picUrl(bookpic)%>" width="150" height="150" /></div>
+<div><center> <img alt="<%=booktitle %>" title="<%=booktitle %>" src="<%= picUrl(bookpic)%>"  /></center></div>
 </td>
 <td style="width:580px">
 <div class="title"> <%=booktitle %></div>
