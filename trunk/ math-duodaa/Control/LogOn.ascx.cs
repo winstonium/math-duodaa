@@ -127,23 +127,17 @@ public partial class Control_LogAndReg : System.Web.UI.UserControl
     }
     protected void qqConnetct_Click(object sender, ImageClickEventArgs e)
     {
+        Session["qqOpenid"] = null;
+
         string qqAppID = ConfigurationManager.AppSettings["QQ_AppID"];
         string qqKey = ConfigurationManager.AppSettings["QQ_Key"];
-        string callBackUrl = "http://duodaa.com/qqopenid.aspx";
+        string callBackUrl = @"http://duodaa.com/qqopenid.aspx";
 
-        var context = new QzoneSDK.Context.QzoneContext(qqAppID, qqKey);
-        var requestToken = context.GetRequestToken(callBackUrl);
+        string requestUrl;
 
-        System.Web.HttpCookie newcookie = new HttpCookie("userinfo");
-        newcookie.Values["requesttokenkey"] = requestToken.TokenKey.ToString();
-        newcookie.Values["requesttokensecret"] = requestToken.TokenSecret.ToString();
-
-        newcookie.Expires = DateTime.Now.AddMinutes(10);
-        Response.AppendCookie(newcookie);
-
+        requestUrl = @"https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=" + qqAppID + @"&redirect_uri=" + callBackUrl;
         
-        string authenticationUrl = context.GetAuthorizationUrl(requestToken, callBackUrl);
 
-        Response.Redirect(authenticationUrl);
+        Response.Redirect(requestUrl);
     }
 }
