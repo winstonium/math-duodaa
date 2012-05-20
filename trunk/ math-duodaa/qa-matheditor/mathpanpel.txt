@@ -494,8 +494,3 @@
  
  </script>
  
- <script>
- function matheditor_SetFirstLineTable()
- {}
- 
- </script>

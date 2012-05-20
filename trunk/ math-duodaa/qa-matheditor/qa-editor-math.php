@@ -72,11 +72,14 @@
 		   
 		   $html .= '<b>公式预览</b>' . "\n";
 		   $html .= '<div id="wmd-preview-'.$fieldname.'" class="wmd-preview" ></div>' . "\n";
+		   $html .= '<div id="wmd-preview-'.$fieldname.'-buffer" class="wmd-preview" style="visibility:hidden; position:absolute; top:0; left: 0;"></div>' . "\n";
 		   $html .= '<div id="wmd-button-bar-'.$fieldname.'" class="wmd-button-bar"></div>' . "\n";
-		   $html .= '<textarea name="'.$fieldname.'" id="wmd-input-'.$fieldname.'" class="wmd-input">'.$content.'</textarea>' . "\n";
+		   $html .= '<textarea name="'.$fieldname.'" id="'.$fieldname.'" class="wmd-input">'.$content.'</textarea>' . "\n";
            $html .= '<script id="viewShow" src="'. $this->urltoroot. 'viewshow.js?'.$fieldname.'"></script>'."\n";
-
-		//   $html .= '<script>document.write(hastr);</script>';
+           $html .= '<script>setInterval("math_Preview.Update()",2000);math_Preview.Init();</script>'."\n";
+           
+		   //$html .= '<script>document.write("aa");</script>';
+		   //$html .= '<script>alert("hahah");</script>';
 		
 		
 			return array(
@@ -93,11 +96,12 @@
 
 		function read_post($fieldname)
 		{
-	    	$viewer=qa_load_module('viewer', '');
+	    	//$viewer=qa_load_module('viewer', '');
 		
 			return array(
 				'format' => '',
-			    'content'=> $viewer->get_text(qa_sanitize_html(qa_post_text($fieldname)), 'html', array())
+			    'content'=> qa_post_text($fieldname)
+			   // 'content'=> $viewer->get_text(qa_post_text($fieldname), 'html', array())
 			//	'content' =>qa_sanitize_html(qa_post_text($fieldname)),
 			);
 		}
