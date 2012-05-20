@@ -17,7 +17,7 @@
 		
 		//alert(Math_Preview.className);
 		//alert(Math_Preview_Buffer.className);
-        
+		//text_Input.getAttribute("title");		        
         
         //下面定义math_Preview的相关属性和方法用来同步公式预览格
         var math_Preview = {
@@ -170,8 +170,8 @@
         */
         
         
-        function getInsertText(insEuqa) {
-            textBox = document.getElementById(qa-INPUI-ID);
+        function setMathInsertText(insEuqa) {
+            textBox = document.getElementById(qa_INPUT_ID);
             //var textBox = document.getElementById("T1");
             var insEquation = insEuqa;
             var start = 0;
@@ -210,7 +210,14 @@
             var post = textBox.value.substr(end, textBox.value.length );
             
             //下面一句用来判断是否在两边加上$号
-            if ( (pre.split("$").length -pre.split("\\$").length )% 2  == 1) insEquation = "$" + insEquation + "$";
+            if ( (pre.split("$").length -pre.split("\\$").length )% 2  == 0) 
+			{
+				insEquation = "$" + insEquation + "$"
+				}
+			else
+			{
+				insEquation = "" + insEquation + ""
+				}
 
             textBox.value = pre + insEquation + post;  //插入的最终值
 

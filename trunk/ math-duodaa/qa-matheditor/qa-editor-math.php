@@ -77,11 +77,7 @@
 		   $html .= '<textarea name="'.$fieldname.'" id="'.$fieldname.'" class="wmd-input">'.$content.'</textarea>' . "\n";
            $html .= '<script id="viewShow" src="'. $this->urltoroot. 'viewshow.js?'.$fieldname.'"></script>'."\n";
            $html .= '<script>setInterval("math_Preview.Update()",2000);math_Preview.Init();</script>'."\n";
-           
-		   //$html .= '<script>document.write("aa");</script>';
-		   //$html .= '<script>alert("hahah");</script>';
-		
-		
+   	
 			return array(
 				'type' => 'custom',
 			    'html' =>  $html
