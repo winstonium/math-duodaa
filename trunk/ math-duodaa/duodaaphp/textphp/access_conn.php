@@ -6,6 +6,7 @@ require_once QA_INCLUDE_DIR.'qa-app-captcha.php';
 require_once QA_INCLUDE_DIR.'qa-app-users.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-users-edit.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-limits.php';
+set_time_limit(0);
 
 /*
 if (!defined('QA_VERSION')) { // don't allow this page to be requested directly from browser
@@ -72,7 +73,7 @@ else $new_id=0;
 */
 
 
-print '<tr><td><input type="text" value="'.$un.'"></input>'.$un.'</td><td> '.$pw.'</td><td> '.$em.'</td><td>'.$new_id.'</td></tr>'."\n"; 
+print '<tr><td>'.$un.'</td><td> '.$pw.'</td><td> '.$em.'</td><td>'.$new_id.'</td></tr>'."\n"; 
 $recordSet->MoveNext(); 
 } 
 print '</table>'."\n";
