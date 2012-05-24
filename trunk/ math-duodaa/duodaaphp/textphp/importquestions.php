@@ -20,14 +20,14 @@ print '</head>'."\n";
 print '<body>'."\n";
 
 
-$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC; //设置用栏位字符来索引recordset
+//$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC; //设置用栏位字符来索引recordset
  
 $db = ADONewConnection('ado_access'); 
 $access = realpath('./access/duodaa1.mdb'); 
 $myDSN = 'PROVIDER=Microsoft.Jet.OLEDB.4.0;'.'DATA SOURCE='. $access . ';'."Jet OLEDB:Database Password=123456;"; 
 
 $db->Connect($myDSN); 
-$recordSet = $db->Execute('select * from qustion2answer'); 
+$recordSet = $db->Execute('select * from Question2Answer'); 
 //print 'Record Count:';
 //print $recordSet->RecordCount();
 print '<br />';
@@ -46,13 +46,26 @@ while (!$recordSet->EOF) {
 
 //$un = qa_post_text($recordSet->fields['username']);
 //if($un=='')$un='Null';
-$un1 = $recordSet->fields['a.username'];
-$un1 = iconv("GBK","UTF-8",$un1);
+$un1 = $recordSet->fields[0];
+$asker = iconv("GBK","UTF-8",$un1);
 //$un=(mb_convert_encoding($un,"utf-8", "HTML-ENTITIES"));
 //$un=qa_post_text(iconv("GB2312","UTF-8",$un));
 
-$un2 = $recordSet->fields['b.username'];
-$un2 = iconv("GBK","UTF-8",$un2);
+$newAskerId = qa_handles_to_userids(array($asker));
+
+$un2 = $recordSet->fields[1];
+$doner = iconv("GBK","UTF-8",$un2);
+
+$newDonerId = qa_handles_to_userids(array($doner));
+
+$un3 = $recordSet->fields[2];
+$qtitle = iconv("GBK","UTF-8",$un3);
+
+$un4 = $recordSet->fields[3];
+$qcontent = iconv("GBK","UTF-8",$un4);
+
+$un5 = $recordSet->fields[4];
+$acontent = iconv("GBK","UTF-8",$un5);
 
 
 //qa_limits_increment(null, QA_LIMIT_REGISTRATIONS);
@@ -73,7 +86,7 @@ else $new_id=0;
 */
 
 
-print '<tr><td><input type="text" value="'.$un.'"></input>'.$un.'</td><td> '.$pw.'</td><td> '.$em.'</td><td>'.$new_id.'</td></tr>'."\n"; 
+print '<tr><td>'.$asker.'_'.$newAskerId[$asker].'</td><td>'.$doner.'_'.$newDonerId[$doner].'</td><td> '.$qtitle.'</td><td> '.$qcontent.'</td><td>'.$acontent.'</td></tr>'."\n"; 
 $recordSet->MoveNext(); 
 } 
 print '</table>'."\n";
