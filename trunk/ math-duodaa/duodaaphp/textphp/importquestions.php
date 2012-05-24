@@ -6,6 +6,7 @@ require_once QA_INCLUDE_DIR.'qa-app-captcha.php';
 require_once QA_INCLUDE_DIR.'qa-app-users.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-users-edit.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-limits.php';
+require_once QA_INCLUDE_DIR.'qa-app-posts.php';
 
 /*
 if (!defined('QA_VERSION')) { // don't allow this page to be requested directly from browser
@@ -51,12 +52,12 @@ $asker = iconv("GBK","UTF-8",$un1);
 //$un=(mb_convert_encoding($un,"utf-8", "HTML-ENTITIES"));
 //$un=qa_post_text(iconv("GB2312","UTF-8",$un));
 
-$newAskerId = qa_handles_to_userids(array($asker));
+$newAskerId = qa_handles_to_userids(array($asker))[$asker];
 
 $un2 = $recordSet->fields[1];
 $doner = iconv("GBK","UTF-8",$un2);
 
-$newDonerId = qa_handles_to_userids(array($doner));
+$newDonerId = qa_handles_to_userids(array($doner))[$doner];
 
 $un3 = $recordSet->fields[2];
 $qtitle = iconv("GBK","UTF-8",$un3);
@@ -86,7 +87,13 @@ else $new_id=0;
 */
 
 
-print '<tr><td>'.$asker.'_'.$newAskerId[$asker].'</td><td>'.$doner.'_'.$newDonerId[$doner].'</td><td> '.$qtitle.'</td><td> '.$qcontent.'</td><td>'.$acontent.'</td></tr>'."\n"; 
+//print '<tr><td>'.$asker.'_'.$newAskerId[$asker].'</td><td>'.$doner.'_'.$newDonerId[$doner].'</td><td> '.$qtitle.'</td><td> '.$qcontent.'</td><td>'.$acontent.'</td></tr>'."\n"; 
+//print $asker.','.$doner.','.$newAskerId.','.$newDonerId.','.$qtitle.','.$qcontent.','.$acontent.'<br />';
+$newPostid = qa_post_create('Q',null,$qtitle,$qcontent,'',null,null,$newAskerId );
+qa_post_create('A',$newPostid,'',$acontent,'',null,null,$newDonerId );
+
+
+
 $recordSet->MoveNext(); 
 } 
 print '</table>'."\n";
