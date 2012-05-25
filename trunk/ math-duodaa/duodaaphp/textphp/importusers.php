@@ -7,6 +7,8 @@ require_once QA_INCLUDE_DIR.'qa-app-users.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-users-edit.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-limits.php';
 
+set_time_limit(0);
+
 /*
 if (!defined('QA_VERSION')) { // don't allow this page to be requested directly from browser
 		header('Location: ../');

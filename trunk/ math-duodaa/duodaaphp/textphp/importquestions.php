@@ -8,6 +8,8 @@ require_once QA_INCLUDE_DIR.'qa-app-users-edit.php' ;
 require_once QA_INCLUDE_DIR.'qa-app-limits.php';
 require_once QA_INCLUDE_DIR.'qa-app-posts.php';
 
+set_time_limit(0);
+
 /*
 if (!defined('QA_VERSION')) { // don't allow this page to be requested directly from browser
 		header('Location: ../');
@@ -52,39 +54,24 @@ $asker = iconv("GBK","UTF-8",$un1);
 //$un=(mb_convert_encoding($un,"utf-8", "HTML-ENTITIES"));
 //$un=qa_post_text(iconv("GB2312","UTF-8",$un));
 
-$newAskerId = qa_handles_to_userids(array($asker))[$asker];
+
 
 $un2 = $recordSet->fields[1];
 $doner = iconv("GBK","UTF-8",$un2);
 
-$newDonerId = qa_handles_to_userids(array($doner))[$doner];
+$newIds = qa_handles_to_userids(array($asker,$doner));
+$newAskerId = $newIds[$asker];
+$newDonerId = $newIds[$doner];
 
 $un3 = $recordSet->fields[2];
-$qtitle = iconv("GBK","UTF-8",$un3);
+$qtitle = str_replace('&lt;','<', iconv("GBK","UTF-8",$un3));
 
 $un4 = $recordSet->fields[3];
-$qcontent = iconv("GBK","UTF-8",$un4);
+$qcontent =str_replace('&lt;','<', iconv("GBK","UTF-8",$un4));
+
 
 $un5 = $recordSet->fields[4];
-$acontent = iconv("GBK","UTF-8",$un5);
-
-
-//qa_limits_increment(null, QA_LIMIT_REGISTRATIONS);
-
-/*
-$errors=array_merge(
-				qa_handle_email_filter($un, $em)
-				//qa_password_validate($inpassword)
-			);
-if(empty($errors))
-{$new_id = qa_create_new_user($em, $pw, $un);}
-else
-{$new_id =-1; }
-//$new_uid = 
-/*
-if($un=='我为高数狂123')$new_id =1;
-else $new_id=0;
-*/
+$acontent =str_replace('&lt;','<', iconv("GBK","UTF-8",$un5));
 
 
 //print '<tr><td>'.$asker.'_'.$newAskerId[$asker].'</td><td>'.$doner.'_'.$newDonerId[$doner].'</td><td> '.$qtitle.'</td><td> '.$qcontent.'</td><td>'.$acontent.'</td></tr>'."\n"; 
@@ -93,7 +80,7 @@ $newPostid = qa_post_create('Q',null,$qtitle,$qcontent,'',null,null,$newAskerId 
 qa_post_create('A',$newPostid,'',$acontent,'',null,null,$newDonerId );
 
 
-
+//$recordSet->MoveLast();
 $recordSet->MoveNext(); 
 } 
 print '</table>'."\n";
