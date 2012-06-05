@@ -26,6 +26,24 @@
 
 	class qa_html_theme extends qa_html_theme_base
 	{	
+		// adding ie specific css
+		function head_script()
+		{
+			if (isset($this->content['script']))
+				foreach ($this->content['script'] as $scriptline)
+					$this->output_raw($scriptline);
+			
+			$this->output('<!--[if IE]>');	
+			$this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="'.$this->rooturl.$this->ie_css().'"/>');
+			$this->output('<![endif]-->');
+		}
+		
+		function ie_css()
+		{
+			return 'ie.css';		
+		}
+
+	
 		// header part
 		function nav_user_search() // reverse the usual order
 		{
@@ -50,23 +68,55 @@
             $this->output('<DIV CLASS="qa-footer">');			
 			
 			$this->output('<DIV CLASS="footer-copyright">');
-			$this->output('<p>Copyright &copy; '.date('Y').' <a href="">'.$this->content['site_title'].'</a> - All rights reserved.</p>');
+			$this->output('<p>Copyright &copy; '.date('Y').' '.$this->content['site_title'].' - All rights reserved.</p>');
 			$this->output('</DIV>');
 			
 			$this->attribution();							
 			
-			$this->output('<DIV CLASS="footer-credit">');
-			$this->output('<p>Theme Designed By: <a href="http://pixelngrain.com">Pixel n Grain</a></p>');
-			$this->output('</DIV>');
+			//$this->output('<DIV CLASS="footer-credit">');
+			//$this->output('<p>Theme Designed By: <a href="http://pixelngrain.com">Pixel n Grain</a></p>');
+			//$this->output('</DIV>');
 			
 			$this->nav('footer');	
 			
 			$this->footer_clear();
             
-            $this->output('</DIV> <!-- END qa-footer -->', '');
+            $this->output('</DIV>');
+            
+           
+            $this->output('<DIV style="border:1px solid #eee;margin:5px;padding:3px"><div style="padding:8px 0px 8px 0px" >友情链接</div>');
+            $this->output('<DIV>');
+            
+            $path=$_SERVER['DOCUMENT_ROOT'].'\friendlink.ini';
+			$file = fopen( $path,'r');
+			$html='';
+			while(!feof($file))
+			{
+			$linksource = explode(',',fgets($file));
+			$link = trim($linksource[1]);
+			$linktext = trim($linksource[0]);
+			$html .= '<a href="'.$link.'" targe="_blank">'.$linktext.'</a>';
+			
+			if( isset($linksource[2]))
+			{$html .= '<br>'."\n";
+			}
+			else 
+			{$html .= "\n";
+			}
+			}
+			fclose($file);
+			
+			$this->output($html);
+			$this->output('</DIV>');
+            
+            $this->output('</DIV>');
+            $this->output(' <!-- END qa-footer -->');
 			
 
         }
+        
+        
+        
 	}
 	
 	
