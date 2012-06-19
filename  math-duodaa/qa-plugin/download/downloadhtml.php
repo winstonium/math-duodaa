@@ -66,7 +66,7 @@ function setDownloadHtml($requests,$root)
 		
 		while(!feof($file))
 		{   
-			$iteminfos= explode(',',fgets($file));
+			$iteminfos= explode(',',trim(fgets($file)));
 			if($iteminfos[0] == $itemnum)
 			{
 				break;
@@ -75,11 +75,26 @@ function setDownloadHtml($requests,$root)
 			
 		}
 		
-		
+		$item_exist = !feof($file);
 		
 		fclose($file);
-		//return 'aaaaaaaa';
+		
+		if($item_exist)
+		{
+		$itemid=(isset($iteminfos[0])?$iteminfos[0]:'');
+		$itemtitle=(isset($iteminfos[1])?$iteminfos[1]:'');
+		$itemchntitle=(isset($iteminfos[2])?$iteminfos[2]:'');
+		$itempic=(isset($iteminfos[3])?$iteminfos[3]:'');
+		$itempublisher=(isset($iteminfos[4])?$iteminfos[4]:'');
+		$itemauthor=(isset($iteminfos[5])?$iteminfos[5]:'');
+		$itempages=(isset($iteminfos[6])?$iteminfos[6]:'');
+		$itemisbn=(isset($iteminfos[7])?$iteminfos[7]:'');
+		$itemtag_string=(isset($iteminfos[8])?$iteminfos[8]:'');
+		$itemurl_string=(isset($iteminfos[9])?$iteminfos[9]:'');
 		return $iteminfos[1];
+		}
+		
+		else {return '没有找到';}
 	}
 	
 	
