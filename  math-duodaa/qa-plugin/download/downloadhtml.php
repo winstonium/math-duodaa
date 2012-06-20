@@ -91,6 +91,8 @@ function setDownloadHtml($requests,$root)
 		$itemisbn=(isset($iteminfos[7])?$iteminfos[7]:'');
 		$itemtag_string=(isset($iteminfos[8])?$iteminfos[8]:'');
 		$itemurl_string=(isset($iteminfos[9])?$iteminfos[9]:'');
+		
+		
 		return $iteminfos[1];
 		}
 		
