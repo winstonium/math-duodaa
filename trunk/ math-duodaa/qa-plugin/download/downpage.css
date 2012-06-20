@@ -1,0 +1,339 @@
+@CHARSET "UTF-8";
+
+img
+{ border:0;
+    }
+table.downclasstab
+{
+    padding: 0px 0px 0px 0px;
+    border-width: 0px;
+    margin: 140px 0px 15px 0px;
+    width: 700px;
+    background-color: #F3F6FA;
+    height: 460px;
+    border-spacing: 0px;
+    empty-cells:show;
+    
+}
+
+  
+
+
+table.downclasstab td.titletd
+{
+    padding: 10px 0px 0px 0px;
+    margin: 0px 0px 15px 0px;
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    background-color: #BEC86C;
+    vertical-align: middle;
+}
+
+ 
+table.downclasstab td.titletd li
+{
+    margin: 0px 0px 5px 0px;
+}
+
+table.downclasstab td.titletd a
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 5px;
+    text-decoration: none;
+    font-weight: bold;
+ }
+
+
+table.downclasstab td.titletd a:hover
+{
+    text-decoration: underline;
+    }
+
+
+
+table.downclasstab td.downunittd
+{
+    padding: 5px;
+    border: 5px solid #F3F6FA;
+    margin: 0px;
+    width: 33%;
+    height: auto;
+    background-color: #E9F5EF;
+}
+
+table.downclasstab td.more
+{
+    padding: 10px 20px 10px 10px;
+    text-align: right;
+}
+
+table.downclasstab td.more a
+{
+    color: #008000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    }
+    
+ table.downclasstab td.more a:hover
+ {
+    
+    text-decoration: underline;
+    }   
+
+
+    
+   table.downclasstab td.downunittd ul li a.title
+{
+    font-family: 微软雅黑;
+    color: #FF9933;
+    font-size: 16px;
+    float:none;
+    text-decoration:none;
+} 
+  table.downclasstab td.downunittd ul li a.title:hover
+{
+    
+    text-decoration:underline;
+} 
+
+   table.downclasstab td.downunittd ul li.chinesetitle
+{
+    font-family: 微软雅黑;
+    color:Green;
+    font-size: 11px;
+    float:none;
+    
+} 
+ table.downclasstab td.downunittd ul li.author
+{
+    font-family: 微软雅黑;
+    color:Blue;
+    font-size: 13px;
+    float:none;
+    
+} 
+
+ table.downclasstab td.downunittd ul li.publisher
+{
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
+    
+} 
+
+
+ table.downclasstab td.downunittd ul li.isbn-10
+{
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
+    
+} 
+
+ table.downclasstab td.downunittd ul li.isbn-13
+{
+    font-family: 微软雅黑;
+    color:Gray;
+    font-size: 8px;
+    float:none;
+    
+} 
+
+ table.downclasstab td.downunittd ul li.pages
+{
+    font-family: 微软雅黑;
+    color:Black;
+    font-size: 9px;
+    float:none;
+    
+} 
+
+.showalltab
+{
+    border-width: 0px;
+}
+.showalltab td
+{
+    padding: 15px;
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+    border-width: 1px;
+    border-color: #C0C0C0;
+    height: 150px;
+    width:100%;
+    
+}
+.showalltab td .showallunits
+{
+    width: 100%;
+    height: 100%;
+}
+
+.showalltab td .showallunitsdetail
+{
+    
+    height: 150px;
+    margin-left: 160px;
+}
+
+.showalltab td .showallunitsdetail div.title
+{
+    margin: 5px;
+    padding: 5px;
+    vertical-align: middle;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    border-bottom-color: #00CC66;
+}
+
+.showalltab td .showallunitsdetail div.chinesetitle
+{
+    margin: 5px;
+    padding: 5px;
+    vertical-align: middle;
+     font-family:宋体,Arial,Helvetica,sans-serif;
+     font-size: 14px;
+     color: #1A66B3;
+    
+}
+
+.showalltab td .showallunitsdetail div.author
+{
+    
+    padding: 5px;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size:17px;
+    
+}
+
+.showalltab td .showallunitsdetail div.publisher
+{
+    
+    padding: 5px;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ccc;
+    font-size:15px;
+    
+}
+
+.showalltab td .showallunitsdetail div.title a
+{
+    font-family:宋体,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: #1A66B3;
+}
+
+.showalltab td .showallunitsdetail div.title a:hover
+{
+    text-decoration: underline;
+}
+
+.showalltab td .showallunits div.pic
+{
+    width: 150px;
+    height: 150px;
+    border: 1px solid #CCCCCC;
+    float:left;
+    text-align:center;
+}
+
+
+ table.allinfo td.pictd
+{
+    padding: 5px 15px 15px 15px;
+    width: 180px;
+    height: 180px;
+}
+    
+ table.allinfo td.pictd div
+ {
+     width: 150px;
+    height: 150px;
+    border: 1px solid #CCCCCC;
+    }   
+table.allinfo td div.title
+{
+    font-family: 'Microsoft Yahei' , PMingLiU, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:Black;
+}
+table.allinfo td div.chinesetitle
+{
+    font-family: 'Microsoft Yahei' , PMingLiU, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color:Gray;
+    font-weight: bold;
+    vertical-align:middle;
+}
+
+table.allinfo td span.author
+{
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: 1em;    
+    color:#090;
+    }
+    
+    
+table.allinfo td span.pulisher
+{
+font-family: Arial, Helvetica, sans-serif;
+color: #5C5C5C;
+font-size:1.2em;
+}
+table.allinfo td div.downloadtext
+{
+    color: #C60;
+    font-weight: bold;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: small;
+    width: 80px;
+}
+    
+table.allinfo td div.downloadtext1
+{
+    color: #FF0000;
+    font-family: verdana,arial,helvetica,sans-serif;
+    font-size: small;
+    
+}    
+
+table.allinfo td div.downloadtext1 a
+{
+    color:Blue;
+    }
+  
+table.allinfo td span.downlink a
+{
+    display: block;
+    margin: 0px 0px 0px 0px;
+    color: #C0C0C0;
+    text-decoration: none;
+    width: 70px;
+    float: left;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+
+.paginator
+{
+    font: 11px Arial, Helvetica, sans-serif;
+    padding: 20px 20px 10px 5px;
+    margin: 20px 0px 0px 0px;
+}
+.paginator a {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;margin-right:2px}
+.paginator a:visited {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;}
+.paginator .cpb {padding: 1px 6px;font-weight: bold; font-size: 13px;border:none}
+.paginator a:hover {color: #fff; background: #ffa501;border-color:#ffa501;text-decoration: none;}
