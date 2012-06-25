@@ -36,19 +36,42 @@
 			$this->output('<!--[if IE]>');	
 			$this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="'.$this->rooturl.$this->ie_css().'"/>');
 			$this->output('<![endif]-->');
+			
 		}
 		
+				
 		function ie_css()
 		{
 			return 'ie.css';		
 		}
 
+        function header()
+		
+		{
+			$this->output('<DIV CLASS="qa-header">');
+			$this->output('<div style="text-align: right; width:97%;height:20px;padding-top: 5px;padding-bottom: 1px; ">',"\n");
+			$this->output('<a href="#">联系我们</a>',"\n");
+			$this->output('<a href="#">关于我们</a>',"\n");
+			$this->output('<a href="#">招贤纳士</a>',"\n");
+			$this->output('<a href="#">捐助我们</a>',"\n");
+			$this->output('</div>',"\n");
+			$this->logo();
+			$this->nav_user_search();
+			$this->nav_main_sub();
+			$this->header_clear();
+			
+			$this->output('</DIV> <!-- END qa-header -->', '');
+			
+			
+			}
 	
 		// header part
 		function nav_user_search() // reverse the usual order
 		{
 			$this->search();
 			$this->nav('user');
+			
+			
 		}
 		
 		// main content div
@@ -68,7 +91,7 @@
             $this->output('<DIV CLASS="qa-footer">');			
 			
 			$this->output('<DIV CLASS="footer-copyright">');
-			$this->output('<p>Copyright &copy; '.date('Y').' '.$this->content['site_title'].' - All rights reserved.</p>');
+			$this->output('<p>Copyright &copy; '.date('Y').' '.$this->content['site_title'].' - 版权所有.</p>');
 			$this->output('</DIV>');
 			
 			$this->attribution();							
