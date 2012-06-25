@@ -44,9 +44,9 @@
 		{	
 			return array(
 				array(
-					'title' => '下载',
-					'request' => '下载页e',
-					'nav' => 'M', // 'M'=main, 'F'=footer, 'B'=before main, 'O'=opposite main, null=none
+					'title' => '资料下载',
+					'request' => '?qa=download',
+					'nav' => 'B', // 'M'=main, 'F'=footer, 'B'=before main, 'O'=opposite main, null=none
 				),
 			);
 		}
@@ -76,10 +76,14 @@
 			
 			$qa_content=qa_content_prepare();
 
-			$qa_content['title']=qa_lang_html('example_page/page_title');
-			$qa_content['error']='An example error';
-			$qa_content['custom']='Some <B>custom html</B>';
-
+			//$qa_content['title']=qa_lang_html('example_page/page_title');
+			//$qa_content['error']='An example error'."\n";
+			$qa_content['title']=' 资料下载';
+			
+			$qa_content['custom']='<link href="'.$this->urltoroot.'downpage.css" rel="stylesheet" type="text/css" />'."\n";
+			//$qa_content['custom'].='Some <B>custom html</B>'."\n";
+           // 
+/*
 			$qa_content['form']=array(
 				'tags' => 'METHOD="POST" ACTION="'.qa_self_html().'"',
 				
@@ -111,12 +115,12 @@
 					'hiddenfield' => '1',
 				),
 			);
-
+*/
 			//$qa_content['custom_2']='<P><BR>More <I>custom html</I></P>';
 			require_once $this->urltoroot.'downloadhtml.php';
 			
 			$qa_content['custom_2']=setDownloadHtml($rqsts,$this->urltoroot);
-			//$qa_content['custom_2']='22222222';
+			//$qa_content['custom_2']=$this->urltoroot;
 			
 			
 			
