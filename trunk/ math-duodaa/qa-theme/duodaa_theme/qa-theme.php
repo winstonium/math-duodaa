@@ -49,16 +49,33 @@
 		
 		{
 			$this->output('<DIV CLASS="qa-header">');
+			
+			$fheader = fopen($this->rooturl.'headerlinks.ini','r');
 			$this->output('<div style="text-align: right; width:97%;height:20px;padding-top: 5px;padding-bottom: 1px; ">',"\n");
-			$this->output('<a href="#">联系我们</a>',"\n");
-			$this->output('<a href="#">关于我们</a>',"\n");
-			$this->output('<a href="#">招贤纳士</a>',"\n");
-			$this->output('<a href="#">捐助我们</a>',"\n");
+			
+			while (!feof($fheader))
+			{
+			 $headerinfos=explode(',',fgets($fheader));
+			 if(isset($headerinfos[2])&& $headerinfos[2]==1)
+			 {
+			   $headerlinks=trim($headerinfos[1]);
+			   $headertext=trim($headerinfos[0]);
+			   if(substr($headerlinks,0,5)!='http:')$headerlinks=$this->rooturl.$headerlinks;
+			   
+			   $this->output('<a href="'.$headerinfos[1].'">'.$headerinfos[0].'</a>',"\n");
+			 }
+			
+			}
+		
 			$this->output('</div>',"\n");
+			fclose($fheader);
+			
 			$this->logo();
 			$this->nav_user_search();
 			$this->nav_main_sub();
 			$this->header_clear();
+			
+			
 			
 			$this->output('</DIV> <!-- END qa-header -->', '');
 			
