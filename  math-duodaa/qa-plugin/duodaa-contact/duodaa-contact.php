@@ -24,7 +24,7 @@
 	More about this license: http://www.question2answer.org/license.php
 */
 
-	class duodaa_about {
+	class duodaa_contact {
 		
 		var $directory;
 		var $urltoroot;
@@ -53,7 +53,7 @@
 		{
 			//$rqst=substr($request, 0,7);
 			
-			if ($request=='about')
+			if ($request=='contact')
 			{
 				return true;
 			}
@@ -69,7 +69,7 @@
 		{
 			$qa_content=qa_content_prepare();
 
-			$qa_content['title']='关于哆嗒数学网';
+			$qa_content['title']='联系我们';
 			//$qa_content['error']='An example error';
 			//$qa_content['custom']='Some <B>custom html</B>';
 /*
@@ -105,7 +105,8 @@
 				),
 			);
 */
-			$qa_content['custom_2']=file_get_contents($this->directory.'abouthtml.html');
+			$qa_content['custom_2']=file_get_contents($this->directory.'contacthtml.ini');
+			$qa_content['custom_2']=str_replace('[-contact-img-path-]',$this->urltoroot.'imgs/',$qa_content['custom_2']);
 			
 			return $qa_content;
 		}
