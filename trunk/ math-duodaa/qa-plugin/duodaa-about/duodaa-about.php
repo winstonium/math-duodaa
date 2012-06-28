@@ -105,7 +105,7 @@
 				),
 			);
 */
-			$qa_content['custom_2']=file_get_contents($this->directory.'abouthtml.html');
+			$qa_content['custom_2']=file_get_contents($this->directory.'abouthtml.ini');
 			
 			return $qa_content;
 		}
