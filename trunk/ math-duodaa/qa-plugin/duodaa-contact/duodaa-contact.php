@@ -106,7 +106,7 @@
 			);
 */
 			$qa_content['custom_2']=file_get_contents($this->directory.'contacthtml.ini');
-			$qa_content['custom_2']=str_replace('[-contact-img-path-]',$this->urltoroot.'imgs/',$qa_content['custom_2']);
+			$qa_content['custom_2']=str_replace('[-contact-img-path-]',$this->urltoroot,$qa_content['custom_2']);
 			
 			return $qa_content;
 		}
