@@ -4,11 +4,11 @@ $langPackagePara="zh";
 
 //配置信息
 $webRoot=strtr(dirname(__FILE__),"\\","/")."/";
-$metaDesc="iwebSNS";
-$metaKeys="iwebSNS";
-$metaAuthor="";
-$siteName="聚易社区";
-$copyright="2010版权所有www.jooyea.net";
+$metaDesc="哆嗒数学社区，提供数学交流平台";
+$metaKeys="哆嗒数学,数学";
+$metaAuthor="DuoDaa.com";
+$siteName="哆嗒数学社区";
+$copyright="Copyright©2012 www.DuoDaa.com";
 $domainRemark="";
 $offLine=0;
 $adminEmail="";
@@ -21,7 +21,7 @@ $urlRewrite=0;
 $inviteCode=0;
 $inviteCodeLength=8;
 $inviteCodeValue=1;
-$allowReg=0;
+$allowReg=1;
 $inviteCodeLife=72;
 
 //时区设置
@@ -74,7 +74,7 @@ $mainAffairNum=5;
 $wordFilt=1;
 
 //敏感词过滤
-$filtrateStr="fffffffffffffffffffffffffff";
+$filtrateStr="";
 
 //cookie开启校验
 $cookieOpen=1;
