@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/uiparts/guestheader.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/uiparts/guestheader.html
  * 如果您的模型要进行修改，请修改 models/uiparts/guestheader.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/uiparts/guestheader.html") > filemtime(__file__) || (file_exists("models/uiparts/guestheader.php") && filemtime("models/uiparts/guestheader.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","uiparts/guestheader.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 require("foundation/fdnurl_aget.php");
 //语言包引入
@@ -49,7 +63,7 @@ function setMyHomepage(url){   //  设置首页
 </script>
 <?php if(basename($_SERVER['SCRIPT_FILENAME'])!='home.php'){?>
 <div class="head">
-    <h1><a href="index.php"><img alt="jooyea" src="skin/<?php echo $skinUrl;?>/images/snslogo.gif"></a></h1>
+    <h1><a href="index.php"><img alt="jooyea" src="skin/default/jooyea/images/snslogo.gif"></a></h1>
     <div class="search">
         <div class="schbox">
            <form class="search_box" action="index.php" target="_blank" onsubmit="clear_def(this,'<?php echo $ah_langpackage->ah_enter_name;?>');">
@@ -77,4 +91,4 @@ function setMyHomepage(url){   //  设置首页
 		  <a href="index.php"><?php echo $pu_langpackage->pu_logon;?></a>
 	  </span>
 	</div>
-</div>
+</div><?php } ?>

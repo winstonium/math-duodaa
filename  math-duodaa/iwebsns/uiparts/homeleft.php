@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/uiparts/homeleft.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/uiparts/homeleft.html
  * 如果您的模型要进行修改，请修改 models/uiparts/homeleft.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/uiparts/homeleft.html") > filemtime(__file__) || (file_exists("models/uiparts/homeleft.php") && filemtime("models/uiparts/homeleft.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","uiparts/homeleft.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	//引入语言包
 	$mn_langpackage=new menulp;
@@ -119,4 +133,4 @@ function send_hi(uid){
 		<?php echo isset($plugins['home_info_bottom'])?show_plugins($plugins['home_info_bottom']):'';?>
 	</div>
 	<!-- plugins !-->	
-</div>
+</div><?php } ?>
