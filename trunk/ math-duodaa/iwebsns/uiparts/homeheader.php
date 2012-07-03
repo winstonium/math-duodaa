@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/uiparts/homeheader.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/uiparts/homeheader.html
  * 如果您的模型要进行修改，请修改 models/uiparts/homeheader.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/uiparts/homeheader.html") > filemtime(__file__) || (file_exists("models/uiparts/homeheader.php") && filemtime("models/uiparts/homeheader.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","uiparts/homeheader.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 //语言包引入
 $ah_langpackage=new arrayhomelp;
@@ -23,15 +37,15 @@ $ah_langpackage=new arrayhomelp;
                 <dt onmouseover="apMenuShow(true);" onmouseout="apMenuShow(false);">
                     <a href="main.php?app=mag_app"><?php echo $mn_langpackage->mn_app;?></a>
                     <ul class="ap_menu" id="ap_menu" style="display:none;" onmouseover="apMenuShow(true);" onmouseout="apMenuShow(false);">
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/blog.gif" /></span><span class="am_center"><a href="main.php?app=blog_list" hidefocus="true"><?php echo $mn_langpackage->mn_blog;?></a></span><span class="am_right"><a href="modules.php?app=blog_edit" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_publish;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/album.gif" /></span><span class="am_center"><a href="main.php?app=album" hidefocus="true"><?php echo $mn_langpackage->mn_album;?></a></span><span class="am_right"><a href="modules.php?app=photo_upload" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_upload;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/share.gif" /></span><span class="am_center"><a href="main.php?app=share_list" hidefocus="true"><?php echo $mn_langpackage->mn_share;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/group.gif" /></span><span class="am_center"><a href="main.php?app=group" hidefocus="true"><?php echo $mn_langpackage->mn_group;?></a></span><span class="am_right"><a href="modules.php?app=group_creat" hidefocus="true" target="frame_content"><?php echo $mn_langpackage->mn_creat;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/poll.gif" /></span><span class="am_center"><a href="main.php?app=poll_mine" hidefocus="true"><?php echo $mn_langpackage->mn_poll;?></a></span><span class="am_right"><a href="modules.php?app=poll_send" hidefocus="true" target="frame_content"><?php echo $mn_langpackage->mn_start;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/pals.gif" /></span><span class="am_center"><a href="main.php?app=mypals" hidefocus="true"><?php echo $mn_langpackage->mn_pal;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/msg_minbox.gif" /></span><span class="am_center"><a href="main.php?app=msg_minbox" hidefocus="true"><?php echo $mn_langpackage->mn_scrip;?></a></span><span class="am_right"><a href="modules.php?app=msg_creator" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_creat;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/msgboard.gif" /></span><span class="am_center"><a href="main.php?app=msgboard_more" hidefocus="true"><?php echo $mn_langpackage->mn_msg;?></a></span></li>
-                        <li><span class="am_left"><img src="skin/<?php echo $skinUrl;?>/images/user_hi.gif" /></span><span class="am_center"><a href="main.php?app=user_hi" hidefocus="true"><?php echo $mn_langpackage->mn_hi;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/blog.gif" /></span><span class="am_center"><a href="main.php?app=blog_list" hidefocus="true"><?php echo $mn_langpackage->mn_blog;?></a></span><span class="am_right"><a href="modules.php?app=blog_edit" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_publish;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/album.gif" /></span><span class="am_center"><a href="main.php?app=album" hidefocus="true"><?php echo $mn_langpackage->mn_album;?></a></span><span class="am_right"><a href="modules.php?app=photo_upload" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_upload;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/share.gif" /></span><span class="am_center"><a href="main.php?app=share_list" hidefocus="true"><?php echo $mn_langpackage->mn_share;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/group.gif" /></span><span class="am_center"><a href="main.php?app=group" hidefocus="true"><?php echo $mn_langpackage->mn_group;?></a></span><span class="am_right"><a href="modules.php?app=group_creat" hidefocus="true" target="frame_content"><?php echo $mn_langpackage->mn_creat;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/poll.gif" /></span><span class="am_center"><a href="main.php?app=poll_mine" hidefocus="true"><?php echo $mn_langpackage->mn_poll;?></a></span><span class="am_right"><a href="modules.php?app=poll_send" hidefocus="true" target="frame_content"><?php echo $mn_langpackage->mn_start;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/pals.gif" /></span><span class="am_center"><a href="main.php?app=mypals" hidefocus="true"><?php echo $mn_langpackage->mn_pal;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/msg_minbox.gif" /></span><span class="am_center"><a href="main.php?app=msg_minbox" hidefocus="true"><?php echo $mn_langpackage->mn_scrip;?></a></span><span class="am_right"><a href="modules.php?app=msg_creator" target="frame_content" hidefocus="true"><?php echo $mn_langpackage->mn_creat;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/msgboard.gif" /></span><span class="am_center"><a href="main.php?app=msgboard_more" hidefocus="true"><?php echo $mn_langpackage->mn_msg;?></a></span></li>
+                        <li><span class="am_left"><img src="skin/default/jooyea/images/user_hi.gif" /></span><span class="am_center"><a href="main.php?app=user_hi" hidefocus="true"><?php echo $mn_langpackage->mn_hi;?></a></span></li>
                     		<!-- apps -->
                         <?php
                             if(count($pluginApps = get_user_apps()) > 0)
@@ -53,7 +67,7 @@ $ah_langpackage=new arrayhomelp;
 													<?php echo isset($plugins['home_top_app_MENU'])?show_plugins($plugins['home_top_app_MENU']):'';?>
 												<!-- plugins !-->
                     
-                        <li style="border-bottom:0; padding:4px 0 0 8px;"><span class="am_left"><img style="margin-top:6px;" src="skin/<?php echo $skinUrl;?>/images/appset.gif" /></span><span class="am_center"><a href="main.php?app=mag_app" hidefocus="true"><?php echo $ah_langpackage->ah_set_application;?></a></span></li>
+                        <li style="border-bottom:0; padding:4px 0 0 8px;"><span class="am_left"><img style="margin-top:6px;" src="skin/default/jooyea/images/appset.gif" /></span><span class="am_center"><a href="main.php?app=mag_app" hidefocus="true"><?php echo $ah_langpackage->ah_set_application;?></a></span></li>
                     </ul>
                 </dt>
                 <dt><a href="main.php?app=mypals_search_list&online=1" hidefocus="true"><?php echo $mn_langpackage->mn_online;?></a></dt>
@@ -80,4 +94,4 @@ $ah_langpackage=new arrayhomelp;
             </dl>
         </div>
     </div>
-</div>
+</div><?php } ?>
