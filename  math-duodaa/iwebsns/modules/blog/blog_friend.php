@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/blog/blog_friend.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/blog/blog_friend.html
  * 如果您的模型要进行修改，请修改 models/modules/blog/blog_friend.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/blog/blog_friend.html") > filemtime(__file__) || (file_exists("models/modules/blog/blog_friend.php") && filemtime("models/modules/blog/blog_friend.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/blog/blog_friend.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	//引入公共模块
 	require("foundation/auser_mustlogin.php");
@@ -50,8 +64,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
-<link rel="stylesheet" href="skin/<?php echo $skinUrl;?>/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
+<link rel="stylesheet" href="skin/default/jooyea/css/layout.css" />
 </head>
 <body id="iframecontent">
 	<div class="create_button"><a href="modules.php?app=blog_edit"><?php echo $b_langpackage->b_creat;?></a></div><h2 id="page_title" class="app_blog"><?php echo $b_langpackage->b_blog;?></h2>
@@ -69,7 +83,7 @@
 		<dt>
 			<strong><a href='<?php echo $is_pri ? "modules.php?app=blog&id=".$rs['log_id']."&is_friend=1":"javascript:void(0)";?>'><?php echo $is_pri ? filt_word($rs["log_title"]): $b_langpackage->b_limit_blog;?></a></strong>
 			<?php if(!$is_pri){?>
-			<img src='skin/<?php echo $skinUrl;?>/images/user_privacye.gif' />
+			<img src='skin/default/jooyea/images/user_privacye.gif' />
 			<?php }?>
 			<br /><span><?php echo $b_langpackage->b_sort;?>：<?php echo get_blog_sort(filt_word($rs['log_sort_name']));?></span><span><a href="home.php?h=<?php echo $rs["user_id"];?>" target="_blank"><?php echo filt_word($rs['user_name']);?></a></span><span><?php echo $rs["add_time"];?></span></dt>
 			<dd class="log_list_content"><?php echo $is_pri ? get_lentxt($rs["log_content"]):$b_langpackage->b_limit_blog;?></dd>
@@ -81,4 +95,4 @@
 <?php page_show($isNull,$page_num,$page_total);?>
 <div class='guide_info <?php echo $content_data_none;?>'><?php echo $b_langpackage->b_no_fri_blog;?></div>
 </body>
-</html>
+</html><?php } ?>

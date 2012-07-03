@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/users/user_ico_cut.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/users/user_ico_cut.html
  * 如果您的模型要进行修改，请修改 models/modules/users/user_ico_cut.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/users/user_ico_cut.html") > filemtime(__file__) || (file_exists("models/modules/users/user_ico_cut.php") && filemtime("models/modules/users/user_ico_cut.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/users/user_ico_cut.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php 
 	//引入模块公共方法文件
 	require("foundation/module_album.php");
@@ -27,7 +41,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 <script type="text/javascript" src="servtools/img_cut/prototype.js"></script>
 <script type="text/javascript" src="servtools/img_cut/drag.js"></script>
 <script type="text/javascript" src="servtools/img_cut/cut_image.js"></script>
@@ -87,9 +101,9 @@
 						<table border="0" width="500" cellspacing="2" cellpadding="2" id="table1">
 							<tr>
 								<td width="80"><b><?php echo $u_langpackage->u_ico_cut;?>:</b></td>
-								<td id='zoom_in_l' width="26" onclick="zoom_in();" class='hand' align='right'><img id='zoom_in_m' src='skin/<?php echo $skinUrl;?>/images/zoom_in.jpg'></td>
+								<td id='zoom_in_l' width="26" onclick="zoom_in();" class='hand' align='right'><img id='zoom_in_m' src='skin/default/jooyea/images/zoom_in.jpg'></td>
 								<td id='zoom_in_r' width="30" onclick="zoom_in();" class='hand' align='left'><?php echo $u_langpackage->u_lar;?></td>
-								<td id='zoom_out_l' width="26" onclick="zoom_out();" class='hand' align='right'><img id='zoom_out_m' src='skin/<?php echo $skinUrl;?>/images/zoom_out.jpg'></td>
+								<td id='zoom_out_l' width="26" onclick="zoom_out();" class='hand' align='right'><img id='zoom_out_m' src='skin/default/jooyea/images/zoom_out.jpg'></td>
 								<td id='zoom_out_r' width="60" onclick="zoom_out();" class='hand' align='left'><?php echo $u_langpackage->u_sma;?></td>
 								<td align="right">
 									<input type='button' class="regular-btn" style="font-weight:normal" onclick="CutImageUtil.end_cut_image();" value='<?php echo $u_langpackage->u_cut;?>'>
@@ -179,27 +193,28 @@
 	}
 
 	function zoom_out_disable(){
-        $('zoom_out_m').src='skin/<?php echo $skinUrl;?>/images/zoom_out_dis.jpg';
+        $('zoom_out_m').src='skin/default/jooyea/images/zoom_out_dis.jpg';
         $('zoom_out_l').className='';
         $('zoom_out_r').className='';
  }
  
 	function zoom_out_enable(){
-        $('zoom_out_m').src='skin/<?php echo $skinUrl;?>/images/zoom_out.jpg';
+        $('zoom_out_m').src='skin/default/jooyea/images/zoom_out.jpg';
         $('zoom_out_l').className='hand';
         $('zoom_out_r').className='hand';
  }
  
 	function zoom_in_disable(){
-        $('zoom_in_m').src='skin/<?php echo $skinUrl;?>/images/zoom_in_dis.jpg';
+        $('zoom_in_m').src='skin/default/jooyea/images/zoom_in_dis.jpg';
         $('zoom_in_l').className='';
         $('zoom_in_r').className='';
  }
  
 	function zoom_in_enable(){
-        $('zoom_in_m').src='skin/<?php echo $skinUrl;?>/images/zoom_in.jpg';
+        $('zoom_in_m').src='skin/default/jooyea/images/zoom_in.jpg';
         $('zoom_in_l').className='hand';
         $('zoom_in_r').className='hand';
  }
 </script>
 </html>
+<?php } ?>

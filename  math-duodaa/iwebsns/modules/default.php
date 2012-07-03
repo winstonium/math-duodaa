@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/default.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/default.html
  * 如果您的模型要进行修改，请修改 models/modules/default.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -11,10 +11,24 @@
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
 ?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/default.html") > filemtime(__file__) || (file_exists("models/modules/default.php") && filemtime("models/modules/default.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/default.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
+?><?php
 //�������԰�
 $ah_langpackage=new arrayhomelp;
 ?><script src="skin/default/js/login.js" language="javascript"></script>
-<div class="snsidea"><a href="modules.php?app=user_reg" hidefocus="true"><img src="skin/<?php echo $skinUrl;?>/images/sns_idea1.jpg" width="664" height="314" /></a></div>
+<div class="snsidea"><a href="modules.php?app=user_reg" hidefocus="true"><img src="skin/default/jooyea/images/sns_idea1.jpg" width="664" height="314" /></a></div>
   	<div class="login">
         <h2><?php echo $l_langpackage->l_momber_login;?> <span id="loadingmsg"></span></h2>
         <form name="login_form" method="post" onsubmit="return false;">
@@ -56,7 +70,7 @@ $ah_langpackage=new arrayhomelp;
                     <?php }?>
                     <?php }?>
                     <?php if(empty($rec_rs1)){?>
-                    <li><a href="#"><img src="skin/<?php echo $skinUrl;?>/images/def.jpg" alt="" /></a></li>
+                    <li><a href="#"><img src="skin/default/jooyea/images/def.jpg" alt="" /></a></li>
                     <?php }?>
                 </ul>
             </div>
@@ -150,7 +164,7 @@ function login_unready_callback(){
 	if($("emailmsg").innerHTML == '' || $("pwdmsg").innerHTML == ''){
 		argb_div.innerHTML='';
 	}else{
-		argb_div.innerHTML="<img src='skin/<?php echo $skinUrl;?>/images/login_loading.gif' align='top' ><?php echo $l_langpackage->l_loading;?>";
+		argb_div.innerHTML="<img src='skin/default/jooyea/images/login_loading.gif' align='top' ><?php echo $l_langpackage->l_loading;?>";
 	}
 }
 function saveTmpEmail(para){
@@ -176,4 +190,4 @@ function login(){
 }
 //取得cookie值
 $('login_email').value=get_cookie('iweb_email');
-</script>
+</script><?php } ?>

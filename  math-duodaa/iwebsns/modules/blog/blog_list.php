@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/blog/blog_list.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/blog/blog_list.html
  * 如果您的模型要进行修改，请修改 models/modules/blog/blog_list.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/blog/blog_list.html") > filemtime(__file__) || (file_exists("models/modules/blog/blog_list.php") && filemtime("models/modules/blog/blog_list.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/blog/blog_list.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
   //引入公共模块
   require("foundation/fpages_bar.php");
@@ -73,7 +87,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 <link rel="stylesheet" type="text/css" href="servtools/menu_pop/menu_pop.css">
 <script type='text/javascript' src='servtools/ajax_client/ajax.js'></script>
 <?php echo $is_self=='Y' ? "<script type='text/javascript' src='servtools/menu_pop/group_user.php'></script>" : "";?>
@@ -98,7 +112,7 @@
 	<dt>
 		<strong><a href='<?php echo $is_pri ? rewrite_fun("modules.php?app=blog&id=".$rs['log_id'].$url_userid):"javascript:void(0)";?>'><?php echo $is_pri ? filt_word($rs["log_title"]): $b_langpackage->b_limit_blog;?></a></strong>
 		<?php if(!$is_pri){?>
-		<img src='skin/<?php echo $skinUrl;?>/images/user_privacye.gif' />
+		<img src='skin/default/jooyea/images/user_privacye.gif' />
 		<?php }?>
 		<br /><span><?php echo $b_langpackage->b_sort;?>：<a href="modules.php?app=blog_list&sort_id=<?php echo $rs['log_sort'];?>&sort_name=<?php echo urlencode($rs['log_sort_name']);?><?php echo $url_userid;?>" title="<?php echo $b_langpackage->b_same_sort;?>"><?php echo empty($rs['log_sort_name']) ? $b_langpackage->b_default_sort :filt_word($rs['log_sort_name']);?></a></span><span><?php echo $rs["add_time"];?></span>
 	</dt>
@@ -115,4 +129,4 @@
 		<?php echo $no_data_text;?>
   </div>
 </body>
-</html>
+</html><?php } ?>

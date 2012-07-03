@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/start.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/start.html
  * 如果您的模型要进行修改，请修改 models/modules/start.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/start.html") > filemtime(__file__) || (file_exists("models/modules/start.php") && filemtime("models/modules/start.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/start.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 //引入心情模块公共方法
 	require("foundation/module_mood.php");
@@ -52,7 +66,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css" />
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css" />
 <script language=JavaScript src="skin/default/js/jooyea.js"></script>
 <SCRIPT language=JavaScript src="servtools/ajax_client/ajax.js"></SCRIPT>
 <script type='text/javascript'>
@@ -62,11 +76,11 @@
 		var ol_state_label=$("ol_label_txt");
 		var ol_state_reset=$("set_state");
 		if(set_ol_hidden==1){
-			ol_state_ico.src='skin/<?php echo $skinUrl;?>/images/hiddenline.gif';
+			ol_state_ico.src='skin/default/jooyea/images/hiddenline.gif';
 			ol_state_label.innerHTML='<?php echo $u_langpackage->u_hidden;?>';
 			ol_state_reset.innerHTML='<a href="javascript:set_ol_state(0);"><?php echo $u_langpackage->u_set_onl;?></a>';
 		}else if(set_ol_hidden==0){
-			ol_state_ico.src='skin/<?php echo $skinUrl;?>/images/online.gif';
+			ol_state_ico.src='skin/default/jooyea/images/online.gif';
 			ol_state_label.innerHTML='<?php echo $u_langpackage->u_onl;?>';
 			ol_state_reset.innerHTML='<a href="javascript:set_ol_state(1);"><?php echo $u_langpackage->u_set_hidden;?></a>';
 		}
@@ -95,7 +109,7 @@ function list_recent_affair(h_id,ra_type,is_more){
 	var recent_affair_div=$("sec_Content");
 	if(is_more!=1){//重新切换类别新鲜事则清空预设值
 		$('affair_start_num').value=0;
-		recent_affair_div.innerHTML="<div class=\"loading\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/<?php echo $skinUrl;?>/images/loading.gif'></div>";
+		recent_affair_div.innerHTML="<div class=\"loading\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/default/jooyea/images/loading.gif'></div>";
 	}else{
 		$('affair_start_num').value=parseInt($('affair_start_num').value)+<?php echo $mainAffairNum;?>;
 	}
@@ -145,7 +159,7 @@ parent.showDiv();
         <span class="left">
             <a class="strong" href="<?php echo get_uhome_url(get_sess_userid());?>" target="_blank"><?php echo filt_word(get_sess_username());?></a>
             <span id='on_line_state' class="mystatus" onmouseover='show_obj("set_state");' onmouseout='hidden_obj("set_state");'>
-                <img id="ol_ioc_gif" src='skin/<?php echo $skinUrl;?>/images/online.gif'>
+                <img id="ol_ioc_gif" src='skin/default/jooyea/images/online.gif'>
                 <span id='ol_label_txt' style='color:#838383'></span>
                 <span id='set_state' class='mystatus' onmouseover='show_obj("set_state");' onmouseout='hidden_obj("set_state");' style="display:none;"></span>
             </span>
@@ -207,4 +221,4 @@ parent.showDiv();
 	list_recent_affair(0,'');
 </script>
 </body>
-</html>
+</html><?php } ?>
