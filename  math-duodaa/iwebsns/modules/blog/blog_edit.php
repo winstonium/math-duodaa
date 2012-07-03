@@ -108,7 +108,7 @@ parent.hiddenDiv();
 				<li class="active"><a href="modules.php?app=blog_list" hidefocus="true"><?php echo $titleStr;?></a></li>
 			</ul>
     </div>
-   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="editor.sync();;return CheckForm();">
+   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="editor.sync();return CheckForm();">
 	<table border="0" cellpadding="2" cellspacing="1" class="form_table">
         <tr>
 			<th><?php echo $b_langpackage->b_title;?>：</th>
@@ -232,7 +232,16 @@ parent.hiddenDiv();
 	var editor;
     KindEditor.ready(function(K) {
             editor = K.create('#CONTENT', {
-                    resizeType : 2//,
+                    resizeType : 2,
+                    items:[
+                     'undo', 'redo', '|',  'cut', 'copy', 'paste',
+                     'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                     'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'subscript',
+                     'superscript', 'clearhtml',  '|',  '/',
+                     'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                     'italic', 'underline', 'strikethrough',  'removeformat', '|', 'image', 'emoticons', 
+                     'link', 'unlink'
+                    ]
                     //uploadJson : '../php/upload_json.php' // 相对于当前页面的路径
             });
     });
