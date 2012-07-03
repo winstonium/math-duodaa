@@ -11,20 +11,6 @@
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
 ?><?php
-/*
- * 此段代码由debug模式下生成运行，请勿改动！
- * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
- */
-/* debug模式运行生成代码 开始 */
-if(!function_exists("tpl_engine")) {
-	require("foundation/ftpl_compile.php");
-}
-if(filemtime("templates/duodaa_temp/index.html") > filemtime(__file__) || (file_exists("models/index.php") && filemtime("models/index.php") > filemtime(__file__)) ) {
-	tpl_engine("duodaa_temp","index.html",1);
-	include(__file__);
-}else {
-/* debug模式运行生成代码 结束 */
-?><?php
 	header("content-type:text/html;charset=utf-8");
 	if(!file_exists('docs/install.lock')){
 		header("location:install/index.php");
@@ -109,7 +95,7 @@ function goLogin(){
 <?php include("uiparts/guestheader.php");?>
 	<div class="wrapper">
         <div class="main">
-            <?php include("$index_ref");?>
+            <!--<?php include("$index_ref");?>  -->
         </div>
         <div class='index_bottom'>
 	
@@ -120,4 +106,4 @@ function goLogin(){
 </div>
 <SCRIPT language=JavaScript src="servtools/ajax_client/auto_ajax.js"></SCRIPT>
 </body>
-</html><?php } ?>
+</html>
