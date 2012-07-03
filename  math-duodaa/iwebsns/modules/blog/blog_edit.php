@@ -76,7 +76,8 @@
 <script type='text/javascript' src="servtools/menu_pop/menu_pop.js"></script>
 <SCRIPT language=JavaScript src="servtools/imgfix.js"></SCRIPT>
 <SCRIPT language=JavaScript src="skin/default/js/jooyea.js"></SCRIPT>
-<SCRIPT language=JavaScript src="servtools/kindeditor/kindeditor.js"></SCRIPT>
+<SCRIPT language=JavaScript src="servtools/kindeditor4/kindeditor.js"></SCRIPT>
+<script charset="utf-8" src="servtools/kindeditor4/lang/zh_CN.js"></script>
 <script Language="JavaScript">
 is_submit=0;
 
@@ -107,7 +108,7 @@ parent.hiddenDiv();
 				<li class="active"><a href="modules.php?app=blog_list" hidefocus="true"><?php echo $titleStr;?></a></li>
 			</ul>
     </div>
-   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="return CheckForm();">
+   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="editor.sync();;return CheckForm();">
 	<table border="0" cellpadding="2" cellspacing="1" class="form_table">
         <tr>
 			<th><?php echo $b_langpackage->b_title;?>：</th>
@@ -228,10 +229,26 @@ parent.hiddenDiv();
 </script>
 
 	<script type="text/javascript">
-	KE.show({
-		id:'CONTENT',
-		resizeMode:0
-	});
+	var editor;
+    KindEditor.ready(function(K) {
+            editor = K.create('#CONTENT', {
+                    resizeType : 2//,
+                    //uploadJson : '../php/upload_json.php' // 相对于当前页面的路径
+            });
+    });
+
+    html = editor.html();
+
+ // 同步数据后可以直接取得textarea的value
+ editor.sync();
+ html = document.getElementById('CONTENT').value; // 原生API
+
+ html = K('#CONTENT').val(); // KindEditor Node API
+ html = $('#CONTENT').val(); // jQuery
+
+ // 设置HTML内容
+ editor.html('HTML内容');
+    
 	</script>
 
 </body>
