@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/invite.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/invite.html
  * 如果您的模型要进行修改，请修改 models/modules/invite.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/invite.html") > filemtime(__file__) || (file_exists("models/modules/invite.php") && filemtime("models/modules/invite.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/invite.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 //引入公共方法
 	require("foundation/module_mood.php");
@@ -39,16 +53,16 @@
   }
 
 	$user_online=get_user_online_state($dbo,$t_online,$holder_id);
-  $ol_state_ico="skin/$skinUrl/images/offline.gif";
+  $ol_state_ico="skin/default/jooyea/images/offline.gif";
   $ol_state_label=$u_langpackage->u_not_onl.'('.format_datetime_short($user_lastlogin_time).')';
   if($user_online['hidden']==='0'){
-	  $ol_state_ico="skin/$skinUrl/images/online.gif";
+	  $ol_state_ico="skin/default/jooyea/images/online.gif";
 	  $ol_state_label=$u_langpackage->u_onl;
   }
   
   //设置发出邀请用户的id
   set_session("InviteFromUid",$user_info['user_id']);
-?><link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/layout.css">
+?><link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/layout.css">
 <div class="recom_user" style="margin-bottom:-20px">
    	<div id="invite">
         <div class="top"><h2 class="highlight"><?php echo $ah_langpackage->ah_welcome_you;?><a class="highlight"  href="home.php?h=<?php echo $user_info['user_id'];?>" target="_blank"><?php echo $user_info['user_name'];?></a><?php echo $ah_langpackage->ah_invite_you_friends;?></h2></div>
@@ -75,10 +89,10 @@
 				     </p>
 				     <?php echo $u_langpackage->u_sex;?>：<?php echo info_item_format($info_item_init,$user_sex_txt);?><br />	   			
 	   			      <?php echo $u_langpackage->u_from;?>：<?php echo info_item_format($info_item_init,$user_info["reside_province"].$user_info["reside_city"]);?>
-                     <p class="mt20"><a href="home.php?h=<?php echo $user_info['user_id'];?>" ><img src="skin/<?php echo $skinUrl;?>/images/tohomelabel.gif" align="middle"></a></p>
+                     <p class="mt20"><a href="home.php?h=<?php echo $user_info['user_id'];?>" ><img src="skin/default/jooyea/images/tohomelabel.gif" align="middle"></a></p>
 	   			</td>
 	   		</tr>
 	   </table>
 	</div>   
 </div>
-<div class="clear"></div>
+<div class="clear"></div><?php } ?>

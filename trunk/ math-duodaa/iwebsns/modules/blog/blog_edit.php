@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/blog/blog_edit.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/blog/blog_edit.html
  * 如果您的模型要进行修改，请修改 models/modules/blog/blog_edit.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/blog/blog_edit.html") > filemtime(__file__) || (file_exists("models/modules/blog/blog_edit.php") && filemtime("models/modules/blog/blog_edit.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/blog/blog_edit.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	//必须登录才能浏览该页面
 	require("foundation/auser_mustlogin.php");
@@ -69,15 +83,14 @@
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
 <?php $plugins=unserialize('a:0:{}');?>
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 <link rel="stylesheet" type="text/css" href="servtools/menu_pop/menu_pop.css">
 <script type='text/javascript' src='servtools/ajax_client/ajax.js'></script>
 <script type='text/javascript' src='servtools/menu_pop/group_user.php'></script>
 <script type='text/javascript' src="servtools/menu_pop/menu_pop.js"></script>
 <SCRIPT language=JavaScript src="servtools/imgfix.js"></SCRIPT>
 <SCRIPT language=JavaScript src="skin/default/js/jooyea.js"></SCRIPT>
-<SCRIPT language=JavaScript src="servtools/kindeditor4/kindeditor.js"></SCRIPT>
-<script charset="utf-8" src="servtools/kindeditor4/lang/zh_CN.js"></script>
+<SCRIPT language=JavaScript src="servtools/kindeditor/kindeditor.js"></SCRIPT>
 <script Language="JavaScript">
 is_submit=0;
 
@@ -108,7 +121,7 @@ parent.hiddenDiv();
 				<li class="active"><a href="modules.php?app=blog_list" hidefocus="true"><?php echo $titleStr;?></a></li>
 			</ul>
     </div>
-   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="editor.sync();return CheckForm();">
+   <form action="<?php echo $form_action;?>" method="post"  name="myform" onSubmit="return CheckForm();">
 	<table border="0" cellpadding="2" cellspacing="1" class="form_table">
         <tr>
 			<th><?php echo $b_langpackage->b_title;?>：</th>
@@ -229,36 +242,11 @@ parent.hiddenDiv();
 </script>
 
 	<script type="text/javascript">
-	var editor;
-    KindEditor.ready(function(K) {
-            editor = K.create('#CONTENT', {
-                    resizeType : 2,
-                    items:[
-                     'undo', 'redo', '|',  'cut', 'copy', 'paste',
-                     'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-                     'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'subscript',
-                     'superscript', 'clearhtml',  '|',  '/',
-                     'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-                     'italic', 'underline', 'strikethrough',  'removeformat', '|', 'image', 'emoticons', 
-                     'link', 'unlink'
-                    ]
-                    //uploadJson : '../php/upload_json.php' // 相对于当前页面的路径
-            });
-    });
-
-    html = editor.html();
-
- // 同步数据后可以直接取得textarea的value
- editor.sync();
- html = document.getElementById('CONTENT').value; // 原生API
-
- html = K('#CONTENT').val(); // KindEditor Node API
- html = $('#CONTENT').val(); // jQuery
-
- // 设置HTML内容
- editor.html('HTML内容');
-    
+	KE.show({
+		id:'CONTENT',
+		resizeMode:0
+	});
 	</script>
 
 </body>
-</html>
+</html><?php } ?>

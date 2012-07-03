@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/mood/mood_more.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/mood/mood_more.html
  * 如果您的模型要进行修改，请修改 models/modules/mood/mood_more.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/mood/mood_more.html") > filemtime(__file__) || (file_exists("models/modules/mood/mood_more.php") && filemtime("models/modules/mood/mood_more.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/mood/mood_more.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	//引入语言包
 	$mo_langpackage=new moodlp;
@@ -54,7 +68,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
 <SCRIPT type='text/javascript' src="servtools/ajax_client/ajax.js"></SCRIPT>
@@ -102,7 +116,7 @@ function mood_com(mood_id,mod_id,type_id,start_num,end_num){
 			<?php foreach($mood_rs as $val){?>
 			<li class="mood_list">
 				<?php if($is_self=='Y'){?>
-				<div id="mood_operate_<?php echo $val['mood_id'];?>" class="mood_operate"><a href="do.php?act=mood_del&mood_id=<?php echo $val['mood_id'];?>&app=mood_more"><img src="skin/<?php echo $skinUrl;?>/images/del.png" title="<?php echo $mo_langpackage->mo_del;?>"></a></div>
+				<div id="mood_operate_<?php echo $val['mood_id'];?>" class="mood_operate"><a href="do.php?act=mood_del&mood_id=<?php echo $val['mood_id'];?>&app=mood_more"><img src="skin/default/jooyea/images/del.png" title="<?php echo $mo_langpackage->mo_del;?>"></a></div>
 				<?php }?>
                 <div class="mood_cont">
 					<div class="mood_text"><?php echo filt_word(get_face($val['mood']));?></div>
@@ -151,3 +165,4 @@ function mood_com(mood_id,mod_id,type_id,start_num,end_num){
 <?php }?>
 </body>
 </html>
+<?php } ?>

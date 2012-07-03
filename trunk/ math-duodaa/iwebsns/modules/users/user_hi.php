@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/users/user_hi.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/users/user_hi.html
  * 如果您的模型要进行修改，请修改 models/modules/users/user_hi.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/users/user_hi.html") > filemtime(__file__) || (file_exists("models/modules/users/user_hi.php") && filemtime("models/modules/users/user_hi.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/users/user_hi.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	//引入模块公共方法文件 
 	require("foundation/module_users.php");
@@ -48,7 +62,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 </head>
 <SCRIPT language=JavaScript src="servtools/ajax_client/ajax.js"></SCRIPT>
 <script language=JavaScript src="skin/default/js/jooyea.js"></script>
@@ -93,11 +107,11 @@ function check_form(){
     	<td width="30">
 		  <div class="avatar"><a href="home.php?h=<?php echo $val['from_user_id'];?>" target="_blank"><img src="<?php echo $val['from_user_ico'];?>"/></a></div>
       </td>
-        <td width="70"><img src="skin/<?php echo $skinUrl;?>/images/pokeact_<?php echo $val['hi'];?>.gif"></img></td>
+        <td width="70"><img src="skin/default/jooyea/images/pokeact_<?php echo $val['hi'];?>.gif"></img></td>
 		<td><a href='home.php?h=<?php echo $val['from_user_id'];?>' target='_blank'><?php echo $val['from_user_name'];?></a><?php echo show_hi_type($val['hi']);?></td>
 		<td><?php echo $val['add_time'];?></td>
 		<td><a href='javascript:void(0)' onclick='parent.hi_action(<?php echo $val['from_user_id'];?>);'><?php echo $hi_langpackage->hi_restore;?></a></td>
-		<td><a href='javascript:del_hi(<?php echo $val['hi_id'];?>);' title="<?php echo $hi_langpackage->hi_del;?>" alt="<?php echo $hi_langpackage->hi_del;?>" onclick='return confirm("<?php echo $hi_langpackage->hi_del_con;?>");'><img src='skin/<?php echo $skinUrl;?>/images/del.png' /></a></td>
+		<td><a href='javascript:del_hi(<?php echo $val['hi_id'];?>);' title="<?php echo $hi_langpackage->hi_del;?>" alt="<?php echo $hi_langpackage->hi_del;?>" onclick='return confirm("<?php echo $hi_langpackage->hi_del_con;?>");'><img src='skin/default/jooyea/images/del.png' /></a></td>
   <?php }?>
   </table>
 <div class="rs_head <?php echo $show_data;?>">
@@ -113,3 +127,4 @@ function check_form(){
   <?php echo page_show($isNull,$page_num,$page_total);?>
 </body>
 </html>
+<?php } ?>

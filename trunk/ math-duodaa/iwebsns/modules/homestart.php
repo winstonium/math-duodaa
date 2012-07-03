@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/homestart.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/homestart.html
  * 如果您的模型要进行修改，请修改 models/modules/homestart.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/homestart.html") > filemtime(__file__) || (file_exists("models/modules/homestart.php") && filemtime("models/modules/homestart.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/homestart.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 //引入公共方法
 require("foundation/module_users.php");
@@ -70,8 +84,8 @@ $holder_blog=$dbo->getRs($sql);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" href="skin/<?php echo $skinUrl;?>/css/layout.css" />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css" />
+<link rel="stylesheet" href="skin/default/jooyea/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css" />
 <script type='text/javascript' src="skin/default/js/jooyea.js"></script>
 <script type="text/javascript" language="javascript" src="servtools/dialog/zDrag.js"></script>
 <script type="text/javascript" language="javascript" src="servtools/dialog/zDialog.js"></script>
@@ -84,7 +98,7 @@ function list_recent_affair(h_id,ra_type,is_more){
 	var recent_affair_div=$("sec_Content");
 	if(is_more!=1){//重新切换类别新鲜事则清空预设值
 		$('affair_start_num').value=0;
-		recent_affair_div.innerHTML="<div style=\"width:150px; margin-left:auto; margin-right:auto; height:100px; padding:60px; *padding:30px; line-height:32px;\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/<?php echo $skinUrl;?>/images/loading.gif'></div>";
+		recent_affair_div.innerHTML="<div style=\"width:150px; margin-left:auto; margin-right:auto; height:100px; padding:60px; *padding:30px; line-height:32px;\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/default/jooyea/images/loading.gif'></div>";
 	}else{
 		$('affair_start_num').value=parseInt($('affair_start_num').value)+<?php echo $homeAffairNum;?>;
 	}
@@ -110,7 +124,7 @@ function list_recent_affair(h_id,ra_type,is_more){
 function get_msg(uid){
 	hidden_obj('affair_content');
 	show_obj('msg_content');
-	$('msg_content').innerHTML="<div style=\"width:150px; margin-left:auto; margin-right:auto; height:100px; padding:60px; *padding:30px; line-height:32px;\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/<?php echo $skinUrl;?>/images/loading.gif'></div>";
+	$('msg_content').innerHTML="<div style=\"width:150px; margin-left:auto; margin-right:auto; height:100px; padding:60px; *padding:30px; line-height:32px;\"><span class='right'><?php echo $ah_langpackage->ah_loading_data;?></span><img src='skin/default/jooyea/images/loading.gif'></div>";
 	var list_msg=new Ajax();//实例化Ajax
 	list_msg.getInfo("modules.php","get","app","app=msgboard&user_id="+uid,function(c){$('msg_content').innerHTML=c;});
 }
@@ -211,4 +225,4 @@ parent.showDiv();
 	list_recent_affair(<?php echo $holder_id;?>,0);
 </script>
 </body>
-</html>
+</html><?php } ?>

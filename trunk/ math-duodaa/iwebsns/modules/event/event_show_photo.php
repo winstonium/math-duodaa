@@ -1,7 +1,7 @@
 <?php
 /*
  * 注意：此文件由tpl_engine编译型模板引擎编译生成。
- * 如果您的模板要进行修改，请修改 templates/default/modules/event/event_show_photo.html
+ * 如果您的模板要进行修改，请修改 templates/duodaa_temp/modules/event/event_show_photo.html
  * 如果您的模型要进行修改，请修改 models/modules/event/event_show_photo.php
  *
  * 修改完成之后需要您进入后台重新编译，才会重新生成。
@@ -10,6 +10,20 @@
  *
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
+?><?php
+/*
+ * 此段代码由debug模式下生成运行，请勿改动！
+ * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
+ */
+/* debug模式运行生成代码 开始 */
+if(!function_exists("tpl_engine")) {
+	require("foundation/ftpl_compile.php");
+}
+if(filemtime("templates/duodaa_temp/modules/event/event_show_photo.html") > filemtime(__file__) || (file_exists("models/modules/event/event_show_photo.php") && filemtime("models/modules/event/event_show_photo.php") > filemtime(__file__)) ) {
+	tpl_engine("duodaa_temp","modules/event/event_show_photo.html",1);
+	include(__file__);
+}else {
+/* debug模式运行生成代码 结束 */
 ?><?php
 	require("foundation/module_users.php");
 	require("foundation/module_mypals.php");
@@ -95,7 +109,7 @@
 <base href='<?php echo $siteDomain;?>' />
 <title></title>
 <base href='<?php echo $siteDomain;?>' />
-<link rel="stylesheet" type="text/css" href="skin/<?php echo $skinUrl;?>/css/iframe.css">
+<link rel="stylesheet" type="text/css" href="skin/default/jooyea/css/iframe.css">
 <script type='text/javascript' src='servtools/ajax_client/ajax.js'></script>
 <script type='text/javascript' src="skin/default/js/jooyea.js"></script>
 <script type="text/javascript">
@@ -161,7 +175,7 @@ function Get_mouse_pos(obj){
 				<div class="photo_uploadtime"><?php echo str_replace("{date}",$photo_row['add_time'],$a_langpackage->a_send_time);?></div>
 				<div class="photo_view">
 					<img id='<?php echo $t_event_photo;?>:<?php echo $photo_row["photo_id"];?>' style='display:none;max-width:470' onerror="parent.pic_error(this)" onmousemove='turnover(this);' />
-					<img id='show_ajax' src='skin/<?php echo $skinUrl;?>/images/loading.gif' />
+					<img id='show_ajax' src='skin/default/jooyea/images/loading.gif' />
 				</div>
 				
 				<?php if($photo_row['photo_information']!='' && $status < 3){?>
@@ -217,11 +231,11 @@ function Get_mouse_pos(obj){
 		function turnover(obj){
 			var move_x=Get_mouse_pos(obj);
 			if(move_x >= show_width/2){
-				obj.style.cursor="URL(skin/<?php echo $skinUrl;?>/images/next.cur),auto";
+				obj.style.cursor="URL(skin/default/jooyea/images/next.cur),auto";
 				obj.title='<?php echo $a_langpackage->a_page_down;?>';
 				obj.onclick=function(){location.href="modules.php?app=event_show_photo&event_id=<?php echo $event_id;?>&photo_id=<?php echo $photo_id;?>&prev_next=next&user_id=<?php echo $url_uid;?>"};
 			}else{
-				obj.style.cursor="URL(skin/<?php echo $skinUrl;?>/images/pre.cur),auto";
+				obj.style.cursor="URL(skin/default/jooyea/images/pre.cur),auto";
 				obj.title='<?php echo $a_langpackage->a_page_up;?>';
 				obj.onclick=function(){location.href="modules.php?app=event_show_photo&event_id=<?php echo $event_id;?>&photo_id=<?php echo $photo_id;?>&prev_next=prev&user_id=<?php echo $url_uid;?>"};
 			}
@@ -233,4 +247,4 @@ function Get_mouse_pos(obj){
 <div class="guide_info <?php echo $show_content;?>"><?php echo $a_langpackage->a_add_pvw;?></div>
 
 </body>
-</html>
+</html><?php } ?>
