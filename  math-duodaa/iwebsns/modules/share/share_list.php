@@ -11,20 +11,6 @@
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
 ?><?php
-/*
- * 此段代码由debug模式下生成运行，请勿改动！
- * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
- */
-/* debug模式运行生成代码 开始 */
-if(!function_exists("tpl_engine")) {
-	require("foundation/ftpl_compile.php");
-}
-if(filemtime("templates/duodaa_temp/modules/share/share_list.html") > filemtime(__file__) || (file_exists("models/modules/share/share_list.php") && filemtime("models/modules/share/share_list.php") > filemtime(__file__)) ) {
-	tpl_engine("duodaa_temp","modules/share/share_list.html",1);
-	include(__file__);
-}else {
-/* debug模式运行生成代码 结束 */
-?><?php
 	//引入公共模块
 	require("foundation/fpages_bar.php");
 	require("foundation/module_users.php");
@@ -227,4 +213,4 @@ function inputTxt(obj,act){
 <?php }?>
 <div id="face_list_menu" class="emBg" style="display:none;z-index:100;"></div>
 </body>
-</html><?php } ?>
+</html>

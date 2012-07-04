@@ -11,20 +11,6 @@
  * 如有您有问题请到官方论坛（http://tech.jooyea.com/bbs/）提问，谢谢您的支持。
  */
 ?><?php
-/*
- * 此段代码由debug模式下生成运行，请勿改动！
- * 如果debug模式下出错不能再次自动编译时，请进入后台手动编译！
- */
-/* debug模式运行生成代码 开始 */
-if(!function_exists("tpl_engine")) {
-	require("foundation/ftpl_compile.php");
-}
-if(filemtime("templates/duodaa_temp/uiparts/mainleft.html") > filemtime(__file__) || (file_exists("models/uiparts/mainleft.php") && filemtime("models/uiparts/mainleft.php") > filemtime(__file__)) ) {
-	tpl_engine("duodaa_temp","uiparts/mainleft.html",1);
-	include(__file__);
-}else {
-/* debug模式运行生成代码 结束 */
-?><?php
 ?><div class="appbar">
     <ul>
         <li class="app_blog"><a href="javascript:void(0);" onclick="frame_content.location.href='<?php echo $siteDomain;?>modules.php?app=blog_list';return false;"  hidefocus="true"><span><?php echo $mn_langpackage->mn_blog;?></span></a></li>
@@ -66,4 +52,3 @@ if(filemtime("templates/duodaa_temp/uiparts/mainleft.html") > filemtime(__file__
 
     </ul>
 </div>
-<?php } ?>
