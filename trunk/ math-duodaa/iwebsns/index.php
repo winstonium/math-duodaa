@@ -92,37 +92,77 @@ function goLogin(){
 </head>
 <body id="index">
 <div class="container">
-<?php include("uiparts/guestheader.php");?>
-	<div class="wrapper">
-        <div class="main">
-            <script src="skin/default/js/login.js" language="javascript"></script>
-<div class="snsidea"><a href="modules.php?app=user_reg" hidefocus="true"><img src="skin/default/jooyea/images/sns_idea1.jpg" width="664" height="314" /></a></div>
-  	<div class="login">
-        <h2><?php echo $l_langpackage->l_momber_login;?> <span id="loadingmsg"></span></h2>
-        <form name="login_form" method="post" onsubmit="return false;">
-            <p><label><?php echo $l_langpackage->l_email;?>： <span id="emailmsg" class="red"></span></label><input class="input" name="login_email" id="login_email" type="text" /></p>
-            <p><label><?php echo $l_langpackage->l_pass;?>： <span id="pwdmsg" class="red"></span></label><input class="pwd" name="login_pws" id="login_pws" type="password" /></p>
-            <p class="chk">
-                <label for="tmpiId">
-                    <input name="tmpiId" class="chk" id="tmpiId" type="checkbox" value="save" checked="checked" onKeyDown="getEnt();">
-                    <?php echo $l_langpackage->l_save_aco;?>
-                </label>
-                <label for="hidden">
-                	<input name="hidden" class="chk" id="hidden" type="checkbox" value="1" onKeyDown="getEnt();">
-                	<?php echo $l_langpackage->l_hid;?>
-                </label>
-            </p>
-            <p><span><a href="modules.php?app=user_forget" class="forget"><?php echo $ah_langpackage->ah_forgot_password;?>？</a></span><input type="submit" onclick="login();" class="button"  name="loginsubm" id="loginsubm" hidefocus="true" value="<?php echo $l_langpackage->l_login;?>"></p>
-        </form>
-	<!--插件位置!-->
-	<div class="index_right">
-		
-		<?php echo isset($plugins['index_right'])?show_plugins($plugins['index_right']):'';?>
-	</div>
-	<!--插件位置!-->
-	</div>
+<?php
+require("foundation/fdnurl_aget.php");
+//语言包引入
+$l_langpackage=new loginlp;
+$re_langpackage=new reglp;
+$pu_langpackage=new publiclp;
+$u_langpackage=new userslp;
+$ah_langpackage=new arrayhomelp;
+?>
+<script type="text/javascript" language="javascript" src="skin/default/js/jy.js"></script>
+<script language="javascript">
+function addBookMark()
+{
+    var nome_sito = "<?php echo $siteName;?>";
+    var url_sito = "<?php echo get_site_domain();?>";
+    if ((navigator.appName == "Microsoft Internet Explorer") && (parseInt
+        (navigator.appVersion) >= 4))
+        window.external.AddFavorite(url_sito, nome_sito);
+    else if (navigator.appName == "Netscape")
+        window.sidebar.addPanel(nome_sito, url_sito, '');
+    else
+        parent.Dialog.alert("<?php echo $pu_langpackage->pu_house_wrong;?>");
+}
 
+function setMyHomepage(url){   //  设置首页 
+		 if(!!(window.attachEvent && !window.opera)){
+				document.body.style.behavior = 'url(#default#homepage)';
+				document.body.setHomePage(url);
+		}else{
+			if(window.clipboardData && clipboardData.setData){
+		        clipboardData.setData('text', url);
+		    }else{
+		         parent.Dialog.alert('<?php echo $ah_langpackage->ah_browser_clipboard;?>');
+		    }
+		}
+}
+</script>
+<?php if(basename($_SERVER['SCRIPT_FILENAME'])!='home.php'){?>
+<div class="head">
+    <h1><a href="index.php"><img alt="jooyea" src="skin/default/jooyea/images/snslogo.gif"></a></h1>
+    <div class="search">
+        <div class="schbox">
+           <form class="search_box" action="index.php" target="_blank" onsubmit="clear_def(this,'<?php echo $ah_langpackage->ah_enter_name;?>');">
+            <input id="searchtop_input" maxlength='20' class="inpt" type="text" name='memName' value="<?php echo $ah_langpackage->ah_enter_name;?>" onblur="inputTxt(this,'set');" onfocus="inputTxt(this,'clean');" />
+            <input class="btn" type="submit" value="" />
+        	<input type='hidden' name='tg' value='search_pals_list' />
+        </form>
+        </div>
+        <a href="javascript:goLogin();"><?php echo $ah_langpackage->ah_advanced_search;?></a>
+    </div>
 </div>
+<div class="clear"></div>
+<?php }?>
+<div class="top_bg">
+	<div class="nav">
+	  <span class="left">
+	    <a href="\"><?php echo '哆嗒数学';?></a>
+	    <a href="index.php"><?php echo $ah_langpackage->ah_homepage;?></a>
+	    <a href="index.php?tg=search_pals_list&online=1"><?php echo $ah_langpackage->ah_see_who_online;?></a>
+	    <a href="help/help.html">帮助</a>
+		</span>
+	  <span class="right">
+		  <a href="javascript:addBookMark();"><?php echo $pu_langpackage->pu_collection;?></a>
+		  <a href="javascript:setMyHomepage('<?php echo get_site_domain();?>');"><?php echo $pu_langpackage->pu_index_set;?></a>
+		  <a href="modules.php?app=user_reg"><?php echo $pu_langpackage->pu_register;?></a>
+		  <a href="index.php"><?php echo $pu_langpackage->pu_logon;?></a>
+	  </span>
+	</div>
+</div>
+	<div class="wrapper">
+
 <div class="clear"></div>
 <div class="main recom_user">
 	<div class="cont">
@@ -138,7 +178,7 @@ function goLogin(){
                 </ul>
             </div>
         </div>
-<!--
+       <!--
         <script type="text/javascript">
         TB.widget.SimpleSlide.decorate('SlidePlayer', {eventType:'mouse', effect:'scroll'});
         </script>
