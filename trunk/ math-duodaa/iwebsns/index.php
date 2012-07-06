@@ -15,6 +15,13 @@
 	if(!file_exists('docs/install.lock')){
 		header("location:install/index.php");
 	}
+	//添加整合Question2Answer
+	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-base.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-app-users.php';
+		
+	if(qa_get_logged_in_userid()==''){header('Location: '.$_SERVER['DOCUMENT_ROOT']);}
+	////////////////////////////
+
 	require("foundation/asession.php");
 	require("configuration.php");
 	require("includes.php");
@@ -94,6 +101,7 @@ function goLogin(){
 <div class="container">
 
 <?php include("uiparts/duodaa_uiparts/guestheader.php");?>
+<?php echo qa_get_logged_in_userid().'_'.qa_get_logged_in_handle().'_'.qa_get_logged_in_email()?>
 
 	<div class="wrapper">
 
