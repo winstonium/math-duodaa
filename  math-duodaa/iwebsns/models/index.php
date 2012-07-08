@@ -3,6 +3,9 @@
 	if(!file_exists('docs/install.lock')){
 		header("location:install/index.php");
 	}
+	//定义常数
+	$qa_root_to_sns=$_SERVER['DOCUMENT_ROOT'];  //得到站点根目录的目录
+	
 	//添加整合Question2Answer的引用
 		
 	require_once $qa_root_to_sns.'/qa-include/qa-base.php';
@@ -18,7 +21,7 @@
 	require("api/base_support.php");
 		
 	
-	$qa_root_to_sns=$_SERVER['DOCUMENT_ROOT'];  //得到站点根目录的目录
+	
 	
 	if(qa_get_logged_in_userid()=='')
 	{
