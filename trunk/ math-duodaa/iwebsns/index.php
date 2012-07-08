@@ -16,10 +16,23 @@
 		header("location:install/index.php");
 	}
 	//添加整合Question2Answer
-	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-base.php';
-	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-app-users.php';
+	$qa_root_to_sns=$_SERVER['DOCUMENT_ROOT'];
+	
+	require_once $qa_root_to_sns.'/qa-include/qa-base.php';
+	require_once $qa_root_to_sns.'/qa-include/qa-app-users.php';
 		
-	if(qa_get_logged_in_userid()==''){header('Location: '.$_SERVER['DOCUMENT_ROOT']);}
+	if(qa_get_logged_in_userid()=='')
+	{
+		echo '<script>window.location.href="/?qa=login&to=iwebsns"</script>';
+		exit;
+	}
+	else
+	{
+		echo '<script>window.location.href="/iwebsns/login_from_qa.php?e='.qa_get_logged_in_email().'"</script>';
+		exit;
+		
+	}
+	
 	////////////////////////////
 
 	require("foundation/asession.php");

@@ -3,13 +3,12 @@
 	if(!file_exists('docs/install.lock')){
 		header("location:install/index.php");
 	}
-	//添加整合Question2Answer
-	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-base.php';
-	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-app-users.php';
+	//添加整合Question2Answer的引用
 		
-	if(qa_get_logged_in_userid()==''){header('Location: '.$_SERVER['DOCUMENT_ROOT']);}
-	////////////////////////////
-
+	require_once $qa_root_to_sns.'/qa-include/qa-base.php';
+	require_once $qa_root_to_sns.'/qa-include/qa-app-users.php';
+	
+	//本身sns的引入
 	require("foundation/asession.php");
 	require("configuration.php");
 	require("includes.php");
@@ -17,6 +16,25 @@
 	require("foundation/fcontent_format.php");
 	require("foundation/fplugin.php");
 	require("api/base_support.php");
+		
+	
+	$qa_root_to_sns=$_SERVER['DOCUMENT_ROOT'];  //得到站点根目录的目录
+	
+	if(qa_get_logged_in_userid()=='')
+	{
+		echo '<script>window.location.href="/?qa=login&to=iwebsns"</script>';
+		exit;
+	}
+	elseif(get_sess_userid()== null)
+	{
+		echo '<script>window.location.href="/iwebsns/login_from_qa.php?e='.qa_get_logged_in_email().'"</script>';
+		exit;
+		
+	}
+	
+	////////////////////////////
+
+	
 	
 	//语言包引入
 	$pu_langpackage=new publiclp;
