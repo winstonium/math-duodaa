@@ -39,14 +39,25 @@
 		$sql="select * from $t_users where user_email='$u_email'";
 		$user_info=$dbo->getRow($sql);
 		
+		//如果sns里没有这个email帐号，就注册 一个然后登录
 		if(empty($user_info))
 		{
-			echo $u_email.'还没有激活。';
+            echo '<html>'."\n";
+			echo '<head></head>'."\n";
+			echo '<body>'."\n";
+            echo '你的空间账号已经激活。<br /><span id="leftTime">3</span>秒后重新进入空间主页.......'."\n";
+			echo '<script>var leftsec=3;function minusTime(){if(leftsec!=0){document.getElementById("leftTime").innerHTML=leftsec--;}else{alert("hahaha");leftsec--;}'."\n";
+			echo 'setInterval("minusTime();",1000)</script>'."\n";
+			echo '</body>'."\n";
+			echo '</html>'."\n";
+			
+			exit;
 		}
 		
-		if(get_sess_userid()==$user_info['user_id'])
+		elseif(get_sess_userid()!=$user_info['user_id'])
 		{
-			echo $u_email.'没有登录。';			
+			echo $u_email.'没有登录。';
+			exit;			
 		}
 		
 	}
