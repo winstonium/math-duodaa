@@ -47,7 +47,7 @@ $recommend = $dbo->getALL($sql);
 				</span>
 				<span>
 			    	<img style="cursor:pointer;" onclick="<?php echo $send_hi;?>(<?php echo $val["user_id"];?>)" src="skin/default/jooyea/images/hi.gif" title="<?php echo $f_langpackage->f_greet;?>" />
-					<img class="<?php echo $show_add_friend;?>" style="cursor:pointer;" onclick="javascript:<?php echo str_replace("{uid}",$val['user_id'],$send_join_js);?>" src="skin/default/jooyea/images/add.gif"  title="<?php echo str_replace("{he}",get_TP_pals_sex($val['user_sex']),$mp_langpackage->mp_add_mypals);?>" />
+					<!-- <img class="" style="cursor:pointer;" onclick="javascript:<?php echo str_replace("{uid}",$val['user_id'],$send_join_js);?>" src="skin/default/jooyea/images/add.gif"  title="<?php echo str_replace("{he}",get_TP_pals_sex($val['user_sex']),$mp_langpackage->mp_add_mypals);?>" /> -->
 				</span>
 			</li>
 			<?php }?>

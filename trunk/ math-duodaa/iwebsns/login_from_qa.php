@@ -34,10 +34,12 @@
 	{  
 		//数据表定义区
 		$t_users=$tablePreStr."users";
-    	$t_group_members=$tablePreStr."group_members";
 		$t_online=$tablePreStr."online";
+		$t_pals_def_sort=$tablePreStr."pals_def_sort";
+		$t_pals_sort=$tablePreStr."pals_sort";
 		$t_mypals=$tablePreStr."pals_mine";
-		$t_frontgroup=$tablePreStr."frontgroup";
+		$t_invite_code=$tablePreStr."invite_code";
+		$t_user_activation=$tablePreStr."user_activation";
 		
 		//定义读操作
 		$u_email=qa_get_logged_in_email();
@@ -59,9 +61,8 @@
 		   $is_pass=1;
 		   $user_ico=($user_sex==0)?"skin/$skinUrl/images/d_ico_0_small.gif":"skin/$skinUrl/images/d_ico_1_small.gif";
 	       
-		   //$sql="select user_id from $t_users where user_email='$user_email'";
-           //$user_info=$dbo->getRow($sql);
-          // $sort_rs = api_proxy("pals_sort_def");
+		   
+           $sort_rs = api_proxy("pals_sort_def");
 		   
 		   //写入数据
 		   dbtarget('w',$dbServs);
@@ -78,14 +79,14 @@
 
 	       $sql="insert into $t_online (user_id,user_name,user_sex,user_ico,active_time,hidden) values ($user_id,'$user_name',$user_sex,'$user_ico','$now_time',0)";
 	       $dbo->exeUpdate($sql);
-/*
+
 			foreach($sort_rs as $rs){
 				$sort_id=$rs['id'];
 				$sort_name=$rs['name'];
 				$sql="insert into $t_pals_sort ( name , user_id ) values ( '$sort_name' , $user_id )";
 				$dbo->exeUpdate($sql);
 			}
-*/			
+			
 			//写入session登录
 			set_sess_userid($user_id);
 		    set_sess_usersex($user_sex);
@@ -113,6 +114,12 @@
 		
 		elseif(get_sess_userid()!=$user_info['user_id'])
 		{
+			//写入session登录
+			set_sess_userid($user_info['user_id']);
+		    set_sess_usersex($user_info['user_sex']);
+		    set_sess_username($user_info['user_name']);
+		    set_sess_userico($user_info['user_ico']);
+		    set_sess_online('0');
 			echo $u_email.'没有登录。';
 			exit;			
 		}
