@@ -109,7 +109,8 @@
 	
 	define('QA_WORDPRESS_INTEGRATE_PATH', '/PATH/TO/WORDPRESS');
 */
-
+    //define('QA_WORDPRESS_INTEGRATE_PATH', '../wordpress');
+    
 /*
 	Some settings to help optimize your Question2Answer site's performance.
 	
