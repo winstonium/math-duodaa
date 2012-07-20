@@ -1,21 +1,14 @@
 
 <?php
+//读取xml
+$qdoc = new DOMDocument(); 
+$qdoc->load('view.xml'); //读取xml文件 
 
-/** Include path **/
-//set_include_path('./Classes/');
-
-/** PHPExcel_IOFactory */
-include '../PHPExcel/Classes/PHPExcel/IOFactory.php';
+$qids = $qdoc->getElementsByTagName( "id" ); 
+$qAskers = $qdoc->getElementsByTagName( "a_username" ); 
+$qTitles= $qdoc->getElementsByTagName( "caption" ); 
 
 
-
-$inputFileName = './view.xlsx';
-//echo 'Loading file ',pathinfo($inputFileName,PATHINFO_BASENAME),' using IOFactory to identify the format<br />';
-$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-//echo '<hr />';
-
-$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
-//var_dump($sheetData);
 
 ?>
 
@@ -111,13 +104,13 @@ $page=isset($_REQUEST['page'])?$_REQUEST['page']:1;
 //设置每页显示条数
 $Count_per_Page = 400 ;
 
-for($i=2 + $Count_per_Page *($page-1); $i<2 + $Count_per_Page * $page && isset($sheetData[$i]) ;$i++)
+for($i= $Count_per_Page *($page-1); $i< $Count_per_Page * $page && isset($qids->item($i)->nodeValue) ;$i++)
 {
 		 
-	    $qid = $sheetData[$i]['A'];
-		$qAsker = $sheetData[$i]['B'];
+	    $qid = $qids->item($i)->nodeValue;
+		$qAsker = $qAskers->item($i)->nodeValue;
 		//$qDoner = $sheetData[$i]['C'];
-		$qTitle = $sheetData[$i]['D'];
+		$qTitle = $qTitles->item($i)->nodeValue;
 		
 		echo '<div class="qdiv">';
 		echo '<a class="qlink" target="_blank" href="\view_'.$qid.'.html">'.$qTitle.'</a>';
