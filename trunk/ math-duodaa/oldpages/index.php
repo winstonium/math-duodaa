@@ -44,7 +44,7 @@ div.qdiv a.asker:hover{}
 </SCRIPT>
 
 <!--[if IE]><LINK rel="stylesheet" type="text/css" href="./css/ie.css"><![endif]-->
-<META name="GENERATOR" content="MSHTML 9.00.8112.16441"></HEAD>
+</HEAD>
 <BODY class="qa-template-question qa-body-js-off">
 
 
@@ -100,9 +100,11 @@ style='color: rgb(51, 102, 204); font-family: "微软雅黑"; font-size: 14px;'>
 <DIV class="qa-main">
 <br/>
 <?php 
+
 $page=isset($_REQUEST['page'])?$_REQUEST['page']:1;
 //设置每页显示条数
 $Count_per_Page = 400 ;
+$qShowHtml='';
 
 for($i= $Count_per_Page *($page-1); $i< $Count_per_Page * $page && isset($qids->item($i)->nodeValue) ;$i++)
 {
@@ -112,14 +114,15 @@ for($i= $Count_per_Page *($page-1); $i< $Count_per_Page * $page && isset($qids->
 		//$qDoner = $sheetData[$i]['C'];
 		$qTitle = $qTitles->item($i)->nodeValue;
 		
-		echo '<div class="qdiv">';
-		echo '<a class="qlink" target="_blank" href="\view_'.$qid.'.html">'.$qTitle.'</a>';
-		echo '<span style="font-size: 11px;">&nbsp;&nbsp;作者</span><a class="qasker" target="_blank" href="\?qa=user/'.$qAsker.'">'.$qAsker.'</a>';
-		echo '</div>'."\n";
+		
+		$qShowHtml.= '<div class="qdiv">';
+		$qShowHtml.='<a class="qlink" target="_blank" href="\view_'.$qid.'.html">'.$qTitle.'</a>';
+		$qShowHtml.='<span style="font-size: 11px;">&nbsp;&nbsp;作者</span><a class="qasker" target="_blank" href="\?qa=user/'.$qAsker.'">'.$qAsker.'</a>';
+		$qShowHtml.='</div>'."\n";
 		
 
 	}
-
+ echo $qShowHtml;
 
 
 ?>
