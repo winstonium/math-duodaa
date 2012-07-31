@@ -68,6 +68,7 @@ register_theme_directory( BP_PLUGIN_DIR . '/bp-themes' );
 require( BP_PLUGIN_DIR . '/bp-core/bp-core-wpabstraction.php' );
 
 // Test to see whether this is a new installation or an upgraded version of BuddyPress
+//if(!isset($bp))$bp=new stdClass();
 if ( !$bp->database_version = get_site_option( 'bp-db-version' ) ) {
 	if ( $bp->database_version = get_option( 'bp-db-version' ) ) {
 		$bp->is_network_activate = 1;
