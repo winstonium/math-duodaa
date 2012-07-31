@@ -1,4 +1,0 @@
-<?php
-//ÒýÈëÓïÑÔ°ü
-$u_langpackage=new userslp;
-?>
