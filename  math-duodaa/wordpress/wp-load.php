@@ -64,7 +64,8 @@ if ( file_exists( ABSPATH . 'wp-config.php') ) {
  	
 //if(!is_user_logged_in()){wp_redirect('http://'.$_SERVER['HTTP_HOST']);exit;}
 
-	
+	if(true)
+	{
 	//添加整合Question2Answer的引用
 		
 	require_once $_SERVER['DOCUMENT_ROOT'].'/qa-include/qa-base.php';
@@ -121,4 +122,5 @@ if ( file_exists( ABSPATH . 'wp-config.php') ) {
 		};
 		//wp_redirect('http://'.$_SERVER['HTTP_HOST'].'?qa=login&to=wordpress');	
 	    //exit;
+	}
 	}
