@@ -103,7 +103,7 @@
 				'toname' => $handle,
 				'subject' => strtr($subject, $subs),
 				'body' => (empty($handle) ? '' : qa_lang_sub('emails/to_handle_prefix', $handle)).strtr($body, $subs),
-				'html' => false,
+				'html' => true,
 			));
 		
 		} else
