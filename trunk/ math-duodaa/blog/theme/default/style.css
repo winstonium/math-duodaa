@@ -1,10 +1,28 @@
 @CHARSET "UTF-8";
-
+body
+{
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+	
 
 <!-- 最顶部的条 -->
-div.blog_top
+div.blog_top_container
 {
 	height: 40px;
-	border: 1px dotted #00f;
+	width:100%;
+	clear: both;
+	background: #F4F4F4;
+	/* border-top: 1px solid #F4F4F4;*/
+	border-bottom: 1px solid #CCC;
 	
+	}
+
+div.blog_top_container.blog_top
+{
+	height: 100%;
+	width: 1000px;
+	text-align: left;
 	}
