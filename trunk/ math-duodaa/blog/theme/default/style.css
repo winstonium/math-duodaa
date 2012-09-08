@@ -111,3 +111,26 @@ div.blog_top_container .blog_top .nav_div div a:hover
 	
 	
 /* 主框中的样式*/
+div.main_frame
+{
+	width: 1000px;
+	border:0px;
+}
+
+
+div.main_frame .main_left
+{
+	width: 770px;
+	height: 100%;
+	border:0px;
+	float:left;
+}
+
+div.main_frame .main_left .article
+
+div.main_frame .main_right
+{
+	width: 230px;
+	height: 100%;
+	border:0px;
+}
