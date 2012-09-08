@@ -6,4 +6,3 @@ exit;
 }
 ?>
 
-<a href="http://duodaa.com">哆嗒</a>

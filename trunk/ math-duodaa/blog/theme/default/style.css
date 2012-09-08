@@ -1,1 +1,10 @@
 @CHARSET "UTF-8";
+
+
+<!-- 最顶部的条 -->
+div.blog_top
+{
+	height: 40px;
+	border: 1px dotted #00f;
+	
+	}
