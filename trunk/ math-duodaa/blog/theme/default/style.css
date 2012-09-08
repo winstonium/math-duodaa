@@ -5,24 +5,109 @@ body
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	text-align:center;
+}
+img
+{
+    border:0;	
+}
+div
+{
+	display:block;
+	}
+	
+div.clear
+{
+	height:0px;
+	clear:both;
 }
 	
-
-<!-- 最顶部的条 -->
+/*head的样式*/
 div.blog_top_container
 {
 	height: 40px;
 	width:100%;
-	clear: both;
+	/*clear: both;*/
 	background: #F4F4F4;
-	/* border-top: 1px solid #F4F4F4;*/
+	margin: 0 auto;
+	
 	border-bottom: 1px solid #CCC;
 	
 	}
 
-div.blog_top_container.blog_top
+div.blog_top_container div.blog_top
 {
 	height: 100%;
 	width: 1000px;
-	text-align: left;
+	text-align: left; 
+	border: 0px solid #000;
+	
 	}
+div.blog_top_container .blog_top .blog_logo
+{
+	
+	width:160px;
+	height:40px;
+	float:left;
+	}
+	
+div.blog_top_container .blog_top .nav_div
+{
+	float:left;
+	height:100%;
+}
+
+div.blog_top_container .blog_top .logon_div
+{
+	float:right;
+	height:100%;
+}
+
+div.blog_top_container .blog_top .logon_div div
+{
+	float:right;
+	height:100%;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 15px;	
+}
+
+div.blog_top_container .blog_top .logon_div div a
+{
+	 font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	 font-size:12px;
+	 color: #3B5998;
+	 text-decoration:none;
+	 display:block;
+	 padding-top:15px;	
+}
+
+	
+div.blog_top_container .blog_top .nav_div div
+{
+	float: left;
+	height:100%;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 25px;	
+}
+
+div.blog_top_container .blog_top .nav_div div a
+{
+	 font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	 font-size:16px;
+	 color: #3B5998;
+	 text-decoration:none;
+	 display:block;
+	 padding-top:10px;	
+}	
+
+div.blog_top_container .blog_top .nav_div div a:hover
+{
+	text-decoration:underline;
+}
+	
+	
+/* 主框中的样式*/
