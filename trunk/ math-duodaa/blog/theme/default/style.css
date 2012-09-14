@@ -127,10 +127,38 @@ div.main_frame .main_left
 }
 
 div.main_frame .main_left .article
+{
+	}
 
 div.main_frame .main_right
 {
 	width: 230px;
 	height: 100%;
-	border:0px;
+	border: 1px solid #00CC00;
+	float: right;
 }
+
+div.main_frame .main_right .photo
+{
+	width: 200px;
+	height:200px;
+	padding:15px;
+}
+
+div.main_frame .main_right .username
+{
+	text-align: left;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 15px;    
+}
+
+div.main_frame .main_right .username a
+{
+	font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #039;
+	}
