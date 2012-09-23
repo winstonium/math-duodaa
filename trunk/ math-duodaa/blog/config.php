@@ -14,7 +14,7 @@ define('ACTIVABLE_POINT',1000);
 define('BLOG_NOTLOGIN_TRANSFER','/?qa=login&to=blog');
 
 //设置主题
-define('BOLOG_THEME','default');
+define('BLOG_THEME','default');
 
 
 //设置语言
