@@ -53,7 +53,8 @@ if($is_acted==0)
 
 $bqs=blog_get_query_str();
 
-$blog_page=new blog_page();
+
+
 $blog_page->pagetype=$bqs;
 $blog_page->print_page();
 
