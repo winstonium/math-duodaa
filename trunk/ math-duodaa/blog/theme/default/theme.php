@@ -6,7 +6,10 @@ exit;
 }
 
 $theme_dir = dirname(__FILE__);
-require_once dirname($theme_dir).'/default.php';
+require_once BLOG_ROOT.'/theme/default.php';
+
+$blog_page=new blog_page();
+$blog_page->css_href=convert_dir_src(dirname(__FILE__)).'\style.css';
 
 ?>
 

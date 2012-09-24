@@ -35,8 +35,8 @@ function blog_get_query_info()
 //将服务器路径转化为相对于blog站点的客服端路径
 function convert_dir_src($dir)
 {
-require_once dirname(dirname(__FILE__)).'/config.php';
-$src=str_replace($dir, BLOG_QAROOT, '/');
+
+$src=str_replace(BLOG_QAROOT, '', $dir);
 
 return $src;
 

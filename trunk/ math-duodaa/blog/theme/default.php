@@ -10,7 +10,7 @@ class blog_page
    //以下设置在载入中需要使用的参数
    var $pagetype='home';  //设置页面类型，默认为用户主页
    var $head_title='';	 //设置页面head标签内的title
-   var $css_dir='';  //设置css的路径
+   var $css_href='';  //设置css的路径
    
    //以下设置返回结果的变量
    var $head;  //页面的head标签内的内容
@@ -27,7 +27,7 @@ class blog_page
       $html.='<head>'."\n";
       $html.='<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'."\n";
       $html.='<title>'.$title.'</title>'."\n";
-      $html.='<link  rel="stylesheet" type="text/css" href="style.css" />'."\n";
+      $html.='<link  rel="stylesheet" type="text/css" href="'.$this->css_href.'" />'."\n";
       $html.='</head>'."\n";
       $this->head=$html;
    
