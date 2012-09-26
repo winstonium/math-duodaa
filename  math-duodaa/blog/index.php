@@ -19,13 +19,7 @@ $blog_user_handle=trim(qa_get_logged_in_handle());
 $is_acted=is_activated($blog_user_handle);
 
 $bqs='';
-if($is_acted==-2)
-{
-	$bqs='not_log_on';
-    echo $blog_lang->error_info['not_log_on'];
-	exit;
 
-}
 
 if($is_acted==-1)
 {
@@ -51,21 +45,27 @@ if($is_acted==0)
 
 
 
-$bqs=blog_get_query_str();
-
-
+$bqs=blog_get_query_info();
 
 $blog_page->pagetype=$bqs;
-$blog_page->print_page();
+
 
 //首页代码
-if($bqs=='home')
+
+if($bqs['type']=='home')
 {
-	//echo is_activated($blog_user_handle);
-	//echo is_activated('hahaha').'||';
+	echo 'sssssssssssssssssssss';
+	exit;
 	
-	//$ats = blog_load_articles('math001','','id',0);
-	
+}
+
+else if($bqs['type']=='user')
+{
+	//echo 'fffffff';
+	//echo $bqs['para1'];
+	$blog_page->pagetype=$bqs['type'];
+	$blog_page->page_paras=$bqs;
+	$blog_page->print_page();
 	exit;
 	
 }

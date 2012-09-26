@@ -27,16 +27,16 @@ function is_activated($handle)
 {
   if($handle=='') 
   {
-  	return -2;
+  	return -2;           // 没有登录
   }
   if(is_blocked($handle))
   {
-  	return -1;
+  	return -1;          // 被封号
   } 
   if(is_dir(BLOG_ROOT.'/data/'.$handle)) 
   {
   	//echo BLOG_ROOT.'/data/'.$handle;
-  	return 1;
+  	return 1;          // 
   }
   else 
   {
