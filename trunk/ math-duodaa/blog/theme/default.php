@@ -8,9 +8,13 @@ exit;
 class blog_page
 {
    //以下设置在载入中需要使用的参数
+   var $lang;              //设置语言
    var $pagetype='home';  //设置页面类型，默认为用户主页
    var $head_title='';	 //设置页面head标签内的title
    var $css_href='';  //设置css的路径
+   var $blog_logo='';
+   var $bg_jpg='';  //设置背景图片的路径
+   var $page_paras=null;  //设置页面参数
    
    //以下设置返回结果的变量
    var $head;  //页面的head标签内的内容
@@ -37,10 +41,12 @@ class blog_page
    function load_body()
    {    
    	  $html='';
-      $html.='<body>'."\n";
+      $html.='<body background="'.$this->bg_jpg.'">'."\n";
+   	  $html.='<center>'."\n";
       $html.=$this->set_body_head()."\n";
       $html.=$this->set_body_main()."\n";
       $html.=$this->set_body_foot()."\n";
+      $html.='</center>'."\n";
       $html.='</body>'."\n";
       $html.='</html>'."\n";
       $this->body=$html;
@@ -48,8 +54,37 @@ class blog_page
    
    function set_body_head()
    {
-      $html='';
-      $html.='hahaha'."\n";
+   	  
+   	  if($this->page_paras==null)$p_paras['type']='home';
+   	  else $p_paras=$this->page_paras;   	  
+      
+   	  
+   	  $html='';
+   	  
+   	  if($p_paras['type']=='user')
+   	  {
+   	    $html.='<div class="blog_top_container">'."\n";
+   	    $html.='<div class="blog_top">'."\n";
+   	    $html.='<div class="blog_logo"><img src="'.$this->blog_logo.'" />'."\n";
+   	    $html.='</div>'."\n";
+   	    $html.='<div class="nav_div">'."\n";
+        $html.='<div><a href="/">'.$this->lang->user_info['user_qa_home'].'</a></div>'."\n";
+        $html.='<div><a href="#">空间首页</a></div>'."\n";
+        $html.='<div><a href="#">发表文章</a></div>'."\n";
+        $html.='</div>'."\n";
+        $html.='<div class="logon_div">'."\n";
+        $html.='<div><a href="/">登录</a></div>'."\n";
+        $html.='<div><a href="#">注册</a></div>'."\n";
+        $html.='</div>'."\n";
+        $html.='</div>'."\n";
+        $html.='</div>'."\n";
+        $html.='<div class="clear"></div>'."\n";
+      	  
+   	  }
+   
+   	  
+   	  
+   	  
       return $html;
    }
    

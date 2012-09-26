@@ -18,15 +18,12 @@ function blog_get_query_info()
    $bq = blog_get_query_str();
    $bqs = explode('_', $bq);
 
-   $qinfo= array(
-   'type' <= bqs(0)
+   for($i=1;isset($bqs[$i]);$i++)
+   {
+     $qinfo['para'.$i]=trim($bqs[$i]);
+   }
+   $qinfo['type']=trim($bqs[0]);
    
-   
-   );
-  
-   
-    
-    
     return $qinfo;
 
     
@@ -37,6 +34,8 @@ function convert_dir_src($dir)
 {
 
 $src=str_replace(BLOG_QAROOT, '', $dir);
+if($src=='')$src='/';
+//$src=str_replace('\\', '/', $src);
 
 return $src;
 
