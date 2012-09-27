@@ -11,7 +11,11 @@ require_once BLOG_ROOT.'/include/users.php';
 //语言与主题
 require_once BLOG_ROOT.'/lang/'.BLOG_LANG.'/lang.php';
 $blog_lang= new blog_lang();
+require_once BLOG_ROOT.'/include/urls.php';
+$blog_urls= new blog_urls();
 require_once BLOG_ROOT.'/theme/'.BLOG_THEME.'/theme.php';
+
+
 //require_once BLOG_ROOT;
 
 $blog_user_handle=trim(qa_get_logged_in_handle());
