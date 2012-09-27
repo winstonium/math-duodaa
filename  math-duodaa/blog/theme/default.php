@@ -9,12 +9,13 @@ class blog_page
 {
    //以下设置在载入中需要使用的参数
    var $lang;              //设置语言
-   var $pagetype='home';  //设置页面类型，默认为用户主页
-   var $head_title='';	 //设置页面head标签内的title
-   var $css_href='';  //设置css的路径
+   var $urls;              //设置链接集合
+   var $pagetype='home';   //设置页面类型，默认为用户主页
+   var $head_title='';	   //设置页面head标签内的title
+   var $css_href='';       //设置css的路径
    var $blog_logo='';
-   var $bg_jpg='';  //设置背景图片的路径
-   var $page_paras=null;  //设置页面参数
+   var $bg_jpg='';         //设置背景图片的路径
+   var $page_paras=null;   //设置页面参数
    
    //以下设置返回结果的变量
    var $head;  //页面的head标签内的内容
@@ -68,12 +69,13 @@ class blog_page
    	    $html.='<div class="blog_logo"><img src="'.$this->blog_logo.'" />'."\n";
    	    $html.='</div>'."\n";
    	    $html.='<div class="nav_div">'."\n";
-        $html.='<div><a href="/">'.$this->lang->user_info['user_qa_home'].'</a></div>'."\n";
-        $html.='<div><a href="#">空间首页</a></div>'."\n";
+        $html.='<div><a href="'.$this->urls->user_info['user_qa_home'].'">'.$this->lang->user_info['user_qa_home'].'</a></div>'."\n";
+        $html.='<div><a href="'.$this->urls->user_info['user_blog_home'].'">'.$this->lang->user_info['user_blog_home'].'</a></div>'."\n";
+        $html.='<div><a href="'.$this->urls->user_info['user_blog_myhome'].'">'.$this->lang->user_info['user_blog_myhome'].'</a></div>'."\n";
         $html.='<div><a href="#">发表文章</a></div>'."\n";
         $html.='</div>'."\n";
         $html.='<div class="logon_div">'."\n";
-        $html.='<div><a href="/">登录</a></div>'."\n";
+        $html.='<div><a href="'.$this->urls->user_info['user_blog_myhome'].'">'.$this->urls->user_info['user_blog_myhome'].'</a></div>'."\n";
         $html.='<div><a href="#">注册</a></div>'."\n";
         $html.='</div>'."\n";
         $html.='</div>'."\n";
