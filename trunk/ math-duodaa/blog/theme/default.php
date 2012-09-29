@@ -8,6 +8,7 @@ exit;
 class blog_page
 {
    //以下设置在载入中需要使用的参数
+   var $uis;
    var $lang;              //设置语言
    var $urls;              //设置链接集合
    var $pagetype='home';   //设置页面类型，默认为用户主页
@@ -21,7 +22,10 @@ class blog_page
    var $head;  //页面的head标签内的内容
    var $body;  //页面的body标签内的内容
    
-  
+   function __construct($uis)
+   {
+      $this->uis=$uis;
+   }
    
    
    function load_head($title='',$keyword='')
@@ -69,14 +73,14 @@ class blog_page
    	    $html.='<div class="blog_logo"><img src="'.$this->blog_logo.'" />'."\n";
    	    $html.='</div>'."\n";
    	    $html.='<div class="nav_div">'."\n";
-        $html.='<div><a href="'.$this->urls->user_info['user_qa_home'].'">'.$this->lang->user_info['user_qa_home'].'</a></div>'."\n";
-        $html.='<div><a href="'.$this->urls->user_info['user_blog_home'].'">'.$this->lang->user_info['user_blog_home'].'</a></div>'."\n";
-        $html.='<div><a href="'.$this->urls->user_info['user_blog_myhome'].'">'.$this->lang->user_info['user_blog_myhome'].'</a></div>'."\n";
+        $html.='<div>'.$this->uis->items['USR_qahome_url'].'</div>'."\n";
+        $html.='<div>'.$this->uis->items['USR_bloghome_url'].'</div>'."\n";
+        $html.='<div>'.$this->uis->items['USR_blogmyhome_url'].'</div>'."\n";
         $html.='<div><a href="#">发表文章</a></div>'."\n";
         $html.='</div>'."\n";
         $html.='<div class="logon_div">'."\n";
-        $html.='<div><a href="'.$this->urls->user_info['user_blog_myhome'].'">'.$this->urls->user_info['user_blog_myhome'].'</a></div>'."\n";
-        $html.='<div><a href="#">注册</a></div>'."\n";
+        $html.='<div>'.$this->uis->items['USR_login_url'].'</div>'."\n";
+        $html.='<div>'.$this->uis->items['USR_register_url'].'</div>'."\n";
         $html.='</div>'."\n";
         $html.='</div>'."\n";
         $html.='</div>'."\n";

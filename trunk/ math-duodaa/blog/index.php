@@ -9,10 +9,12 @@ require_once BLOG_ROOT.'/include/articles.php';
 require_once BLOG_ROOT.'/include/users.php';
 
 //语言与主题
-require_once BLOG_ROOT.'/lang/'.BLOG_LANG.'/lang.php';
-$blog_lang= new blog_lang();
-require_once BLOG_ROOT.'/include/urls.php';
-$blog_urls= new blog_urls();
+//require_once BLOG_ROOT.'/lang/'.BLOG_LANG.'/lang.php';
+//$blog_lang= new blog_lang();
+//require_once BLOG_ROOT.'/include/urls.php';
+//$blog_urls= new blog_urls();
+require_once BLOG_ROOT.'/include/useritems.php';
+$uis=new useritems();
 require_once BLOG_ROOT.'/theme/'.BLOG_THEME.'/theme.php';
 
 
@@ -70,6 +72,7 @@ else if($bqs['type']=='user')
 	$blog_page->pagetype=$bqs['type'];
 	$blog_page->page_paras=$bqs;
 	$blog_page->print_page();
+	//var_dump($uis->items);
 	exit;
 	
 }
