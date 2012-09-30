@@ -6,7 +6,7 @@ echo '<script>window.location.href="/";</script>';
 exit;
 }
 
-
+require_once 'files.php';
 function is_blocked($handle)
 {
    $json = file_get_contents(BLOG_ROOT.'/data/userconfig.js') ;
@@ -44,4 +44,9 @@ function is_activated($handle)
   }
   
   
+}
+function blog_get_userconfig($user)
+{
+	$dir = BLOG_ROOT.'/data/'.$user.'/config.js';
+	return blog_load_jstoarray($dir);
 }

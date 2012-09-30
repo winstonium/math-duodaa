@@ -96,7 +96,34 @@ class blog_page
    
    function set_body_main()
    {
+   	  if($this->page_paras==null)$p_paras['type']='home';
+   	  else $p_paras=$this->page_paras; 
+   	
       $html='';
+      if($p_paras['type']=='user')
+      {
+          if(!isset($p_paras['para2']))  //没有设置第二个参数，说明是用户的首页
+          {
+            $user = $p_paras['para1'];   //para1就是当然要找的用户名
+            $user_config =blog_get_userconfig($user);
+          	//$html.='sssssssssssssss<br>';
+          //	var_dump($user_config);
+            $articles=blog_get_articlelist($user,$user_config['main_article_counts']);
+            
+            //var_dump($articles_detail);
+            if($articles!=null)
+            {
+            	$articles_detail=blog_load_articles($user, $articles);
+            	$html.=$this->uis->items['USR_noarticle_url'];
+            }
+           
+            
+            
+          }
+      
+      }
+      
+      
       return $html;
    }
    
