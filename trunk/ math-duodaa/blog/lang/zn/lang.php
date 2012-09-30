@@ -25,10 +25,14 @@ return array(
  'USR_blogmyhome' => '我的空间',
 
 
+
+
  'USR_recent_comments' =>'最新评论',
  'USR_recentmsg' =>'最新留言',
- 'USR_allmsg' =>'全部留言'
+ 'USR_allmsg' =>'全部留言',
 
+ 'USR_noarticle_url' => '你暂时还没有文章，::url1::这里新建',
+ 'USR_noarticle' => '点击'
 
 );
 

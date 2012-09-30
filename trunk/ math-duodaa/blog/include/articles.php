@@ -5,24 +5,14 @@ if(!BLOG_VER)
 echo '<script>window.location.href="/";</script>';	
 exit;
 }
+require_once 'files.php';
 
-
-function blog_load_articles($handle,$category='',$orderby='id',$desc=0)
+function blog_load_articles($user,$articlenums)
 {
-    //$xml_array=simplexml_load_file(BLOG_ROOT.'/data/'.$handle.'/articles.xml');
-    $json = file_get_contents(BLOG_ROOT.'/data/'.$handle.'/articles.js') ;
-    
-    //下面的代码用于去掉utf-8文本的bom头。
-    if ( substr($json, 0, 3)=="\xEF\xBB\xBF")
-           $json=substr_replace($json, '', 0, 3) ; 
-    
-  
-    
-    $json_arr = json_decode($json,true);
-    
-    $articles=$json_arr;
-    $articles=blog_articles_order($articles,$orderby,$desc);
-    
+   foreach ($articlenums as $key => $val)
+   {
+   	 $articles[$key]= blog_load_single_article($user,$articlenums[$key]);
+   }    
     
     
     return $articles;//$articles;
@@ -65,3 +55,31 @@ function blog_articles_order($atcs,$by='id',$desc=0)
         return $atcs1;
 }
 
+function blog_load_single_article($user,$articlenum)
+{
+	$dir = BLOG_ROOT.'/data/'.$user.'/articles/'.$articlenum.'.js' ;
+	//echo $dir;
+	
+	return blog_load_jstoarray($dir);
+
+}
+
+function blog_get_articlelist($user,$count)
+{
+ $dir=BLOG_ROOT.'/data/'.$user.'/articles';
+ $list=blog_get_filelist($dir);
+ 
+ foreach($list as $key =>$val)
+ {
+   if(strrchr($val,'.js')!='.js')$list=array_diff($list, array($val));   //把非.js的文件从表中去掉
+   else $list[$key]=substr($val,0, strlen($val)-strlen('.js'));          // 后缀去掉
+ }
+ 
+ if(isset($count))
+ {$list = array_slice($list, 0,$count);}
+ 
+
+ 
+ 
+ return $list;
+}
