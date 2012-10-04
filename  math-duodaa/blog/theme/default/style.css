@@ -369,3 +369,13 @@ div.main_frame .main_right .ms_showmore a
 	font-family: "SimSun","宋体","Arial Narrow";
 	font-size:10px;
 }
+
+div.copyright
+{
+	text-align:left;
+    width:900px;
+    padding:15px;
+    font-size:10px;
+
+
+}

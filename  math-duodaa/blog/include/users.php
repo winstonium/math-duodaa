@@ -50,3 +50,4 @@ function blog_get_userconfig($user)
 	$dir = BLOG_ROOT.'/data/'.$user.'/config.js';
 	return blog_load_jstoarray($dir);
 }
+

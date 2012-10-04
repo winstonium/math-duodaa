@@ -2,6 +2,9 @@
 require 'config.php';
 require_once BLOG_QAROOT.'/qa-include/qa-base.php';
 require_once BLOG_QAROOT.'/qa-include/qa-app-users.php';
+require_once BLOG_QAROOT.'/qa-include/qa-db-users.php';
+require_once BLOG_QAROOT.'/qa-include/qa-db-selects.php';
+
 
 //基本的函数载入
 require_once BLOG_ROOT.'/include/strings.php';
