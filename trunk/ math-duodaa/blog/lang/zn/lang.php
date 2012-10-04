@@ -24,10 +24,9 @@ return array(
  'USR_blogmyhome_url' => '::url1::',
  'USR_blogmyhome' => '我的空间',
 
-
-
-
  'USR_recent_comments' =>'最新评论',
+ 
+ 
  'USR_recentmsg' =>'最新留言',
  'USR_allmsg' =>'全部留言',
 
