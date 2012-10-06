@@ -20,6 +20,15 @@ function blog_load_articles($user,$articlenums)
     
 }
 
+function blog_load_messages($user,$messagenums)
+{
+   foreach ($messagenums as $key => $val)
+   {
+   	 $messages[$key]= blog_load_single_message($user,$messagenums[$key]);
+   }  
+   return $messages;
+}
+
 function blog_articles_order($atcs,$by='id',$desc=0)
 {
         $i=0;
@@ -55,6 +64,14 @@ function blog_articles_order($atcs,$by='id',$desc=0)
         return $atcs1;
 }
 
+function blog_strshowinglen($str,$maxlen=20)
+{
+  
+  if(strlen($str)>$maxlen-3)$s=mb_substr($str, 0,$maxlen-3,'utf-8').'...';
+  else $s=$str;
+  return $s;
+}
+
 function blog_load_single_article($user,$articlenum)
 {
 	$dir = BLOG_ROOT.'/data/'.$user.'/articles/'.$articlenum.'.js' ;
@@ -63,6 +80,15 @@ function blog_load_single_article($user,$articlenum)
 	return blog_load_jstoarray($dir);
 
 }
+
+function blog_load_single_message($user,$msgnum)
+{
+   $dir= BLOG_ROOT.'/data/'.$user.'/messages/'.$articlenum.'.js' ;
+   return blog_load_jstoarray($dir);
+  
+}
+
+
 
 function blog_get_articlelist($user,$count)
 {
@@ -76,10 +102,37 @@ function blog_get_articlelist($user,$count)
  }
  
  if(isset($count))
- {$list = array_slice($list, 0,$count);}
+ {
+ 	$list = array_slice($list, 0,$count);
+ }
  
+ return $list;
+}
 
+function blog_get_messagelist($user,$count)
+{
+   $dir=BLOG_ROOT.'/data/'.$user.'/messages';
+   $list=blog_get_filelist($dir);
  
+ foreach($list as $key =>$val)
+ {
+   if(strrchr($val,'.js')!='.js')$list=array_diff($list, array($val));   //把非.js的文件从表中去掉
+   else $list[$key]=substr($val,0, strlen($val)-strlen('.js'));          // 后缀去掉
+ }
  
+ if(isset($count))
+ {
+ 	$list = array_slice($list, 0,$count);
+ }
+ 
+ return $list;
+}
+
+
+function blog_get_latescommentlist($user,$count=5)
+{
+ $dir = BLOG_ROOT.'/data/'.$user.'/comments/latest.js' ;
+ $list = blog_load_jstoarray($dir);
+ $list = array_slice($list,0,$count);
  return $list;
 }

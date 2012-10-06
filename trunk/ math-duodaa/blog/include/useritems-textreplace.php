@@ -5,8 +5,11 @@ return array(
                                  array($this->items['USR_qahome'],'bb') 
                                 )
      
-                                
-                                
+        ,                        
+       'USR_copyright'  => array( 
+                                 array('year','sitename'), 
+                                 array(date('Y').'-'.(date('Y')+10),BLOG_SITENAME) 
+                                )                       
                                 
      
      );
