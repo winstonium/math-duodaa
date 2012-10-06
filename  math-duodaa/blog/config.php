@@ -7,6 +7,9 @@ define('BLOG_ROOT',dirname(__FILE__));
 //设置qa站点根目录
 define('BLOG_QAROOT',dirname(BLOG_ROOT));
 
+//设置站点名称
+define('BLOG_SITENAME', '哆嗒数学网空间');
+
 //设置可以激活的分数
 define('ACTIVABLE_POINT',1000);
 
