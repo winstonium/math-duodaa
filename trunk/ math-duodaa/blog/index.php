@@ -75,7 +75,9 @@ else if($bqs['type']=='user')
 	$blog_page->pagetype=$bqs['type'];
 	$blog_page->page_paras=$bqs;
 	$blog_page->print_page();
-	//var_dump($uis->items);
+	
+	//$list=blog_get_latescommentlist('math001');
+	//var_dump($list[0]);
 	exit;
 	
 }
