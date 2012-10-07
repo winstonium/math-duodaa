@@ -64,13 +64,6 @@ function blog_articles_order($atcs,$by='id',$desc=0)
         return $atcs1;
 }
 
-function blog_strshowinglen($str,$maxlen=20)
-{
-  
-  if(strlen($str)>$maxlen-3)$s=mb_substr($str, 0,$maxlen-3,'utf-8').'...';
-  else $s=$str;
-  return $s;
-}
 
 function blog_load_single_article($user,$articlenum)
 {

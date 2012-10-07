@@ -195,16 +195,20 @@ class blog_page
           	
 	       	$html.='<div class="photo" >'.$avartahtml.'</div>'."\n";
 	        $html.='<div class="username"><a href="'.convert_dir_src(BLOG_QAROOT).'?qa=user/'.$user.'">'.$user.'</a></div>'."\n";					
+          	$comments = blog_get_latescommentlist($user);
+          	
           	
 	        //评论显示
 	        $html.='<div class="comments">'."\n";
             $html.='<div class="cm_title">'.$this->uis->items['USR_recent_comments'].'</div>'."\n";
             $html.='<div class="clear"></div>'."\n";
-            $html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
-            $html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
-            $html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
-            $html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
-            $html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
+            
+            foreach($comments as $key =>$val)
+          	{
+          	    $html.='<div class="cm_detail"><a href="'.convert_dir_src(BLOG_ROOT).'/?bq=user_'.$user.'msg'.'">'.blog_cutstring($val['content']).'</a> </div>'."\n";
+        		
+          	}
+            //$html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
             $html.='</div>'."\n";
             //评论显示完
 
