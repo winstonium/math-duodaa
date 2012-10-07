@@ -7,6 +7,7 @@ exit;
 }
 
 require_once 'files.php';
+
 function is_blocked($handle)
 {
    $json = file_get_contents(BLOG_ROOT.'/data/userconfig.js') ;
@@ -43,8 +44,21 @@ function is_activated($handle)
   	return 0;
   }
   
-  
 }
+function blog_is_userexist($user)
+{
+ if(is_dir(BLOG_ROOT.'/data/'.$user)) 
+  {
+   	return 1;          // 
+  }
+  else 
+  {
+  	return 0;
+  }
+	
+}
+
+
 function blog_get_userconfig($user)
 {
 	$dir = BLOG_ROOT.'/data/'.$user.'/config.js';

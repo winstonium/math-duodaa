@@ -76,7 +76,7 @@ function blog_load_single_article($user,$articlenum)
 
 function blog_load_single_message($user,$msgnum)
 {
-   $dir= BLOG_ROOT.'/data/'.$user.'/messages/'.$articlenum.'.js' ;
+   $dir= BLOG_ROOT.'/data/'.$user.'/messages/'.$msgnum.'.js' ;
    return blog_load_jstoarray($dir);
   
 }
@@ -102,7 +102,7 @@ function blog_get_articlelist($user,$count)
  return $list;
 }
 
-function blog_get_messagelist($user,$count)
+function blog_get_messagelist($user,$count=5)
 {
    $dir=BLOG_ROOT.'/data/'.$user.'/messages';
    $list=blog_get_filelist($dir);

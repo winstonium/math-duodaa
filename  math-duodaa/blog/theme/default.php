@@ -205,7 +205,7 @@ class blog_page
             
             foreach($comments as $key =>$val)
           	{
-          	    $html.='<div class="cm_detail"><a href="'.convert_dir_src(BLOG_ROOT).'/?bq=user_'.$user.'msg'.'">'.blog_cutstring($val['content']).'</a> </div>'."\n";
+          	    $html.='<div class="cm_detail"><a href="'.convert_dir_src(BLOG_ROOT).'/?bq=user_'.$user.'_ar_'.$val['articlenum'].'#comment'.$val['commentid'].'">'.blog_cutstring($val['content']).'</a> </div>'."\n";
         		
           	}
             //$html.='<div class="cm_detail"><a href="#">对的，你好呀。。。。。ffffff...</a> </div>'."\n";
@@ -213,15 +213,18 @@ class blog_page
             //评论显示完
 
             //留言显示
+            $messages=blog_get_messagelist($user);
+            $messages_detail=blog_load_messages($user, $messages);
             $html.='<div class="messages">'."\n";
             $html.='<div class="ms_title">'.$this->uis->items['USR_recentmsg'].'</div>'."\n";
-            $html.='<div class="ms_showmore"><a href="#">全部留言...</a> </div>'."\n";
+            $html.='<div class="ms_showmore"><a href="'.convert_dir_src(BLOG_ROOT).'/?bq=user_'.$user.'_msg'.'">'.$this->uis->items['USR_allmsg'].'</a> </div>'."\n";
             $html.='<div class="clear"></div>'."\n";
-            $html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
-			$html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
-			$html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
-			$html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
-			$html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
+            foreach($messages_detail as $key => $val)
+            {
+            $html.='<div class="ms_detail"><a href="'.convert_dir_src(BLOG_ROOT).'/?bq=user_'.$user.'_msg'.'#'.$key.'">'.blog_cutstring($val['content']).'</a></div>'."\n";
+            }
+            //$html.='<div class="ms_detail"><a href="#">对的，你好呀。。。。。 </a></div>'."\n";
+		
             $html.='</div>'."\n";
             //留言显示完
 

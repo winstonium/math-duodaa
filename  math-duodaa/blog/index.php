@@ -72,6 +72,12 @@ else if($bqs['type']=='user')
 {
 	//echo 'fffffff';
 	//echo $bqs['para1'];
+	if(!blog_is_userexist($bqs['para1']))
+	{
+		$er_msg = require BLOG_ROOT.'/lang/'.BLOG_LANG.'/lang.php';
+		echo $er_msg['ER_notexist'];
+		exit;
+	}
 	$blog_page->pagetype=$bqs['type'];
 	$blog_page->page_paras=$bqs;
 	$blog_page->print_page();
