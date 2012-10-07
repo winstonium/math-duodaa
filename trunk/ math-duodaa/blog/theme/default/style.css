@@ -370,12 +370,18 @@ div.main_frame .main_right .ms_showmore a
 	font-size:10px;
 }
 
-div.copyright
+div.foot
 {
 	text-align:left;
     width:900px;
+    
+
+}
+
+div.foot .copyright
+{
     padding:15px;
     font-size:10px;
-
-
+	color:#203680;
+	font-style:italic;
 }

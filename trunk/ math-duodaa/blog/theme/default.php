@@ -254,6 +254,10 @@ class blog_page
    function set_body_foot()
    {
       $html='';
+      $html.='<div class="clear"></div>'."\n";;
+      $html.='<div class="foot">'."\n";
+      $html.='<div class="copyright">'.$this->uis->items['USR_copyright'].'</div>'."\n";
+      $html.='</div>'."\n";
       return $html;  
    }
 
