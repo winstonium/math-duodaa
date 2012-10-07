@@ -41,3 +41,11 @@ return $src;
 
 }
 
+function blog_cutstring($str,$maxlen=20)
+{
+  
+  if(strlen($str)>$maxlen-3)$s=mb_substr($str, 0,$maxlen-3,'utf-8').'...';
+  else $s=$str;
+  return $s;
+}
+
