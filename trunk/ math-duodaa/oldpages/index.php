@@ -1,4 +1,4 @@
-
+﻿
 <?php
 //读取xml
 $qdoc = new DOMDocument(); 
@@ -18,7 +18,8 @@ $qTitles= $qdoc->getElementsByTagName( "caption" );
 <TITLE>
 哆嗒数学网 - 网老问题总览</TITLE>
 <META name="description" content="哆嗒数学网老问题总览">
-<LINK rel="stylesheet" type="text/css" href="/Oldpages/css/qa-styles.css">
+<LINK rel="stylesheet" type="text/css" href="/oldpages/css/qa-styles.css">
+
 <style>
 div.qdiv {
 	font-family: "微软雅黑";
@@ -43,7 +44,7 @@ div.qdiv a.asker:hover{}
 <SCRIPT type="text/javascript" src="/MathJax/MathJax.js?config=default">
 </SCRIPT>
 
-<!--[if IE]><LINK rel="stylesheet" type="text/css" href="./css/ie.css"><![endif]-->
+<!--[if IE]><LINK rel="stylesheet" type="text/css" href="/oldpages/css/ie.css"><![endif]-->
 </HEAD>
 <BODY class="qa-template-question qa-body-js-off">
 
@@ -104,7 +105,6 @@ style='color: rgb(51, 102, 204); font-family: "微软雅黑"; font-size: 14px;'>
 $page=isset($_REQUEST['page'])?$_REQUEST['page']:1;
 //设置每页显示条数
 $Count_per_Page = 400 ;
-$qShowHtml='';
 
 for($i= $Count_per_Page *($page-1); $i< $Count_per_Page * $page && isset($qids->item($i)->nodeValue) ;$i++)
 {
@@ -114,15 +114,14 @@ for($i= $Count_per_Page *($page-1); $i< $Count_per_Page * $page && isset($qids->
 		//$qDoner = $sheetData[$i]['C'];
 		$qTitle = $qTitles->item($i)->nodeValue;
 		
-		
-		$qShowHtml.= '<div class="qdiv">';
-		$qShowHtml.='<a class="qlink" target="_blank" href="\view_'.$qid.'.html">'.$qTitle.'</a>';
-		$qShowHtml.='<span style="font-size: 11px;">&nbsp;&nbsp;作者</span><a class="qasker" target="_blank" href="\?qa=user/'.$qAsker.'">'.$qAsker.'</a>';
-		$qShowHtml.='</div>'."\n";
+		echo '<div class="qdiv">';
+		echo '<a class="qlink" target="_blank" href="\view_'.$qid.'.html">'.$qTitle.'</a>';
+		echo '<span style="font-size: 11px;">&nbsp;&nbsp;作者</span><a class="qasker" target="_blank" href="\?qa=user/'.$qAsker.'">'.$qAsker.'</a>';
+		echo '</div>'."\n";
 		
 
 	}
- echo $qShowHtml;
+
 
 
 ?>
