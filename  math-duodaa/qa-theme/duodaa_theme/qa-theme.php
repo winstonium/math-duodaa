@@ -136,7 +136,7 @@
 			$linksource = explode(',',fgets($file));
 			$link = trim($linksource[1]);
 			$linktext = trim($linksource[0]);
-			$html .= '<a href="'.$link.'" targe="_blank">'.$linktext.'</a>';
+			$html .= '<a href="'.$link.'" target="_blank">'.$linktext.'</a>';
 			
 			if( isset($linksource[2]))
 			{$html .= '<br>'."\n";
