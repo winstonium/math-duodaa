@@ -36,7 +36,9 @@ return array(
 
 
  'USR_noarticle_url' => '你暂时还没有文章，::url1::这里新建',
- 'USR_noarticle' => '点击'
+ 'USR_noarticle' => '点击',
+
+//以下是默认文章
 
 );
 
