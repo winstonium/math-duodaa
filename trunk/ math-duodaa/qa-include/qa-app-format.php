@@ -1203,6 +1203,7 @@
 		require_once QA_INCLUDE_DIR.'qa-util-string.php';
 		
 		$text=qa_post_text($fieldname);
+		$text=str_replace("，", ",", $text);
 		
 		if (qa_opt('tag_separator_comma'))
 			return array_unique(preg_split('/\s*,\s*/', trim(qa_strtolower(strtr($text, '/', ' '))), -1, PREG_SPLIT_NO_EMPTY));
