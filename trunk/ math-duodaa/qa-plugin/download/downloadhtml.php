@@ -5,6 +5,8 @@ function setDownloadHtml($requests,$root)
 	$pagetype='main';
 	$csvroot=$root.'items\csv\books.csv';
 	
+	
+	
 	//return $root;
 	/*下面用于判断请求页的类型*/	
 	
@@ -129,6 +131,8 @@ function setDownloadHtml($requests,$root)
 		$itemurls=explode('|',$itemurl_string);
 		
 		$adver1='<script type="text/javascript">/*468*15，创建于2012-6-25*/ var cpro_id = \'u957301\';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>';
+		$adver2='<script type="text/javascript">var sogou_ad_id=60486;var sogou_ad_height=60;var sogou_ad_width=640;</script><script language="JavaScript" type="text/javascript" src="http://images.sohu.com/cs/jsfile/js/c.js"></script>';
+		
 		
 		$html='<TABLE class="allinfo" cellSpacing="0" cellPadding="0" width="700">'."\n";
 		$html.='<TR>'."\n";
@@ -171,6 +175,7 @@ function setDownloadHtml($requests,$root)
         $html.='<TD>'."\n";
         $html.='<DIV class="downloadtext1">第一次下载请务必了解<A href="#ins">下载说明</A>。</DIV>'."\n";  
         $html.='<DIV><!-- 广告位 -->'.$adver1.'</DIV>'."\n";
+        $html.='<DIV><!-- 广告位 -->'.$adver2.'</DIV>'."\n";
 		$html.='<SPAN class="downlink">'."\n";
 		
 		for($i=0;isset($itemurls[$i]);$i++)
