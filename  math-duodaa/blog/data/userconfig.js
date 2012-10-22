@@ -1,6 +1,0 @@
-﻿{
-	"blocked":["hahaha","wawawa"]
-	
-	
-	
-	}
