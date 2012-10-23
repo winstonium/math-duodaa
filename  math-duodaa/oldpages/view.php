@@ -209,7 +209,16 @@ class="vcard author"><A class="qa-user-link url nickname" href="http://www.duoda
 <DIV class="qa-a-item-main">
 <DIV style="display: none;" id="c903" class="qa-c-form">
 <H2>请<A href="http://www.duodaa.com/?qa=login&amp;to=%3Fqa%3D902%2F%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA">登录</A>或<A 
-href="http://www.duodaa.com/?qa=register&amp;to=%3Fqa%3D902%2F%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA">注册</A>后发表评论。</H2></DIV> 
+href="http://www.duodaa.com/?qa=register&amp;to=%3Fqa%3D902%2F%25E6%25A6%2582%25E7%258E%2587%25E8%25AE%25BA">注册</A>后发表评论。</H2></DIV>
+<div>
+<script type="text/javascript">
+var sogou_ad_id=64066;
+var sogou_ad_height=90;
+var sogou_ad_width=728;
+</script>
+<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+
+</div> 
 <!-- END qa-c-form --></DIV> <!-- END qa-a-item-main -->
 <DIV class="qa-a-item-clear"></DIV></DIV> <!-- END qa-a-list-item --></DIV> <!-- END qa-a-list --></DIV> 
 <!-- END qa-main -->
@@ -220,6 +229,7 @@ href="http://www.duodaa.com/?qa=register&amp;to=%3Fqa%3D902%2F%25E6%25A6%2582%25
 <DIV class="footer-credit">
 <P>Theme Designed By: <A href="http://pixelngrain.com/">Pixel n 
 Grain</A></P></DIV>
+
 <DIV class="qa-nav-footer">
 <UL class="qa-nav-footer-list">
   <LI class="qa-nav-footer-item qa-nav-footer-feedback"><A class="qa-nav-footer-link" 
