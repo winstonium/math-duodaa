@@ -1,0 +1,6 @@
+﻿{
+	"blocked":["hahaha","wawawa"]
+	
+	
+	
+	}

@@ -1,0 +1,10 @@
+<?php 
+
+
+
+class blog_urls
+{
+	 //ErrorÐÅÏ¢
+   
+}
+
