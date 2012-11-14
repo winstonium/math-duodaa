@@ -49,3 +49,12 @@ function blog_cutstring($str,$maxlen=20)
   return $s;
 }
 
+
+
+function blog_echo_mb($str,$isecho=true)
+{
+  $mb_str = iconv('GBK','UTF-8',$str);
+  if(isecho)echo $mb_str;	
+  return $mb_str;	;	
+
+}

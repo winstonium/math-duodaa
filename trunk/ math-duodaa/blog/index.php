@@ -10,17 +10,16 @@ require_once BLOG_QAROOT.'/qa-include/qa-db-selects.php';
 require_once BLOG_ROOT.'/include/strings.php';
 require_once BLOG_ROOT.'/include/articles.php';
 require_once BLOG_ROOT.'/include/users.php';
+require_once BLOG_ROOT.'/include/useritems.php';
 
 //主题文件侠
 $themedir=BLOG_ROOT.'/theme/'.BLOG_THEME;
 require_once BLOG_ROOT.'/theme/default.php';
 
 
-$user=trim(qa_get_logged_in_handle());
+$user_login=trim(qa_get_logged_in_handle());
 
 $bqs='';
-
-
 
 $bqs=blog_get_query_info();
 
