@@ -194,8 +194,9 @@ div.main_frame .main_left .articles .article .ar_date
 	color:#888;
 	font-size:10px;
 	float:right;
-	width:100px;
+	width:110px;
 	padding-top:16px;
+	padding-right:15px;
 	
 }
 
@@ -203,7 +204,6 @@ div.main_frame .main_left .articles .article .ar_content
 {
 	
 	text-align:left;
-	
 	font-size:14px;
 	
 }

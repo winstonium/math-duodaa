@@ -7,6 +7,7 @@ exit;
 }
 
 require_once 'files.php';
+require_once 'dboperations.php';
 
 function is_blocked($handle)
 {
@@ -61,7 +62,12 @@ function blog_is_userexist($user)
 
 function blog_get_userconfig($user)
 {
-	$dir = BLOG_ROOT.'/data/'.$user.'/config.js';
-	return blog_load_jstoarray($dir);
+	$db=blog_opendb();
+	
+	$result = blog_db_query($db,'select * from userconfig where username="'.$user.'"');
+	
+	
+	
+	return $result[0];
 }
 

@@ -6,19 +6,20 @@ echo '<script>window.location.href="/";</script>';
 exit;
 }
 require_once 'files.php';
+require_once 'dboperations.php';
 
-function blog_load_articles($user,$articlenums)
+//读取文章列表，读成数组
+function blog_load_articles($user,$articlenum=10)
 {
-   foreach ($articlenums as $key => $val)
-   {
-   	 $articles[$key]= blog_load_single_article($user,$articlenums[$key]);
-   }    
-    
-    
-    return $articles;//$articles;
+   $sql = 'select * from article where username="'.$user.'" order by createtime desc limit 0,'.$articlenum;
+   $db=blog_opendb();
+   
+   $result = blog_db_query($db,$sql);
 
-    
+   return $result;
 }
+
+
 
 function blog_load_messages($user,$messagenums)
 {
