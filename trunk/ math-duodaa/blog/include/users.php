@@ -9,65 +9,53 @@ exit;
 require_once 'files.php';
 require_once 'dboperations.php';
 
-function is_blocked($handle)
-{
-   $json = file_get_contents(BLOG_ROOT.'/data/userconfig.js') ;
-   
-    //下面的代码用于去掉utf-8文本的bom头。
-    if ( substr($json, 0, 3)=="\xEF\xBB\xBF")
-           $json=substr_replace($json, '', 0, 3) ; 
-     
-    $json_arr = json_decode($json,true);
-    if(in_array($handle, $json_arr['blocked']))
-    {
-     return true;
-    }
-    else return false;
-}
-
-function is_activated($handle)
-{
-  if($handle=='') 
-  {
-  	return -2;           // 没有登录
-  }
-  if(is_blocked($handle))
-  {
-  	return -1;          // 被封号
-  } 
-  if(is_dir(BLOG_ROOT.'/data/'.$handle)) 
-  {
-  	//echo BLOG_ROOT.'/data/'.$handle;
-  	return 1;          // 
-  }
-  else 
-  {
-  	return 0;
-  }
-  
-}
-function blog_is_userexist($user)
-{
- if(is_dir(BLOG_ROOT.'/data/'.$user)) 
-  {
-   	return 1;          // 
-  }
-  else 
-  {
-  	return 0;
-  }
-	
-}
-
 
 function blog_get_userconfig($user)
 {
 	$db=blog_opendb();
-	
 	$result = blog_db_query($db,'select * from userconfig where username="'.$user.'"');
 	
-	
-	
 	return $result[0];
+}
+
+function blog_get_qa_userid($user)
+{
+	$userid=qa_handles_to_userids(array($user));
+	$userid=$userid[$user];
+	
+	return $userid;
+	
+}
+
+//得到用户头像的html
+function blog_get_qa_avartar_html($user)
+{
+	$userid = blog_get_qa_userid($user);
+	$useraccount=qa_db_select_with_pending(qa_db_user_account_selectspec($userid, true));
+	$avartahtml=qa_get_user_avatar_html(
+			                            $useraccount['flags'], 
+			                            $useraccount['email'], 
+			                            $useraccount['handle'],
+										$useraccount['avatarblobid'], 
+										$useraccount['avatarwidth'], 
+										$useraccount['avatarheight'], 
+										qa_opt('avatar_profile_size')
+										);
+	$avartahtml=strtolower($avartahtml);
+	
+	if($avartahtml!=null)
+	{
+		$avartahtml=strtolower($avartahtml);
+		$avartahtml=str_replace('?', convert_dir_src(BLOG_QAROOT).'?', $avartahtml);    //生成avarta的html串,从站点的根目录引用
+		
+	}
+	else
+	{
+		$avartahtml='<a href="'.convert_dir_src(BLOG_QAROOT).'?qa=user/'.$user.'" class="qa-user-link">';
+		$avartahtml.='<img src="'.convert_dir_src(BLOG_ROOT.'/theme/'.BLOG_THEME.'/default_avatar.jpg').'"/>';
+		$avartahtml.='</a>';
+	}
+	
+	return $avartahtml;
 }
 
