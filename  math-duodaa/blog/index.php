@@ -40,6 +40,12 @@ else if($bqs['type']=='user')
 	
 }
 
+else if($bqs['type']=='newarticle')
+{
+	require $themedir.'/pages/newarticle.php';
+	exit;	
+}
+
 
 
 ?>
