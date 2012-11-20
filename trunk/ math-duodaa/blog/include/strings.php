@@ -35,7 +35,8 @@ function convert_dir_src($dir)
 
 $src=str_replace(BLOG_QAROOT, '', $dir);
 if($src=='')$src='/';
-//$src=str_replace('\\', '/', $src);
+
+$src=str_replace('\\', '/', $src);
 
 return $src;
 
