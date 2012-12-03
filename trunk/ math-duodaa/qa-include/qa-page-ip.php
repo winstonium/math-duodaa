@@ -168,7 +168,7 @@
 			
 			if (count($questions) && !qa_user_permit_error('permit_hide_show'))
 				$qa_content['form']['buttons']['hideall']=array(
-					'tags' => 'NAME="dohideall"',
+					'tags' => 'NAME="dohideall" onClick="qa_show_waiting_after(this, false);"',
 					'label' => qa_lang_html('misc/hide_all_ip_button'),
 				);
 
@@ -200,7 +200,7 @@
 			
 			$hasother=isset($question['opostid']);
 			
-			if ($question[$hasother ? 'ohidden' : 'hidden']) {
+			if ($question[$hasother ? 'ohidden' : 'hidden'] && !isset($question[$hasother ? 'oupdatetype' : 'updatetype'])) {
 				$htmlfields['what_2']=qa_lang_html('main/hidden');
 
 				if (@$htmloptions['whenview'])

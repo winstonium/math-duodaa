@@ -167,7 +167,7 @@
 			(($nothiddenbyother && !$post['flagcount']) || !qa_user_permit_error('permit_hide_show'));
 			// cannot reshow a question if it was hidden by someone else, or if it has flags - unless you have global hiding permissions
 		$rules['deleteable']=$post['hidden'] && !qa_user_permit_error('permit_delete_hidden');
-		$rules['claimable']=(!isset($post['userid'])) && isset($userid) && (strcmp(@$post['cookieid'], $cookieid)==0) &&
+		$rules['claimable']=(!isset($post['userid'])) && isset($userid) && strlen(@$post['cookieid']) && (strcmp(@$post['cookieid'], $cookieid)==0) &&
 			!(($post['basetype']=='Q') ? $permiterror_post_q : (($post['basetype']=='A') ? $permiterror_post_a : $permiterror_post_c));
 		$rules['followable']=($post['type']=='A') ? qa_opt('follow_on_as') : false;
 		
@@ -233,6 +233,7 @@
 	//	Buttons for operating on the question
 		
 		if (!$formrequested) { // don't show if another form is currently being shown on page
+			$clicksuffix=' onClick="qa_show_waiting_after(this, false);"'; // add to operations that write to database
 			$buttons=array();
 			
 			if ($question['editbutton'])
@@ -256,21 +257,21 @@
 			
 			if ($question['flagbutton'])
 				$buttons['flag']=array(
-					'tags' => 'NAME="q_doflag"',
+					'tags' => 'NAME="q_doflag"'.$clicksuffix,
 					'label' => qa_lang_html($question['flagtohide'] ? 'question/flag_hide_button' : 'question/flag_button'),
 					'popup' => qa_lang_html('question/flag_q_popup'),
 				);
 
 			if ($question['unflaggable'])
 				$buttons['unflag']=array(
-					'tags' => 'NAME="q_dounflag"',
+					'tags' => 'NAME="q_dounflag"'.$clicksuffix,
 					'label' => qa_lang_html('question/unflag_button'),
 					'popup' => qa_lang_html('question/unflag_popup'),
 				);
 				
 			if ($question['clearflaggable'])
 				$buttons['clearflags']=array(
-					'tags' => 'NAME="q_doclearflags"',
+					'tags' => 'NAME="q_doclearflags"'.$clicksuffix,
 					'label' => qa_lang_html('question/clear_flags_button'),
 					'popup' => qa_lang_html('question/clear_flags_popup'),
 				);
@@ -284,45 +285,45 @@
 			
 			if ($question['reopenable'])
 				$buttons['reopen']=array(
-					'tags' => 'NAME="q_doreopen"',
+					'tags' => 'NAME="q_doreopen"'.$clicksuffix,
 					'label' => qa_lang_html('question/reopen_button'),
 				);
 			
 			if ($question['moderatable']) {
 				$buttons['approve']=array(
-					'tags' => 'NAME="q_doapprove"',
+					'tags' => 'NAME="q_doapprove"'.$clicksuffix,
 					'label' => qa_lang_html('question/approve_button'),
 				);
 
 				$buttons['reject']=array(
-					'tags' => 'NAME="q_doreject"',
+					'tags' => 'NAME="q_doreject"'.$clicksuffix,
 					'label' => qa_lang_html('question/reject_button'),
 				);
 			}
 			
 			if ($question['hideable'])
 				$buttons['hide']=array(
-					'tags' => 'NAME="q_dohide"',
+					'tags' => 'NAME="q_dohide"'.$clicksuffix,
 					'label' => qa_lang_html('question/hide_button'),
 					'popup' => qa_lang_html('question/hide_q_popup'),
 				);
 				
 			if ($question['reshowable'])
 				$buttons['reshow']=array(
-					'tags' => 'NAME="q_doreshow"',
+					'tags' => 'NAME="q_doreshow"'.$clicksuffix,
 					'label' => qa_lang_html('question/reshow_button'),
 				);
 				
 			if ($question['deleteable'])
 				$buttons['delete']=array(
-					'tags' => 'NAME="q_dodelete"',
+					'tags' => 'NAME="q_dodelete"'.$clicksuffix,
 					'label' => qa_lang_html('question/delete_button'),
 					'popup' => qa_lang_html('question/delete_q_popup'),
 				);
 				
 			if ($question['claimable'])
 				$buttons['claim']=array(
-					'tags' => 'NAME="q_doclaim"',
+					'tags' => 'NAME="q_doclaim"'.$clicksuffix,
 					'label' => qa_lang_html('question/claim_button'),
 				);
 			
@@ -687,10 +688,9 @@
 		
 		if ($skipfirst>0)
 			$commentlist['cs'][$parentid]=array(
-				'url' => '?state=showcomments-'.qa_html($parentid).'&show='.qa_html($parentid).
-					'#'.qa_html(urlencode(qa_anchor($parent['basetype'], $parentid))),
+				'url' => qa_html('?state=showcomments-'.$parentid.'&show='.$parentid.'#'.urlencode(qa_anchor($parent['basetype'], $parentid))),
 					
-				'expand_tags' => 'onClick="return qa_show_comments('.qa_js($parentid).');"',
+				'expand_tags' => 'onClick="return qa_show_comments('.qa_js($parentid).', this);"',
 				
 				'title' => $expandtitle,
 			);
@@ -781,7 +781,7 @@
 					
 					'buttons' => array(
 						'answer' => array(
-							'tags' => 'onClick="'.$updatescript.' return qa_submit_answer('.qa_js($questionid).');"',
+							'tags' => 'onClick="'.$updatescript.' return qa_submit_answer('.qa_js($questionid).', this);"',
 							'label' => qa_lang_html('question/add_answer_button'),
 						),
 					),
@@ -908,7 +908,7 @@
 					
 					'buttons' => array(
 						'comment' => array(
-							'tags' => 'onClick="'.$updatescript.' return qa_submit_comment('.qa_js($questionid).', '.qa_js($parentid).');"',
+							'tags' => 'onClick="'.$updatescript.' return qa_submit_comment('.qa_js($questionid).', '.qa_js($parentid).', this);"',
 							'label' => qa_lang_html('question/add_comment_button'),
 						),
 						
