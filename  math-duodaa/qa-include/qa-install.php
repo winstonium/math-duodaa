@@ -220,7 +220,7 @@
 				break;
 				
 			case 'non-users-missing':
-				$errorhtml='This Question2Answer site is sharing its users with another Q2A site, but it needs some additional database tables for its own content. Click below to create them.';
+				$errorhtml='This Question2Answer site is sharing its users with another Q2A site, but it needs some additional database tables for its own content. Please click below to create them.';
 				$buttons=array('nonuser' => 'Create Tables');
 				break;
 				
@@ -253,7 +253,7 @@
 						foreach ($modules as $modulename => $module) {
 							$queries=$module->init_queries($tables);
 							if (!empty($queries)) { // also allows single query to be returned
-								$errorhtml.=strtr(qa_lang_html('admin/module_x_database_init'), array(
+								$errorhtml=strtr(qa_lang_html('admin/module_x_database_init'), array(
 									'^1' => qa_html($modulename),
 									'^2' => qa_html($moduletype),
 									'^3' => '',

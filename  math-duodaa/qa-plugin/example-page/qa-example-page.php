@@ -51,17 +51,10 @@
 		
 		function match_request($request)
 		{
-			$rqst=substr($request, 0,7);
-			
-			if ($rqst=='example')
-			{
+			if ($request=='example-plugin-page')
 				return true;
-			}
-			
-			else
-			{
+
 			return false;
-			}
 		}
 
 		
