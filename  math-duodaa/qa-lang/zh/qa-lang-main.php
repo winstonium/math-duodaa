@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 /*
 	Question2Answer (c) Gideon Greenspan
@@ -173,7 +173,7 @@
 		'selected' => '选中',
 		'send_button' => '发送',
 		'suggest_ask' => '获得帮助，从这里发起^1提问^2.',
-		'suggest_category_qs' => '点击^全部，查看^2分类 下的所有问题',
+		'suggest_category_qs' => '点击^1全部^2，查看分类 下的所有问题',
 		'suggest_qs_tags' => '点击^1问题列表^2 或 ^3热门标签^4，查看更多内容。',
 		'suggest_qs' => '点击^1问题列表^2，查看更多。',
 		'unanswered_qs_in_x' => '^下最新待回答问题',
