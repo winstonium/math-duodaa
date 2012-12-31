@@ -8,6 +8,7 @@
 							 overflow:hidden; 
 							 font-size:16px
 							} 
+					#banner_list a{ left:0px;}
 					#banner_list img {border:0px;} 
 					#banner_bg {
 						          position:absolute; 
@@ -16,7 +17,7 @@
 								  filter: Alpha(Opacity=30);
 								  opacity:0.3;z-index:1000;
 								  cursor:pointer; 
-								  width:478px; 
+								  width:300px; 
 							   } 
 					#banner_info{position:absolute; bottom:4px; left:5px;height:22px;color:#fff;z-index:1001;cursor:pointer} 
 					#banner_text {position:absolute;width:120px;z-index:1002; right:3px; bottom:3px;} 
@@ -120,29 +121,27 @@
                 <div id="banner_info"></div> 
                 <!--标题--> 
                 
-                <ul> 
+                <ul id="bannerbutton"> 
                 <li>1</li> 
                 <li>2</li> 
-                <li>3</li> 
-                <li>4</li> 
-                <li>5</li>
+                
                 </ul> 
                 <div id="banner_list"> 
                 <a href="http://www.duodaa.com" target="_blank">
-                <img src="http://files.jb51.net/demoimg/201008/o_p1.jpg" title="橡树小屋的blog" alt="橡树小屋的blog" /></a> 
-                <a href="#" target="_blank">
-                <img src="http://files.jb51.net/demoimg/201008/o_p3.jpg" title="橡树小屋的blog" alt="橡树小屋的blog" /></a> 
-                <a href="#" target="_blank">
-                <img src="http://files.jb51.net/demoimg/201008/o_p4.jpg" title="橡树小屋的blog" alt="橡树小屋的blog" /></a> 
-                <a href="#" target="_blank">
-                <img src="http://files.jb51.net/demoimg/201008/o_p5.jpg" title="橡树小屋的blog" alt="橡树小屋的blog" /></a>
-                <a href="#" target="_blank"><img src="#" title="ffffblog" alt="fffff" /></a> 
+                <img src="/blog/application/views/theme/default/img/index/lefttop0.gif" title="可测集合乘积可测" alt="可测集合乘积可测" />
+                </a> 
+                <a href="http://www.duodaa.com" target="_blank">
+                <img src="/blog/application/views/theme/default/img/index/lefttop0.gif" title="可测集合乘积可测" alt="可测集合乘积可测" />
+                </a> 
+                 
+                
+                 
                 </div> 
                 </div> 
                  <!--轮播banner(完)-->
 				<div style="height:20px; width:100%;"></div>
                 
-               <div>{leftdown_ad}</div>
+               <div>  </div>
 
 </div>
 <!-- 左侧条目(完) -->
@@ -192,21 +191,23 @@
 <script type="text/javascript">
 var t = n = 0, count; 
 $(document).ready(function(){ 
-           count=$("#banner_list a").length; 
+           count=$("#bannerbutton li").length; 
+		 		   
            $("#banner_list a:not(:first-child)").hide(); 
            $("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt')); 
            $("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")}); 
            $("#banner li").click(function() { 
                   var i = $(this).text() - 1;//获取Li元素内的值，即1，2，3，4 
                   n = i; 
-                  if (i >= count) return; 
+                  if (i >= count) return;
+								   
                   $("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt')); 
                   $("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")}) 
                   $("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000); 
                   $(this).css({"background":"#be2424",'color':'#000'}).siblings().css({"background":"#6f4f67",'color':'#fff'}); 
                   }); 
-t = setInterval("showAuto()", 3000); 
-$("#banner").hover( function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 3000);}); 
+t = setInterval("showAuto()", 4000); 
+$("#banner").hover( function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);}); 
 }) 
 
 function showAuto() 
