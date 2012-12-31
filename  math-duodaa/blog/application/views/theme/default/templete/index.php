@@ -48,6 +48,14 @@
 	width:96%;
 
 }
+
+#ttBox .headline{
+	padding-bottom: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #666;	
+	margin-top:15px;
+	}
 #ttBox .headline a.main_title
 {
 	color:#834829;
@@ -87,6 +95,13 @@
 	font-family: "宋体","Arial Narrow",sans-serif;
 }
 
+#anounce
+{
+	background-color: #CCC;
+	margin: 10px;
+	padding: 10px;	
+	}
+
 
 
 </style>
@@ -98,51 +113,7 @@
 <!-- 左侧条目 -->
 <div style="float:left; width:300px;">
                 <!--轮播banner-->
-    <style type="text/css">
-					#banner {
-						     position:relative;    
-					         width:300px;
-							 height:350px; 
-							 border:1px solid #666; 
-							 overflow:hidden; 
-							 font-size:16px
-							} 
-					#banner_list img {border:0px;} 
-					#banner_bg {
-						          position:absolute; 
-								  bottom:0;
-								  left:0;
-								  background-color:#000;height:30px;
-								  filter: Alpha(Opacity=30);
-								  opacity:0.3;
-								  z-index:1000;
-								  cursor:pointer; 
-								  width:300px; 
-								  
-							   } 
-					#banner_info{position:absolute; bottom:4px; left:5px;height:22px;color:#fff;z-index:1001;cursor:pointer} 
-					#banner_text {position:absolute;width:120px;z-index:1002; right:3px; bottom:3px;} 
-					#banner ul {
-								  position:absolute;
-								  list-style-type:none;
-								  filter: Alpha(Opacity=80);
-								  opacity:0.8; z-index:1002; 
-								  margin:0; padding:0; 
-								  bottom:3px; right:5px;
-								  height:20px;
-						       } 
-					#banner ul li { 
-					                padding:0 8px; 
-					                line-height:18px;
-									float:left;display:block;
-									color:#FFF;border:#e5eaff 1px solid;
-									background-color:#6f4f67;
-									cursor:pointer; margin:0;
-									font-size:16px;
-								  } 
-				   #banner_list a{position:absolute;} /* <! 让四张图片都可以重叠在一起 */
-				   #banner_list{text-align:left;}
-				</style> 
+    
     <div id="banner"> 
       <div id="banner_bg"></div> 
                 <!--标题背景--> 
@@ -177,8 +148,9 @@
 <!-- 左侧条目(完) -->
 
 
-<div style="float:left; width:440px;height:500px;">
+<div style="float:left; width:440px;height:500px; ">
 <div id="ttBox">
+
 <div class="headline">
 <a href="#" class="main_title">日本大选  </a>
 <div class="relative_titles">
@@ -187,12 +159,25 @@
 
 </div>
 </div>
+
+<div class="headline">
+<a href="#" class="main_title">中共十八大  </a>
+<div class="relative_titles">
+<div><a href="#">18大成官方民间双向热词</a><span>|</span><a href="#">习近平：腐败会致亡党亡国</a></div>
+<div><a href="#">民众：收入翻番最期待</a></div>
+
+</div>
+</div>
+
 </div>
 
 
 </div>
 <div style="float:left; width:260px; height:500px;">
-<div style="border:1px; border-color:black;" ><img src="./application/views/theme/default/img/index/righttop2.gif" /></div>
+<div id="anounce">
+<div><a href="#"><img style=" border: 1px solid #000;border-color:black;" src="/blog/application/views/theme/default/img/index/righttop2.gif" /></a></div>
+<div><a href="#">哆嗒数学有奖征文</a></div>
+</div>
 </div>
 
 
