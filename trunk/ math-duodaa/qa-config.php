@@ -34,6 +34,8 @@
 	define('QA_MYSQL_USERNAME', 'root');
 	define('QA_MYSQL_PASSWORD', '123456');
 	define('QA_MYSQL_DATABASE', 'QA');
+
+        //define('QA_WORDPRESS_INTEGRATE_PATH', dirname(__FILE__).'/wordpress');
 	
 /*
 	Ultra-concise installation instructions:

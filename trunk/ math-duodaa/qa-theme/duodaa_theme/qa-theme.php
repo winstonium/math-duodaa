@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 	Question2Answer (c) Gideon Greenspan
@@ -37,6 +37,7 @@
 			$this->output('<!--[if IE]>');	
 			$this->output('<LINK REL="stylesheet" TYPE="text/css" HREF="'.$this->rooturl.$this->ie_css().'"/>');
 			$this->output('<![endif]-->');
+			
 			
 		}
 		
@@ -152,6 +153,8 @@
             
             $this->output('</DIV>');
             $this->output(' <!-- END qa-footer -->');
+
+            $this->output('<script type="text/javascript" src="\qa-content\qa-duodaa.js"></script>');
 			
 
         }
