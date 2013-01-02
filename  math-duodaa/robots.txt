@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /include/
+
+Sitemap: http://duodaa.com/?qa=sitemap.xml
+Sitemap: http://duodaa.com/sitemap.xml
+Sitemap: http://duodaa.com/sitemap.txt
