@@ -1,6 +1,14 @@
 <?php
 	class qa_html_theme extends qa_html_theme_base
 	{
+		function head_script()
+		{
+			$this->output('<meta name="keywords" content="数学,应用数学,数学辅导,数学题,数学解答,数学考试,数学帮助,基础数学,LaTex,公式,在线数学,数学互助,数学教育" />');
+			
+				
+				
+		}
+		
 		function doctype()
 		{
 			

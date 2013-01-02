@@ -13,13 +13,14 @@
 					#banner_bg {
 						          position:absolute; 
 								  bottom:0;
+								  left:0px;
 								  background-color:#000;height:30px;
 								  filter: Alpha(Opacity=30);
 								  opacity:0.3;z-index:1000;
 								  cursor:pointer; 
 								  width:300px; 
 							   } 
-					#banner_info{position:absolute; bottom:4px; left:5px;height:22px;color:#fff;z-index:1001;cursor:pointer} 
+					#banner_info{position:absolute; bottom:4px; left:5px;height:22px;color:#fff;z-index:1001;cursor:pointer;} 
 					#banner_text {position:absolute;width:120px;z-index:1002; right:3px; bottom:3px;} 
 					#banner ul {
 								  position:absolute;
@@ -96,11 +97,75 @@
 	font-family: "宋体","Arial Narrow",sans-serif;
 }
 
+#subbox
+{
+	
+	}
+#subbox ul
+{
+	padding-left:18px;
+
+}
+#subbox ul li
+{
+	float:none;
+	text-align:left;
+	list-style-type:none;
+	padding-top:2px;
+	padding-bottom:3px;
+	padding-left:8px;
+	background-image: url(/blog/application/views/theme/default/img/index/small_items.gif);
+	background-position:-98px 12px;
+	background-repeat:no-repeat;
+	
+	}
+#subbox ul li a
+{
+	
+	padding-right:5px;
+	
+	color: #1D569C;
+	font-size:16px;
+	font-family: "宋体","Arial Narrow",sans-serif;
+	
+	}
+
+
 #anounce
 {
 	background-color: #CCC;
+	padding-bottom:5px;
+	padding-top:10px;
 	margin: 10px;
-	padding: 10px;	
+
+	}
+#anounce ul{
+	padding-top:8px;
+	padding-left:15px;
+	text-align:left;
+	list-style-type:none;
+	width:100%;}
+	
+#anounce ul li
+{
+	list-style:none;
+	padding-left:7px;
+	background-image: url(/blog/application/views/theme/default/img/index/small_items.gif);
+	background-position:-98px 9px;
+	background-repeat:no-repeat;
+	height:23px;
+	
+	}
+#anounce div.anounce_text
+{
+	
+	}
+	
+#anounce div.anounce_text ul li a
+{
+	
+	color:#1D569C;
+	font-size:15px;
 	}
 
 
@@ -168,14 +233,29 @@
 </div>
 </div>
 
+<div id="subbox">
+<ul>
+<li><a href="#">数学史话：三次数学危机</a></li>
+<li><a href="#">数学史话：数学史十大论战</a></li>
+<li></li>
+</ul>
+</div>
+
+
 </div>
 
 
 </div>
 <div style="float:left; width:260px; height:500px;">
 <div id="anounce">
-<div><a href="#"><img style=" border: 1px solid #000;border-color:black;" src="/blog/application/views/theme/default/img/index/righttop2.gif" /></a></div>
-<div><a href="#">哆嗒数学有奖征文</a></div>
+<div><a href="#"><img style=" border: 1px solid #000;border-color:black;" src="/blog/application/views/theme/default/img/index/righttop2.gif" /></a>
+</div>
+<div class="anounce_text">
+<ul>
+<li><a href="#">哆嗒数学有奖征文</a></li>
+<li><a href="#">哆嗒数学征文</a></li>
+</ul>
+</div>
 </div>
 </div>
 
