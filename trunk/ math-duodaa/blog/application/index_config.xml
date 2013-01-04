@@ -1,52 +1,7 @@
 <?xml version="1.0 encoding="UTF-8"?>
 <index>
 
-<ttboxes>
-       <ttbox>
-            <headline>
-                 
-                 <title></title>
-                 <url>  </url>
-            
-               
-                 <ralative>
-                      <article>
-                           <title></title>
-                           <url></url>
-                      </article>
-                      
-                      <article>
-                           <title></title>
-                           <url></url>
-                      </article>
 
-                 </ralative>
-
-            </headline>
-
-            <headline>
-                 
-                 <title></title>
-                 <url>  </url>
-            
-               
-                 <ralative>
-                      <article>
-                           <title></title>
-                           <url></url>
-                      </article>
-                      
-                      <article>
-                           <title></title>
-                           <url></url>
-                      </article>
-
-                 </ralative>
-
-            </headline>
-
-       </ttbox>
-</ttboxes>
 
 <banners>
     <banner>
