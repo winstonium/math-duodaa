@@ -1,0 +1,96 @@
+<?xml version="1.0 encoding="UTF-8"?>
+<index>
+
+<ttboxes>
+       <ttbox>
+            <headline>
+                 
+                 <title></title>
+                 <url>  </url>
+            
+               
+                 <ralative>
+                      <article>
+                           <title></title>
+                           <url></url>
+                      </article>
+                      
+                      <article>
+                           <title></title>
+                           <url></url>
+                      </article>
+
+                 </ralative>
+
+            </headline>
+
+            <headline>
+                 
+                 <title></title>
+                 <url>  </url>
+            
+               
+                 <ralative>
+                      <article>
+                           <title></title>
+                           <url></url>
+                      </article>
+                      
+                      <article>
+                           <title></title>
+                           <url></url>
+                      </article>
+
+                 </ralative>
+
+            </headline>
+
+       </ttbox>
+</ttboxes>
+
+<banners>
+    <banner>
+        <title></title>
+        <url></url>
+        <img></img>
+    </banner>
+
+    <banner>
+        <title></title>
+        <url></url>
+        <img></img>
+    </banner>
+</banners>
+
+<subbox>
+   
+         <article>
+            <title></title>
+            <url></url>
+         </article>
+                      
+         <article>
+            <title></title>
+            <url></url>
+         </article>
+
+</subbox>
+
+<anounce>
+       <main>
+          <img></img>
+          <title></title>
+          <url></url>
+       <main>
+       <subs>
+          <sub></sub>
+          <sub></sub>
+       </subs>
+
+</anounce>
+    
+
+
+
+
+</index>
