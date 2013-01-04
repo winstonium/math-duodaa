@@ -210,6 +210,13 @@ padding-bottom:5px;
 
 </style>
 
+<?php
+ $content = file_get_contents(dirname(__FILE__).'/index_config.js');
+ $json = json_decode($content);
+ var_dump($json);
+
+?>
+
 <div class="main_frame">
 
 <div style="height:10px; width:100%;"></div>
