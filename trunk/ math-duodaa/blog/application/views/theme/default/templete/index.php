@@ -213,7 +213,7 @@ padding-bottom:5px;
 <?php
  $content = file_get_contents(dirname(__FILE__).'/index_config.js');
  $json = json_decode($content);
- var_dump($json);
+// var_dump($json);
 
 ?>
 
