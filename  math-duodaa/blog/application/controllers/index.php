@@ -5,12 +5,15 @@ class index extends CI_Controller {
 	{
 		parent::__construct();
 		//$this->load->model('article_model');
+		$this->load->model('json_model');
 
 	}
 
 	public function index()
 	{
-	
+	    $json=$this->json_model->get_index_config();
+	    var_dump($json['ttboxes']);
+		
 		$data = $this->defaultpage_model->all_items();
 		
 		$this->parser->parse('theme/default/templete/header',$data);
