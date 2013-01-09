@@ -1,5 +1,10 @@
+﻿
+            
+
 
 {
+
+
 "ttboxes": [
               {
 				"title":"aaaa",
@@ -8,14 +13,19 @@
 				              [
 							     {
 									  "title":"ccccccc",
-									  "url":"#"
+									  "url":"http://123.com"
+								 }
+							     ,
+							     {
+									  "title":"ccccccc",
+									  "url":"http://123sss.com"
 								 }
 							  ]
 							  ,
 							  [
 							     {
 									  "title":"ccccccc",
-									  "url":"#"
+									  "url":"http://123df.com"
 								 }
 							  ]
 							]
@@ -27,12 +37,12 @@
 				"relatives":[
 								  [
 										 {
-											  "title":"哈哈哈哈啊啊啊啊啊啊啊啊啊啊啊啊啊",
+											  "title":"哈哈哈哈啊啊啊啊啊啊啊啊",
 											  "url":"#"
 										 }
 										 ,
 										 {
-											  "title":"哈哈哈哈啊啊啊啊啊啊啊啊啊啊啊啊啊",
+											  "title":"哈哈哈哈大家好啊",
 											  "url":"#"
 										 }
 								  ]
@@ -55,13 +65,13 @@
                {
 				   "title": "aaaaaaaaabbb",
 				   "url"  : "cccccc",
-				   "img"  : "cccc.gif"
+				   "img"  : "lefttop0.gif"
 			   }
 			   ,
 			   {
 				   "title": "aaaaaaaaabbb",
 				   "url"  : "cccccc",
-				   "img"  : "cccc.gif"
+				   "img"  : "lefttop0.gif"
 			   }
              ]
  
@@ -69,8 +79,8 @@
 
 "subbox" : [
               {
-				  "title" : "cccccccccccccc", 
-				  "url"   : "bbbbbbbbbdddddddd"
+				  "title" : "数学史话：三次数学危机", 
+				  "url"   : "http://www.duodaa.com"
 			  }
 			  ,
 			  {
@@ -83,14 +93,14 @@
 
 "anounce": {
               "main" : {
-				          "img":    "cccc",
+				          "img":    "righttop2.gif",
 						  "title":  "sdsaddsd",
 						  "url"  :  "ffffffff###"
 				       }
 			  ,
 			  "subs" : [
 			              {
-							  "title" : "cccccccccccccc", 
+							  "title" : "cc祖国的花朵们", 
 							  "url"   : "bbbbbbbbbdddddddd"
 			              }
 						  ,
@@ -100,6 +110,21 @@
 			              }
 			           ]
              } 
+,
+
+"recommended": 
+			   [
+			     {
+					  "title" : "数学史话：三次数学危机", 
+					  "url"   : "http://www.duodaa.com"
+				  }
+				  ,
+				  {
+					  "title" : "cccccccccccccc", 
+					  "url"   : "bbbbbbbbbdddddddd"
+				  }
+			   ]
+
 
 
 
