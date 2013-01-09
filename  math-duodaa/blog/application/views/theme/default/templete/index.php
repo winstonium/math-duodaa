@@ -232,20 +232,21 @@ padding-bottom:5px;
                 <!--标题--> 
                 
                 <ul id="bannerbutton"> 
-                <li>1</li> 
-                <li>2</li> 
-                
+                {bannerbuttons}
+                <li>{buttoncount}</li>
+                {/bannerbuttons}           
+               
                 </ul> 
-                <div id="banner_list"> 
-                <a href="http://www.duodaa.com" target="_blank">
-                <img src="/blog/application/views/theme/default/img/index/lefttop0.gif" title="可测集合乘积可测" alt="可测集合乘积可测" />
-                </a> 
-                <a href="http://www.duodaa.com" target="_blank">
-                <img src="/blog/application/views/theme/default/img/index/lefttop0.gif" title="可测集合乘积可测" alt="可测集合乘积可测" />
-                </a> 
-                 
                 
-                 
+                
+                
+                <div id="banner_list"> 
+                
+                {banner_list}
+                 <a href="{url}" target="_blank">
+                <img src="<?php echo base_url('/application/views/theme/default/img/index/')?>/{img}" title="{title}" alt="{title}" />
+                </a> 
+                {/banner_list} 
                 </div> 
     </div> 
                  <!--轮播banner(完)-->
@@ -255,8 +256,10 @@ padding-bottom:5px;
       <div class="title">推 荐 文 章</div>
       <div class="links">
       <ul>
-      <li><a href="#">math001：我们的祖国是花园</a></li>
-       <li><a href="#">math002：花园里花朵真鲜艳呀呀</a></li>
+      {recommended}
+       <li><a href="{url}" target="_blank">{title}</a></li>
+      {/recommended}
+      
       </ul>
       </div>
                </div>
@@ -264,51 +267,58 @@ padding-bottom:5px;
 </div>
 <!-- 左侧条目(完) -->
 
-
+<!-- 中间条目 -->
 <div style="float:left; width:440px; ">
 <div id="ttBox">
-
+{ttbox}
 <div class="headline">
-<a href="#" class="main_title">日本大选  </a>
+<a href="{url}" class="main_title" target="_blank">{title}</a>
 <div class="relative_titles">
-<div><a href="#">安倍晋三当选日本首相</a><span>|</span><a href="#">时评：警惕！日本走向极右路线</a></div>
-<div><a href="#">日本与中国开战？专家：绝无可能！</a></div>
+{relatives}
+<div>{links}</div>
+{/relatives}
 
 </div>
 </div>
+{/ttbox}
 
-<div class="headline">
-<a href="#" class="main_title">中共十八大  </a>
-<div class="relative_titles">
-<div><a href="#">18大成官方民间双向热词</a><span>|</span><a href="#">习近平：腐败会致亡党亡国</a></div>
-<div><a href="#">民众：收入翻番最期待</a></div>
+
+
 
 </div>
-</div>
+
 
 <div id="subbox">
 <ul>
-<li><a href="#">数学史话：三次数学危机</a></li>
-<li><a href="#">数学史话：数学史十大论战</a></li>
-<li></li>
+{subbox}
+<li><a href="{url}" target="_blank">{title}</a></li>
+{/subbox}
+
+
 </ul>
 </div>
 
 
 </div>
+<!-- 中间条目(完) -->
 
-
-</div>
+<!-- 右边条目 -->
 <div style="float:left; width:260px;">
         <div id="anounce">
-        <div><a href="#"><img style=" border: 1px solid #000;border-color:black;" src="/blog/application/views/theme/default/img/index/righttop2.gif" /></a>
+        {anounce_main}
+        <div>
+        <a href="{url}" target="_blank"><img style=" border: 1px solid #000;border-color:black;" src="<?php echo base_url('/application/views/theme/default/img/index/')?>/{img}" alt="{title}" title="{title}" /></a>
         </div>
+        {/anounce_main}
         <div class="anounce_text">
         <ul>
-        <li><a href="#">哆嗒数学有奖征文</a></li>
-        <li><a href="#">哆嗒数学征文</a></li>
+        {anounce_subs}
+        <li><a href="{url}" target="_blank">{title}</a></li>
+        {/anounce_subs}
+        
         </ul>
         </div>
+       
         </div>
        
        <div style="width:250px; height:250px">
@@ -321,7 +331,7 @@ padding-bottom:5px;
        
        <div class="clear" style="height:30px; width:200px" ></div>
 </div>
-
+<!-- 右边条目 (完)-->
 
 
 
