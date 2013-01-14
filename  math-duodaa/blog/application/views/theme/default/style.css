@@ -245,6 +245,17 @@ div.main_frame .main_right .photo
 	width: 200px;
 	height:200px;
 	padding:15px;
+	
+}
+
+div.main_frame .main_right .photo img
+{
+	width: 200px;
+	height:200px;
+	border: 1px;
+	border-style:solid;
+    border-color:#000;
+	
 }
 
 div.main_frame .main_right .username

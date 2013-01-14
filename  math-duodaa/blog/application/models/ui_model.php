@@ -59,7 +59,7 @@ class ui_model extends CI_Model
 		{   
 			$items[0] = array('href'=>'/?qa=logout','text'=>'退出');
 			$items[1] = array('href'=>site_url('user/modify'),'text'=>'修改空间设置');
-			$items[2] = array('href'=>'/?qa=user/math001','text'=>'<u>'.$username.'</u>');
+			$items[2] = array('href'=>'/?qa=user/'.$username,'text'=>'<u>'.$username.'</u>');
 			
 		}
 		return $items;
