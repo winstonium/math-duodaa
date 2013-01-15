@@ -32,7 +32,7 @@ class ui_model extends CI_Model
 					'text'  =>  '发表文章'
 			);
 			$items[3] = array(
-					'href'  =>  site_url('articel/draft'),
+					'href'  =>  site_url('user/draft'),
 					'text'  =>  '我的草稿'
 			);
 			
@@ -59,7 +59,7 @@ class ui_model extends CI_Model
 		{   
 			$items[0] = array('href'=>'/?qa=logout','text'=>'退出');
 			$items[1] = array('href'=>site_url('user/modify'),'text'=>'修改空间设置');
-			$items[2] = array('href'=>'/?qa=user/'.$username,'text'=>'<u>'.$username.'</u>');
+			$items[2] = array('href'=>'/?qa=account','text'=>'<u>'.$username.'</u>');
 			
 		}
 		return $items;
