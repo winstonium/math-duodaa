@@ -23,6 +23,16 @@ class article extends CI_Controller {
 			exit;
 		}
 		
+		if($atcl['status']==1)                      //如果是草稿文章
+		{
+			//如果不是文章作者，且不是管理员
+			if(qa_get_logged_in_handle()!=$atcl['username'] or $this->user_model->get_user_level(qa_get_logged_in_handle())<4)
+			{
+				echo 'no permints!';
+				exit;
+			}
+			
+		}
 		
 		
 		//echo $article['createtime'];
@@ -87,6 +97,8 @@ class article extends CI_Controller {
 		$this->parser->parse('theme/default/templete/foot',$data);
 		
 	}
+
+	
 
 
 
