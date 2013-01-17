@@ -3,7 +3,7 @@
 
 <div class='blog_top_container'>
 <div class='blog_top'>
-<div class='blog_logo'><img src="{blog_logo}" />
+<div class='blog_logo'><a href="{siteurl}"><img src="{blog_logo}" /></a>
 </div>
 
 <div class="nav_div">

@@ -17,8 +17,14 @@ class user extends CI_Controller {
 
 	}
 
-	public function index($username='math001')
+	public function index($username=null)
 	{
+		if(!isset($username))
+		{
+			echo '<script>window.location.href="'.site_url().'"</script>';
+			exit;
+		}
+		
 		$user = $this->user_model->get_user_config($username);
 		if($user==null)
 		{exit;}

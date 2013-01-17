@@ -21,8 +21,8 @@ class ui_model extends CI_Model
 				           'text'  =>  '哆嗒数学首页'
 				         );
 		$items[1] = array(
-						   'href'  =>  site_url(),
-						   'text'  =>  '空间首页'
+						   'href'  =>  site_url('user/index/'.qa_get_logged_in_handle()),
+						   'text'  =>  '我的空间'
 				         );
 		//判断权限
 		if($userlevel!==null and $userlevel>=0)
