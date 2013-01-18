@@ -19,7 +19,9 @@ class defaultpage_model extends CI_Model
 	public function header_items()
 	{
 		$items=array(
-				'blog_title'    => '哆嗒数学网空间',
+				'blog_headertitle'
+				               => '哆嗒数学网空间',
+				'blog_title'   => '',
 				'siteurl'      => site_url(),
 				'jq_ui_css'    => $this->config->item('jq_ui_css'),
 				'jq_src'       => $this->config->item('jq_src'),
