@@ -5,7 +5,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{blog_title}</title>
+<title>{blog_headertitle}</title>
 <link  rel="stylesheet" type="text/css" href="{css_src}" />
 <link  rel="stylesheet" type="text/css" href="{jq_ui_css}" />
 <script src="{jq_src}" type="text/javascript"></script>

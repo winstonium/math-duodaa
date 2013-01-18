@@ -64,6 +64,7 @@ class user extends CI_Controller {
 		$data = array_merge(
 				$data, 
 				array(
+						'blog_headertitle'    =>      $user['blogtitle'].'-'.$data['blog_headertitle'],
 						'blog_title'          =>      $user['blogtitle'],
 						'blog_subtitle'       =>      $user['blogsubtitle'],
 						'user_photo'          =>      $this->user_model->get_qa_avartar_html($username),
