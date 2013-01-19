@@ -17,7 +17,7 @@ class createarticle extends CI_Controller {
 
 	}
 
-	public function index()
+	public function index($id=null)
 	{  
 		
 		$username = qa_get_logged_in_handle();	
@@ -91,10 +91,36 @@ class createarticle extends CI_Controller {
 		$data['comments']= $comments;
 		$data['messages']= $messages;
 		
+		if($id==null)
+		{
+			$data['ar_saveid']='0';
+			$data['ar_draft_title']='';
+			$data['ar_draft_content']='';
+			$data['ar_draft_tags']='';
+			
+		}
+		else 
+		{
+			$artl=$this->article_model->select_single_article($id);
+			if($artl!=null and $artl['username']==$username)
+			{
+				$data['ar_saveid']=$id;
+				$data['ar_draft_title']=$artl['caption'];
+				$data['ar_draft_content']=$artl['content'];
+				$data['ar_draft_tags']=$artl['tags'];
+			}
+			else 
+			{
+				echo 'no permits!';
+			}
+		}
+		
+		
 		$this->parser->parse('theme/default/templete/header',$data);
 		$this->parser->parse('theme/default/templete/head',$data);
 		$this->parser->parse('theme/default/templete/createarticle',$data);
 		$this->parser->parse('theme/default/templete/foot',$data);
+	    
 		
 		
 		

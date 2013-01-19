@@ -3,7 +3,18 @@
 
 <div class="newarticle_form" >
 <form id="article_form" method="post" action="{article_submit}">
-<input id="ar_saveid" style="visibility:hidden;" value="0"/>
+
+<!-- 载入文章的数据 -->
+
+<input id="ar_saveid" style="visibility:hidden;" value="{ar_saveid}"/>
+<input id="ar_draft_title" style="visibility:hidden;" value="{ar_draft_title}"/>
+<input id="ar_draft_content" style="visibility:hidden;" value="{ar_draft_content}"/>
+<input id="ar_draft_tags" style="visibility:hidden;" value="{ar_draft_tags}"/>
+
+<!-- 载入文章的数据(完) -->
+
+
+
 <div class="newarticle_bar">发表新文章</div>
 <div class="title_div_bar">标题</div>
 <input type="text" id="ar_title" class="newarticle_title"></input>
@@ -105,6 +116,12 @@ function receive_create_callback(ar_data)
 	
 }
 
+if($("#ar_saveid")[0].value!="0")
+{
+	$("#ar_title").val( $("#ar_draft_title").val() );
+	CKEDITOR.instances.CKeditor_main.setData($("#ar_draft_content").val());
+	$("#ar_tags").val( $("#ar_draft_tags").val() );
+}
 
 	 $("#form_submit").click(function(){ar_creat_post();});
 	 $("#save").click(function(){ar_save_post();});
