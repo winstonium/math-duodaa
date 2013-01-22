@@ -15,12 +15,12 @@ class add_article extends CI_Controller {
 		//$actor = qa_get_logged_in_handle();
 		
 		$username = qa_get_logged_in_handle();
-		$caption = htmlentities($this->input->post('title'),ENT_QUOTES ,'UTF-8');
+		$caption = htmlspecialchars($this->input->post('title'),ENT_QUOTES ,'UTF-8');
 		
 		$content = strip_tags($this->input->post('content'),ALLOW_CONTENT_TAGS) ;
-		$content = htmlentities($content,ENT_QUOTES ,'UTF-8');
 		
-		$tags = htmlentities($this->input->post('tags'),ENT_QUOTES ,'UTF-8');
+		
+		$tags = htmlspecialchars($this->input->post('tags'),ENT_QUOTES ,'UTF-8');
 		$createtime = date('Y-m-d G:i:s');
 		$id = $this->input->post('ar_saveid');
 		

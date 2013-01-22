@@ -105,9 +105,9 @@ class createarticle extends CI_Controller {
 			if($artl!=null and $artl['username']==$username)
 			{
 				$data['ar_saveid']=$id;
-				$data['ar_draft_title']=$artl['caption'];
-				$data['ar_draft_content']=$artl['content'];
-				$data['ar_draft_tags']=$artl['tags'];
+				$data['ar_draft_title']=htmlspecialchars($artl['caption'],ENT_QUOTES,'UTF-8' );
+				$data['ar_draft_content']=htmlspecialchars($artl['content'],ENT_QUOTES,'UTF-8' );
+				$data['ar_draft_tags']=htmlspecialchars($artl['tags'],ENT_QUOTES,'UTF-8' );
 			}
 			else 
 			{
