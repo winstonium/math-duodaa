@@ -41,10 +41,13 @@ class user extends CI_Controller {
 		
 		foreach($articles_meta as $key => $article)
 		{
+			$articles[$key]['articleid']=$article['ID'];
 			$articles[$key]['title']=$article['caption'];
 			$articles[$key]['content']=mb_substr($article['content'],0, 200);
 			$articles[$key]['date']=date('Y-m-d g:i',strtotime($article['createtime']));
 			$articles[$key]['articlelink']=site_url('article/index/'.$article['ID']);
+
+			$articles[$key]['ar_operation_items'] = $this->ui_model->ar_operation_items($article);
 		}
 		
 		foreach($comments_meta as $key => $comment)
@@ -169,9 +172,5 @@ class user extends CI_Controller {
 		
 	}
 
-	public function modify()
-	{
-		echo 'Being built!';
-		
-	}
+	
 }

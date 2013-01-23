@@ -59,14 +59,15 @@ class add_article extends CI_Controller {
 			exit;
 		}
 		
+		$article = $this->article_model->select_single_article($id);
 		
-		if($this->article_model->select_single_article($id)==null)
+		if($article==null)
 		{
 		     $newid = $this->article_model->insert_article($username,$caption,$content,$tags,$createtime);
 		}
 		else 
 		{
-		     $newid = $this->article_model->update_article($id,$username,$caption,$content,$tags,$createtime);
+		     $newid = $this->article_model->update_article($id,$article['username'],$caption,$content,$tags,$createtime);
 		}
 		
 		

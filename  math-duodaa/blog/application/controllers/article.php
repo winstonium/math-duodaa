@@ -34,9 +34,18 @@ class article extends CI_Controller {
 			
 		}
 		
+		if($atcl['status']<0)                      //如果是已经标记删掉的文章
+		{
+			//如果不是管理员
+			if( $this->user_model->get_user_level(qa_get_logged_in_handle())<4)
+			{
+				echo 'no permints!';
+				exit;
+			}
+				
+		}
 		
-		//echo $article['createtime'];
-		
+			
 		$username = $atcl['username'];
 		$user = $this->user_model->get_user_config($username);
 		$articles_meta = $this->article_model->get_article_list_by_author($username);
@@ -69,8 +78,7 @@ class article extends CI_Controller {
 		
 		}
 		$data = $this->defaultpage_model->all_items();
-		
-		//var_dump($user);
+
 		$data = array_merge(
 				$data,
 				array(

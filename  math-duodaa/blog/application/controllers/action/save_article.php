@@ -22,6 +22,11 @@ class save_article extends CI_Controller {
 		$tags = htmlspecialchars($this->input->post('tags'),ENT_QUOTES ,'UTF-8');
 		$createtime = date('Y-m-d G:i:s');
 		$articleid = $this->input->post('ar_saveid');
+		
+		
+		$article = $this->article_model->select_single_article($articleid);
+		
+		
 
 		$userlevel = $this->user_model->get_user_level($username);
         //echo 333;
@@ -59,9 +64,10 @@ class save_article extends CI_Controller {
 		}
         
         
-        
-		$newid = $this->article_model->update_article($articleid,$username,$caption,$content,$tags,$createtime,$status=1);
-		
+        if($article!=null)
+        {
+		    $newid = $this->article_model->update_article($articleid,$article['username'],$caption,$content,$tags,$createtime,$status=1);
+        }
 		
         if($newid==null)
         {
