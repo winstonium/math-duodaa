@@ -15,5 +15,13 @@ class comment_model extends CI_Model
 		
 	}
 	
+	public function get_comments_by_article_id($id=0)
+	{
+		$query = $this->db->query('select * from comment where articleid='.$id);
+		$query_result=$query->result_array();
+		return $query_result;
+		
+	}
+	
 		
 }

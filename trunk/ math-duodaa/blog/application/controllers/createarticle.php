@@ -29,67 +29,32 @@ class createarticle extends CI_Controller {
 		}
 		
 		$user = $this->user_model->get_user_config($username);
+		
 		if($user==null)
 		{
 			exit;
 		}
-				
-		$articles_meta = $this->article_model->get_article_list_by_author($username);
-		$comments_meta = $this->comment_model->get_comments_by_to_user($username);
-		$messages_meta = $this->message_model->get_messages_by_to_user($username);
-        
-		//$comments_meta = $;
-				
-		$articles=array();
-		$comments=array();
-		$messages=array();
-		
-		
-		foreach($articles_meta as $key => $article)
-		{
-			$articles[$key]['title']=$article['caption'];
-			$articles[$key]['content']=mb_substr($article['content'],0, 200);
-			$articles[$key]['date']=date('Y-m-d g:i',strtotime($article['createtime']));			
-		}
-		
-		foreach($comments_meta as $key => $comment)
-		{
-			$comments[$key]['comment']=mb_substr($comment['content'],0,17).'...';
-		}
-		
-		foreach($messages_meta as $key => $message)
-		{
-			$messages_meta[$key]['comment']=mb_substr($message['content'],0,17).'...';
-		}
-	
+		$userlevel = $this->user_model->get_user_level($username);
 		
 		$data = $this->defaultpage_model->all_items();
 		
 		$data = array_merge(
 				$data,
 				array(
-			'blog_title'          =>      $user['blogtitle'],
-			'blog_subtitle'       =>      $user['blogsubtitle'],
-			
-				
-			'img_article_operation_btns1' 
-						          =>      base_url($this->config->item('app_src').'views/theme/'.$this->config->item('theme').'/img/article_operation_btns1.gif'),
-				
-						
-			'article_submit'      =>      site_url('action/add_article/add_single_by_post'),
-			'save_posted_page'    =>      site_url('action/save_article/save_single_by_post'),
-			'aritile_site_url'    =>      site_url('article/index')
+						'blog_title'          =>      $user['blogtitle'],
+						'blog_subtitle'       =>      $user['blogsubtitle'],
+							
+		
+						'img_article_operation_btns1'
+						=>      base_url($this->config->item('app_src').'views/theme/'.$this->config->item('theme').'/img/article_operation_btns1.gif'),
+		
+		
+						'article_submit'      =>      site_url('action/add_article/add_single_by_post'),
+						'save_posted_page'    =>      site_url('action/save_article/save_single_by_post'),
+						'aritile_site_url'    =>      site_url('article/index')
 		
 				)
 		);
-		
-
-		
-		
-		
-		$data['articles']= $articles;
-		$data['comments']= $comments;
-		$data['messages']= $messages;
 		
 		if($id==null)
 		{
@@ -102,7 +67,7 @@ class createarticle extends CI_Controller {
 		else 
 		{
 			$artl=$this->article_model->select_single_article($id);
-			if($artl!=null and $artl['username']==$username)
+			if($artl!=null and ($artl['username']==$username or $userlevel['level'] >= 4))
 			{
 				$data['ar_saveid']=$id;
 				$data['ar_draft_title']=htmlspecialchars($artl['caption'],ENT_QUOTES,'UTF-8' );
@@ -112,6 +77,7 @@ class createarticle extends CI_Controller {
 			else 
 			{
 				echo 'no permits!';
+				exit;
 			}
 		}
 		

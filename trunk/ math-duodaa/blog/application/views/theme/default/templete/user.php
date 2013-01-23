@@ -22,13 +22,20 @@
     <div class="ar_content">{content}</div>
     
     <div class="ar_operation">
-        <span><a href="#">阅读全文</a></span>
-        <span><a href="#">评论</a></span>
+        {ar_operation_items}
+        <span><a href="{link}" class="ar_operation_item" >{text}</a></span>
+        {/ar_operation_items}
+     
     </div>
+    
+    <div style="display:none; ;" class="comment_div">111</div>
  </div>
+
+ 
 {/articles}
 
 </div>
+
 <div class="clear"></div>
 
 
@@ -63,4 +70,28 @@
 
 </div>
 <div class="clear"></div>
+<script>
+$("a.ar_operation_item").click(
+function()
+{
+	
+	
+  if($(this).text()=='删除')
+  {
+	  var comment_div = $(this).parents("div.article").children(".comment_div");
+	  comment_div.slideToggle(1000);
+      return false;
+  }
 
+  if($(this).text().indexOf('评论')== 0)
+  {
+ 
+	  var comment_div = $(this).parents("div.article").children(".comment_div");
+	  comment_div.slideToggle(1000);
+      return false;
+  }
+	
+}
+		);
+
+</script>
