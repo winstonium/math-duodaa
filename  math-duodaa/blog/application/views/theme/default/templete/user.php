@@ -28,7 +28,15 @@
      
     </div>
     
-    <div style="display:none; ;" class="comment_div">111</div>
+    <div class="comment_div" style="display:none; margin-top:10px;">
+<div class="input" contenteditable="true" style="border: 1px solid #000;min-height:40px; width:600px;padding:5px;background-color:#fff;"></div>
+<div style="width:600px;padding:5px;">
+<button class="comment_submit_button" style="float:right;background-color:#52C503;height:30px;width:55px;font-size:14px;color:white;border: 1px solid #000; cursor:pointer;">发布</button>
+
+
+</div>
+<div style="height:0px;clear:both;"></div>
+</div>
  </div>
 
  
@@ -78,9 +86,7 @@ function()
 	
   if($(this).text()=='删除')
   {
-	  var comment_div = $(this).parents("div.article").children(".comment_div");
-	  comment_div.slideToggle(1000);
-      return false;
+	 
   }
 
   if($(this).text().indexOf('评论')== 0)
@@ -88,6 +94,9 @@ function()
  
 	  var comment_div = $(this).parents("div.article").children(".comment_div");
 	  comment_div.slideToggle(1000);
+	  comment_input = $(this).parents("div.article").find(".input");
+	  comment_input.focus();
+	  
       return false;
   }
 	
