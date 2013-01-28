@@ -28,9 +28,7 @@ class article_model extends CI_Model {
 			 $aid=$articleid;
 		
 		$query = $this->db->query('select * from article where id ='. $aid);
-		//var_dump($query);
 		$q_result = $query->result_array();
-		//var_dump($q_result[0]) ;
 		
 		if($q_result==null) return null;
 		else return $q_result[0];
@@ -43,8 +41,6 @@ class article_model extends CI_Model {
 		if($this->select_single_article($articleid)==null)
 		{
 			return null;
-			
-			
 		}
 		
 		else
@@ -89,10 +85,12 @@ class article_model extends CI_Model {
 				'status'       => $status
 								);
 		
-		//var_dump($article_data);
 		$this->db->insert('article', $article_data);
 		
 		return $this->db->insert_id();
 		
 	}
+	
+	
+	
 }
