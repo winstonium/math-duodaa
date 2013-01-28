@@ -31,9 +31,8 @@ class user extends CI_Controller {
 		$articles_meta = $this->article_model->get_article_list_by_author($username);
 		$comments_meta = $this->comment_model->get_comments_by_to_user($username);
 		$messages_meta = $this->message_model->get_messages_by_to_user($username);
-       // var_dump($messages_meta);
-		//$comments_meta = $;
-				
+   
+		
 		$articles=array();
 		$comments=array();
 		$messages=array();
@@ -63,7 +62,6 @@ class user extends CI_Controller {
 	
 		$data = $this->defaultpage_model->all_items();
 		
-		//var_dump($user);
 		$data = array_merge(
 				$data, 
 				array(
@@ -110,15 +108,12 @@ class user extends CI_Controller {
         	exit;
         }
         
-        //if(qa_get_logged_in_handle()!=$atcl['username'] or $this->user_model->get_user_level(qa_get_logged_in_handle())<4)
-        
         $data = $this->defaultpage_model->all_items();
         
         $articles_meta = $this->article_model->get_article_list_by_author($username,1000,1);
         $comments_meta = $this->comment_model->get_comments_by_to_user($username);
         $messages_meta = $this->message_model->get_messages_by_to_user($username);
-        // var_dump($messages_meta);
-        //$comments_meta = $;
+      
         
         $articles=array();
         $comments=array();
@@ -131,6 +126,10 @@ class user extends CI_Controller {
         	$articles[$key]['content']=mb_substr($article['content'],0, 200);
         	$articles[$key]['date']=date('Y-m-d g:i',strtotime($article['createtime']));
         	$articles[$key]['articlelink']=site_url('article/index/'.$article['ID']);
+        	
+        	$articles[$key]['ar_operation_items'] = $this->ui_model->ar_operation_items($article);
+        	unset($articles[$key]['ar_operation_items'][0]);
+        	unset($articles[$key]['ar_operation_items'][1]);
         }
         
         foreach($comments_meta as $key => $comment)
