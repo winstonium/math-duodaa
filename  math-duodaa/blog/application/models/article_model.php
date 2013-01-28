@@ -68,6 +68,38 @@ class article_model extends CI_Model {
 		
 	}
 	
+	public function update_article_by_array($id,$columns,$values)
+	{
+		$articleid=$id;
+		
+		if(count($columns)!=count($values))
+		{
+			$articleid = null;
+		}
+		
+		
+		elseif($this->select_single_article($id)==null)
+		{
+			$articleid = null;
+		}
+		
+		
+		else
+		{
+			
+			foreach($columns as $key=>$val)
+			{
+				$data[$val] = $values[$key];
+			}
+			$this->db->where('id', $articleid);
+			$this->db->update('article', $data);
+		
+		}
+		
+		return $articleid;
+	}
+	
+	
 	public function insert_article($username,$caption,$content,$tags,$createtime=null,$status=0)
 	{
 		if(is_array($tags))$tgs = implode(',',$tags); 
