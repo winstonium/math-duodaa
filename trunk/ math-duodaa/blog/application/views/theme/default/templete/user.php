@@ -78,16 +78,16 @@
 
 </div>
 <div class="clear"></div>
+<div id="dele_confirm" style="display:none;" title="删除确认">
+  你确定要删除这篇文章吗？
+</div>
+
 <script>
 $("a.ar_operation_item").click(
 function()
 {
 	
-	
-  if($(this).text()=='删除')
-  {
-	 
-  }
+
 
   if($(this).text().indexOf('评论')== 0)
   {
@@ -99,8 +99,37 @@ function()
 	  
       return false;
   }
+
+  if($(this).text()=="删除")
+  {
+	      $("#dele_confirm").text("  你确定要删除这篇文章吗？");
+		  $(function() {
+		    $( "#dele_confirm" ).dialog({
+		      resizable: false,
+		      height:240,
+		      modal: true,
+
+				  
+		      buttons: {
+		        "确认删除": function() {
+			        $(this).dialog( "option", "buttons",[]);
+			        $(this).text("正在删除中...");
+		          //$( this ).dialog( "close" );
+		        },
+		        "取消": function() {
+		          $( this ).dialog( "close" );
+		        }
+		      }
+		    });
+		  });
+
+	  return false;
+
+  }
 	
 }
 		);
+
+
 
 </script>
