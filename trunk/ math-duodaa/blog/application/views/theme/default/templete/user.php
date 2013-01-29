@@ -103,23 +103,43 @@ function()
   if($(this).text()=="删除")
   {
 	      $("#dele_confirm").text("  你确定要删除这篇文章吗？");
+	     
 		  $(function() {
 		    $( "#dele_confirm" ).dialog({
 		      resizable: false,
 		      height:240,
 		      modal: true,
+		      closeOnEscape: false,
+		      closeText: "close",
 
-				  
-		      buttons: {
-		        "确认删除": function() {
+		      				  
+		      buttons: 
+			   {
+		        "确认删除": function() 
+		        {
 			        $(this).dialog( "option", "buttons",[]);
-			        $(this).text("正在删除中...");
+
+			        $(this).html("<img src=<?php echo "'".base_url($this->config->item('app_src')).'/views/theme/'.$this->config->item('theme').'/img/loading_1.gif'."'"?> />正在删除中");
 		          //$( this ).dialog( "close" );
 		        },
-		        "取消": function() {
+		        "取消": function() 
+		        {
 		          $( this ).dialog( "close" );
 		        }
+		      },
+
+		      open:function()
+		      {
+		        $("span").each(function(i)
+				 {
+		         if (this.innerHTML=="close")
+		         {
+                      $(this).parent("a").hide();
+			          //this.style.display="none";
+		         }
+		        })
 		      }
+			      
 		    });
 		  });
 
