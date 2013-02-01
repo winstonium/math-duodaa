@@ -115,7 +115,7 @@ class article_model extends CI_Model {
 				'tags'         => $tgs,
 				'createtime'   => $ct,
 				'status'       => $status
-								);
+							 );
 		
 		$this->db->insert('article', $article_data);
 		

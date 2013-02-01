@@ -16,6 +16,7 @@
 <div class="articles">
 {articles}
 <div class="article">
+    <input class="qid" type="hidden" value="{articleid}" />
 	<div class="ar_title"><a href="{articlelink}">{title}</a></div>
     <div class="ar_date">{date}</div>
     <div class="clear"></div>
@@ -79,7 +80,8 @@
 </div>
 <div class="clear"></div>
 <div id="dele_confirm" style="display:none;" title="删除确认">
-  你确定要删除这篇文章吗？
+ <input type="hidden" id="qid" value="0">
+ <div class="maincontent">你确定要删除这篇文章吗？</div>
 </div>
 
 <script>
@@ -102,7 +104,10 @@ function()
 
   if($(this).text()=="删除")
   {
-	      $("#dele_confirm").text("  你确定要删除这篇文章吗？");
+	      $("#dele_confirm").children(".maincontent").text("你确定要删除这篇文章吗？");
+
+          var qid = $(this).parents(".article").children(".qid").val();
+	      $("#dele_confirm").find("#qid").val(qid);
 	     
 		  $(function() {
 		    $( "#dele_confirm" ).dialog({
@@ -117,10 +122,27 @@ function()
 			   {
 		        "确认删除": function() 
 		        {
-			        $(this).dialog( "option", "buttons",[]);
+                    var dlg = $(this);
+			        dlg.dialog( "option", "buttons",[]);
 
-			        $(this).html("<img src=<?php echo "'".base_url($this->config->item('app_src')).'/views/theme/'.$this->config->item('theme').'/img/loading_1.gif'."'"?> />正在删除中");
-		          //$( this ).dialog( "close" );
+			        
+			        var maincontent = $(this).children(".maincontent");
+			        maincontent.html("<img src=<?php echo "'".base_url($this->config->item('app_src')).'/views/theme/'.$this->config->item('theme').'/img/loading_1.gif'."'"?> />正在删除中");
+
+			        $.post( "{dele_posted_page}/" + $("#dele_confirm").find("#qid").val(),
+				   			 {},
+				   			 function(data)
+				   			      {
+				   			       maincontent.html("文章已经删除");
+					   			   dlg.dialog( "option", "buttons",[{text:"确定",click:function(){dlg.dialog("close");} }]);
+
+						   			
+                                  
+				   			       
+					   			  }
+				   		   );
+
+			          //$( this ).dialog( "close" );
 		        },
 		        "取消": function() 
 		        {
@@ -132,12 +154,12 @@ function()
 		      {
 		        $("span").each(function(i)
 				 {
-		         if (this.innerHTML=="close")
-		         {
-                      $(this).parent("a").hide();
-			          //this.style.display="none";
-		         }
-		        })
+			         if (this.innerHTML=="close")
+			         {
+	                      $(this).parent("a").hide();
+				          //this.style.display="none";
+			         }
+		         });
 		      }
 			      
 		    });
@@ -149,6 +171,7 @@ function()
 	
 }
 		);
+
 
 
 

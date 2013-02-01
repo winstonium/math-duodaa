@@ -80,6 +80,8 @@ class user extends CI_Controller {
 		$data['comments']= $comments;
 		$data['messages']= $messages;
 		
+		$data['dele_posted_page'] = site_url('action/dele_article/dele_single_article');
+		
 		
 		$this->parser->parse('theme/default/templete/header',$data);
 		$this->parser->parse('theme/default/templete/head',$data);
@@ -122,6 +124,7 @@ class user extends CI_Controller {
         
         foreach($articles_meta as $key => $article)
         {
+        	$articles[$key]['articleid']=$article['ID'];
         	$articles[$key]['title']=$article['caption'];
         	$articles[$key]['content']=mb_substr($article['content'],0, 200);
         	$articles[$key]['date']=date('Y-m-d g:i',strtotime($article['createtime']));
