@@ -165,7 +165,7 @@ class user extends CI_Controller {
         $data['comments']= $comments;
         $data['messages']= $messages;
 		
-		
+        $data['dele_posted_page'] = site_url('action/dele_article/dele_single_article');
 		
 		$this->parser->parse('theme/default/templete/header',$data);
 		$this->parser->parse('theme/default/templete/head',$data);

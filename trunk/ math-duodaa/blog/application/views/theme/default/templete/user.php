@@ -140,7 +140,7 @@ function()
 								               "buttons",
 											      [{text:"确定",
 												    click:function(){
-														              article_div.fadeOut("2000");
+														              article_div.hide("blind");
 														              dlg.dialog("close");
 																	} 
 												 }]
