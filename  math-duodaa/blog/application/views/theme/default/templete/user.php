@@ -106,7 +106,9 @@ function()
   {
 	      $("#dele_confirm").children(".maincontent").text("你确定要删除这篇文章吗？");
 
-          var qid = $(this).parents(".article").children(".qid").val();
+          var article_div = $(this).parents(".article");
+          var qid = article_div.children(".qid").val();
+		  
 	      $("#dele_confirm").find("#qid").val(qid);
 	     
 		  $(function() {
@@ -134,13 +136,23 @@ function()
 				   			 function(data)
 				   			      {
 				   			       maincontent.html("文章已经删除");
-					   			   dlg.dialog( "option", "buttons",[{text:"确定",click:function(){dlg.dialog("close");} }]);
+					   			   dlg.dialog( "option", 
+								               "buttons",
+											      [{text:"确定",
+												    click:function(){
+														              article_div.fadeOut("2000");
+														              dlg.dialog("close");
+																	} 
+												 }]
+											 );
 
 						   			
                                   
 				   			       
 					   			  }
 				   		   );
+						   
+						
 
 			          //$( this ).dialog( "close" );
 		        },
