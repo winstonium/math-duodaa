@@ -43,12 +43,12 @@ class dele_article extends CI_Controller {
 		
 		if($article!=null)
 		{
-			$newid = $this->article_model->update_article($articleid,$article['username'],$caption,$content,$tags,$createtime,$status=1);
+			$newid = $this->article_model->update_article_by_array($articleid,array("status"),array(-1));
 		}
 		
 		if($newid==null)
 		{
-			$newid = $this->article_model->insert_article($username,$caption,$content,$tags,$createtime,1);
+			$newid = 0;
 		}
 		
 		echo $newid;
