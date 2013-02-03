@@ -36,17 +36,18 @@
 CKEDITOR.replace( 'CKeditor_main',
  {
 	//extraPlugins: 'devtools' ,
-	extraPlugins: 'autogrow',
+	extraPlugins: 'autogrow,duodaa_math',
 	removePlugins: 'resize',
 	
 	toolbar : [ 
 		       	[  
+				   'duodaa_math',
 			       'Font','FontSize',
 			       'Bold','Italic','Underline',
 			       'TextColor','BGColor',
 			       'JustifyLeft','JustifyCenter','JustifyRight',
 			       'NumberedList','BulletedList',
-			       'Link','Unlink'//,
+			       'Link','Unlink'
 			       //'Image' 
 			    ] 
 
