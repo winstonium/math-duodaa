@@ -26,8 +26,8 @@ CKEDITOR.dialog.add( 'duodaa_math', function( editor ) {
         	
         },
         onOk: function() {
-        	var thedoc = document.frames ? document.frames('math_frame').document : getIFrameDOM("math_frame");
-        	var mathHTML = '<span class="mathquill-rendered-math" style="font-size:' + '' + ';" >' +'xxxx' + '</span><span>&nbsp;</span>';
+        	var thedoc = $("#math_frame").contents().find("#math_latex").text();
+        	var mathHTML = '$' +thedoc + '$<span>&nbsp;</span>';
             editor.insertHtml(mathHTML);
 					return;
 			
