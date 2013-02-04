@@ -11,7 +11,7 @@
 <script src="../mathquill/mathquill.min.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body class="sans-serif">
 <div class="tabMenu">
 	<div class="tabTitle">
 		<li>
@@ -36,13 +36,33 @@
 
 <div id="mathDiv">
 	<p>
-        <span class="mathquill-embedded-latex">\frac{d}{dx}\sqrt{x}</span>
-		<span id="dudoaa-math"></span>
-	</p>
+       
+	  <span  id="dudoaa_math"  class="mathquill-editable" style="border:0px;">\overline{abc}_{123}</span>
+        <br />
+     
+	    <span id="math_latex" style="border:0px;"> </span>
+        <br />
+        <button id="abc" value="LaTeX" >LaTeX</button>
+  </p>
 	<p>&nbsp;</p>
 </div>
 <div class="ad">
 </div>
+<script>
 
+ //$("#math_latex").html($("#dudoaa_math").mathquill('latex'));
+ 
+
+
+function set_latex_buffer()
+{
+	 $("#math_latex").html($("#dudoaa_math").mathquill('latex'));
+	}
+	
+setInterval("set_latex_buffer();",300)
+/*$("#abc").click(function(){
+                           $("#math_latex").html($("#dudoaa_math").mathquill('latex'));alert($("#math_latex").html());})
+*/
+</script>
 </body>
 </html>
