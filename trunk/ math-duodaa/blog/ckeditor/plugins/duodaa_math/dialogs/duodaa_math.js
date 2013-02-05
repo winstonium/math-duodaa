@@ -26,19 +26,49 @@ CKEDITOR.dialog.add( 'duodaa_math', function( editor ) {
         	
         },
         onOk: function() {
-        	var thedoc = $("#math_frame").contents().find("#math_latex").text();
-        	var mathHTML = '$' +thedoc + '$<span>&nbsp;</span>';
-            editor.insertHtml(mathHTML);
+        	//var thedoc = $("#math_frame").contents().find("#math_latex").text();
+        	//var mathHTML = '$' +thedoc + '$<span>&nbsp;</span>';
+            //editor.insertHtml(mathHTML);
+				
+				setInsertMath();
+				
 					return;
 			
         }
     };
 });
 
-function getIFrameDOM(fid){
-	var fm = getIFrame(fid);
-	return fm.document||fm.contentDocument;
+function setInsertMath()
+{
+  var editor = CKEDITOR.instances.CKeditor_main;
+  var thedoc = $("#math_frame").contents().find("#math_latex").text();
+  var mathHTML = thedoc 
+  var mathSPAN = '<span>&nbsp;</span>';
+  var duodaa_insert_serprator = "<span>duodaa_insert_serprator</span>";
+  
+  editor.insertHtml(duodaa_insert_serprator);
+  var newString = editor.getData();
+  
+  var insertPosStart = newString.indexOf(duodaa_insert_serprator);
+  var string1 = newString.substr(0,insertPosStart);
+  
+  var pre_dollar_count = string1.split("$").length;
+  
+  var contentstring
+  if(pre_dollar_count%2==1)
+  {
+	  contentstring = newString.replace(duodaa_insert_serprator,"$" + mathHTML + "$" + mathSPAN);
+	  editor.setData(contentstring);
+  }
+  
+  else
+  {
+     contentstring = newString.replace(duodaa_insert_serprator+" ", mathHTML );
+	 editor.setData(contentstring);
+  }
+ 
+  //alert(pre_dollar_count);
+  
+	
 }
-function getIFrame(fid){
-	return document.getElementById(fid)||document.frames[fid];
-}
+
