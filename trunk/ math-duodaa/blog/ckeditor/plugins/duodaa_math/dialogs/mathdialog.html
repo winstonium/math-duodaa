@@ -9,57 +9,102 @@
 <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" type="text/javascript"></script>
 <script src="../mathquill/mathquill.min.js" type="text/javascript"></script>
+<style>
+div.clear
+{
+	clear:both;
+ 
+	}
+div.math_bar
+{
+	
+	
+	}
+div.math_bar div.math_panel
+{
+	float:left;
+	
+}
+</style>
 
 </head>
-<body class="sans-serif">
-<div class="tabMenu">
-	<div class="tabTitle">
-		<li>
-			常用公式
-		</li>
-		<li>
-			字母
-		</li>
-		<li>
-			符号
-		</li>
-	</div>
-	<div class="tabContent">
-		<div class="mathBox">
-		</div>
-		<div class="mathBox">
-		</div>
-		<div class="mathBox">
-		</div>
-	</div>
-</div>
+<body >
 
-<div id="mathDiv">
-	<p>
-       
-	  <span  id="dudoaa_math"  class="mathquill-editable" style="border:0px;">\overline{abc}_{123}</span>
-        <br />
-     
-	    <span id="math_latex" style="border:0px;display:none;"> </span>
-        <br />
-        
-  </p>
-	<p>&nbsp;</p>
-</div>
-<div class="ad">
-</div>
+<div class="math_bar">
+<div class="math_panel">常用公式</div>
+<div class="math_panel">常用符号</div>
+<div class="math_panel">常用字母</div>     
+<div>
+
+<div class="clear"></div>
+
+<div id="dudoaa_math"  class="mathquill-editable">\sqrt[n]{3}</div>
+<div id="math_latex">\sin\alpha</div>
 <script>
+
+//定义要生成的按纽命令
+var duodaaMath = [
+		[
+			"\\frac{}{}","^{}/_{}","x^{}","x_{}","x^{}_{}","\\overline{}","\\sqrt{}","\\nthroot{}{}",
+			"\\sum^{}_{n}","\\sum","\\log_{}","\\ln","\\int_{}^{}","\\oint_{}^{}"
+		],
+		[
+			"\\alpha","\\beta","\\gamma","\\delta","\\varepsilon","\\varphi","\\lambda","\\mu",
+			"\\rho","\\sigma","\\omega","\\Gamma","\\Delta","\\Theta","\\Lambda","\\Xi",
+			"\\Pi","\\Sigma","\\Upsilon","\\Phi","\\Psi","\\Omega"
+		],
+		[
+			"+","-","\\pm","\\times","\\ast","\\div","/","\\bigtriangleup",
+			"=","\\ne","\\approx",">","<","\\ge","\\le","\\infty",
+			"\\cap","\\cup","\\because","\\therefore","\\subset","\\supset","\\subseteq","\\supseteq",
+			"\\nsubseteq","\\nsupseteq","\\in","\\ni","\\notin","\\mapsto","\\leftarrow","\\rightarrow",
+			"\\Leftarrow","\\Rightarrow","\\leftrightarrow","\\Leftrightarrow"
+		]
+	];
+
+//以下生成panel
+function ger_panel(panel_order)
+{
+	var i=0;
+	var html="";
+	var math_cmds = duodaaMath[panel_order];
+	var countPerLine = 8;
+	
+	//alert(math_cmds.length);
+	html += "<div>";
+	
+	for(i=0;i<math_cmds.length;i++)
+	{
+		if(i%countPerLine==0)html += "<div>";
+		html += "<span class='mathquill-embedded-latex'>" + math_cmds[i] ;
+		html += "</span>";
+		if(i%countPerLine==countPerLine-1 || i==math_cmds.length)html += "</div>";
+	}
+	
+	html += "</div>";
+	
+	//alert(html);
+	
+	return html;
+	
+}
+
+
+var hl = $("#dudoaa_math").html();
+$("#dudoaa_math").html("\\sqrt[n]{3}").css("font-size","30px").mathquill('editable').mathquill('write', "");
 
  //$("#math_latex").html($("#dudoaa_math").mathquill('latex'));
  
-
-
 function set_latex_buffer()
 {
-	 $("#math_latex").html($("#dudoaa_math").mathquill('latex'));
-	}
+	 $("#math_latex").html($("#dudoaa_math").mathquill("latex"));
+}
+	
 	
 setInterval("set_latex_buffer();",300)
+document.write(ger_panel(0));
+
+
 /*$("#abc").click(function(){
                            $("#math_latex").html($("#dudoaa_math").mathquill('latex'));alert($("#math_latex").html());})
 */
