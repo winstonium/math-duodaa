@@ -20,27 +20,61 @@ div.math_bar
 	
 	
 	}
-div.math_bar div.math_panel
+div.math_panel div.math_bar span.math_type
 {
-	float:left;
-	
+	margin-left:5px;
+	cursor:default;
+	font-family:"微软雅黑";
 }
 </style>
 
 </head>
 <body >
 
+<div class="math_panel">
+
 <div class="math_bar">
-<div class="math_panel">常用公式</div>
-<div class="math_panel">常用符号</div>
-<div class="math_panel">常用字母</div>     
+<span class="math_type" style="font-weight:bold; color:#F96">常用公式</span>
+<span class="math_type">常用符号</span>
+<span class="math_type">常用字母</span>     
 <div>
+
+<div class="math_buttons">
+
+<div class="math_show_buttons">
+</div>
+
+<div class="math_hide_buttons">
+</div>
+
+</div>
+
+</div>
 
 <div class="clear"></div>
 
 <div id="dudoaa_math"  class="mathquill-editable">\sqrt[n]{3}</div>
 <div id="math_latex">\sin\alpha</div>
+
+
+<div class="math_panel_test" style="background-color:#cccccc; width:300px; cursor:pointer;">
+
+<div class="math_show_bar">
+<span>11111</span><span>22222</span>
+</div>
+
+<div class="math_hide_bar" style="display:none; position:absolute; z-index:999;background-color:#cccccc; ">
+<span>3333</span><span>44444</span>
+</div>
+
+</div>
+
+<div>费大幅度发水电费师傅但是发生的飞</div>
+
 <script>
+
+$(".math_panel_test").mouseover( function(){$(".math_hide_bar").show();});
+$(".math_panel_test").mouseout ( function(){$(".math_hide_bar").hide();});
 
 //定义要生成的按纽命令
 var duodaaMath = [
@@ -70,7 +104,6 @@ function ger_panel(panel_order)
 	var math_cmds = duodaaMath[panel_order];
 	var countPerLine = 8;
 	
-	//alert(math_cmds.length);
 	html += "<div>";
 	
 	for(i=0;i<math_cmds.length;i++)
@@ -102,7 +135,7 @@ function set_latex_buffer()
 	
 	
 setInterval("set_latex_buffer();",300)
-document.write(ger_panel(0));
+//document.write(ger_panel(0));
 
 
 /*$("#abc").click(function(){
