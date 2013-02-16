@@ -129,10 +129,13 @@ $(".math_panel .math_show_buttons").mouseout ( function(){$(".math_hide_buttons"
 $(".math_panel .math_type").click( function(){
 	                                              $(".math_show_buttons").html(ger_panel($(this).index(),"show"));
 												  $(".math_hide_buttons").html(ger_panel($(this).index(),"hide"));
+												  $(".math_panel .math_type").css("color","#000");
+												  $(this).css("color","#F96");
+												  $(this).css("font-weight","bold");
 												  
 												  $(".math_panel .math_button").click( function(){
-													                                    latex_math=$(this).attr("title");
-																						$("#dudoaa_math").mathquill("write",latex_math);                                                                                                                                                                                                                                  }
+													                                    
+																						$("#dudoaa_math").mathquill("write",$(this).attr("title"));                                                                                                                                                                                                                                  }
                                                                           );
 											      $(".math_panel .math_buttons").mouseover( function(){$(".math_hide_buttons").show();});
                                                   $(".math_panel .math_buttons").mouseout ( function(){$(".math_hide_buttons").hide();});
