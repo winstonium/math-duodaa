@@ -2,8 +2,8 @@
 CKEDITOR.dialog.add( 'duodaa_math', function( editor ) {
     return {
         title: "哆嗒数学公式编辑" ,
-        minWidth: 500,
-        minHeight: 300,
+        minWidth: 600,
+        minHeight: 500,
         contents: [
             {
                 id: 'tab-basic',
@@ -16,7 +16,7 @@ CKEDITOR.dialog.add( 'duodaa_math', function( editor ) {
                         type: 'html',
                         //CKEDITOR.basePath
 						//html: duodaa_math_edior_html
-                        html: '<div style="width:500px;height:300px;"><iframe id="math_frame" style="width:500px;height:300px;" frameborder="no" src="' + CKEDITOR.basePath + 'plugins/duodaa_math/dialogs/mathdialog.html"></iframe></div>'
+                        html: '<div style="width:600px;height:500px;"><iframe id="math_frame" style="width:100%;height:100%;" frameborder="no" scrolling="no" src="' + CKEDITOR.basePath + 'plugins/duodaa_math/dialogs/mathdialog.html"></iframe></div>'
                     }   
                 ]
             }
@@ -59,7 +59,7 @@ function setInsertMath()
   if(pre_dollar_count%2==1)
   {
 	  
-	  editor.insertHtml("$" + mathHTML + "$" + mathSPAN);
+	  editor.insertHtml("<span contentEditable='false'>$" + mathHTML + "$</span>" + mathSPAN);
 	  
 	 
   }
