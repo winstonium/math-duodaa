@@ -17,29 +17,62 @@ div.clear
 	}
 div.math_bar
 {
-	
-	
+	text-align:left;
 	}
 div.math_panel div.math_bar span.math_type
 {
 	margin-left:5px;
+	color:#000;
 	cursor:default;
 	font-family:"微软雅黑";
 }
+div.math_panel div.math_buttons
+{
+	margin-top:8px;
+	height:100px;
+}
+
+
+div.math_panel div.math_buttons div.math_hide_buttons
+{
+	display:none;
+	position:absolute;
+	z-index:9999;
+}
+
+div.math_panel div.math_buttons  .math_button
+{
+	width:30px;
+	height:30px;
+	float:left;
+	background-image:url(math.png);
+	margin:5px;
+	background-color:#eee;
+	cursor:pointer;
+}
+
+div.math_panel div#duodaa_math
+{
+	font-size:50px;
+	
+}
+
+
 </style>
 
 </head>
 <body >
+<center>
 
 <div class="math_panel">
 
-<div class="math_bar">
+<div class="math_bar" >
 <span class="math_type" style="font-weight:bold; color:#F96">常用公式</span>
 <span class="math_type">常用符号</span>
 <span class="math_type">常用字母</span>     
-<div>
+</div>
 
-<div class="math_buttons">
+<div class="math_buttons"  style="height:100px;">
 
 <div class="math_show_buttons">
 </div>
@@ -49,32 +82,26 @@ div.math_panel div.math_bar span.math_type
 
 </div>
 
-</div>
-
 <div class="clear"></div>
 
-<div id="dudoaa_math"  class="mathquill-editable">\sqrt[n]{3}</div>
-<div id="math_latex">\sin\alpha</div>
-
-
-<div class="math_panel_test" style="background-color:#cccccc; width:300px; cursor:pointer;">
-
-<div class="math_show_bar">
-<span>11111</span><span>22222</span>
+<div class="math_showing" style="height:300px; vertical-align:middle;">
+<div id="dudoaa_math"  class="mathquill-editable"></div>
+<div id="math_latex"></div>
 </div>
 
-<div class="math_hide_bar" style="display:none; position:absolute; z-index:999;background-color:#cccccc; ">
-<span>3333</span><span>44444</span>
-</div>
 
 </div>
 
-<div>费大幅度发水电费师傅但是发生的飞</div>
+
+
+</center>
+
+
+
 
 <script>
 
-$(".math_panel_test").mouseover( function(){$(".math_hide_bar").show();});
-$(".math_panel_test").mouseout ( function(){$(".math_hide_bar").hide();});
+
 
 //定义要生成的按纽命令
 var duodaaMath = [
@@ -95,23 +122,73 @@ var duodaaMath = [
 			"\\Leftarrow","\\Rightarrow","\\leftrightarrow","\\Leftrightarrow"
 		]
 	];
+	
+$(".math_panel .math_show_buttons").mouseover( function(){$(".math_hide_buttons").show();});
+$(".math_panel .math_show_buttons").mouseout ( function(){$(".math_hide_buttons").hide();});
+
+$(".math_panel .math_type").click( function(){
+	                                              $(".math_show_buttons").html(ger_panel($(this).index(),"show"));
+												  $(".math_hide_buttons").html(ger_panel($(this).index(),"hide"));
+												  
+												  $(".math_panel .math_button").click( function(){
+													                                    latex_math=$(this).attr("title");
+																						$("#dudoaa_math").mathquill("write",latex_math);                                                                                                                                                                                                                                  }
+                                                                          );
+											      $(".math_panel .math_buttons").mouseover( function(){$(".math_hide_buttons").show();});
+                                                  $(".math_panel .math_buttons").mouseout ( function(){$(".math_hide_buttons").hide();});
+																		  
+											 }
+							     );	
+								 
+
+	
+
 
 //以下生成panel
-function ger_panel(panel_order)
+function ger_panel(panel_order,buttons_type)
 {
 	var i=0;
 	var html="";
 	var math_cmds = duodaaMath[panel_order];
-	var countPerLine = 8;
+	var countPerLine = 12;
+	
+	var button_width = 30,button_height=30,iniLine = 0;
+	
+	
+	if(panel_order==0)
+	{
+	   iniLine = 0;
+	}
+	
+	
+	if(buttons_type=="show")
+	{
+		math_cmds = math_cmds.slice(0,2*countPerLine);
+		//intLine = 0;
+	}
+	else if(buttons_type=="hide")
+	{
+		math_cmds = math_cmds.slice(2*countPerLine,1000);
+		iniLine += 2;
+	}
+	
+	
 	
 	html += "<div>";
 	
 	for(i=0;i<math_cmds.length;i++)
 	{
 		if(i%countPerLine==0)html += "<div>";
-		html += "<span class='mathquill-embedded-latex'>" + math_cmds[i] ;
-		html += "</span>";
-		if(i%countPerLine==countPerLine-1 || i==math_cmds.length)html += "</div>";
+		html += "<div class='math_button' title='"+ math_cmds[i]+ "' "
+		html += "style='background-position:" + (-(i%countPerLine))*button_height+"px "  + (-iniLine*button_width)+"px;' >" + "&nbsp;";
+		
+		html += "</div>";
+		if(i%countPerLine==countPerLine-1 || i==math_cmds.length)
+		{
+			iniLine += 1;
+			html += "</div>";
+			html += "<div class='clear'></div>";
+		}
 	}
 	
 	html += "</div>";
@@ -124,9 +201,11 @@ function ger_panel(panel_order)
 
 
 var hl = $("#dudoaa_math").html();
-$("#dudoaa_math").html("\\sqrt[n]{3}").css("font-size","30px").mathquill('editable').mathquill('write', "");
+//$("#dudoaa_math").html("\\pm").css("font-size","30px").mathquill('editable').mathquill('write', "");
+//$("#dudoaa_math").css("font-size","30px").mathquill('editable').mathquill('write', "");
+$("#dudoaa_math").css("font-size","50px");
+$("#dudoaa_math").css("color","red").mathquill('editable');
 
- //$("#math_latex").html($("#dudoaa_math").mathquill('latex'));
  
 function set_latex_buffer()
 {
@@ -135,12 +214,7 @@ function set_latex_buffer()
 	
 	
 setInterval("set_latex_buffer();",300)
-//document.write(ger_panel(0));
 
-
-/*$("#abc").click(function(){
-                           $("#math_latex").html($("#dudoaa_math").mathquill('latex'));alert($("#math_latex").html());})
-*/
 </script>
 </body>
 </html>
