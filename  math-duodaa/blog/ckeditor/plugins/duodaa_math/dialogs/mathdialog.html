@@ -110,17 +110,21 @@ var duodaaMath = [
 			"\\sum^{}_{n}","\\sum","\\log_{}","\\ln","\\int_{}^{}","\\oint_{}^{}"
 		],
 		[
-			"\\alpha","\\beta","\\gamma","\\delta","\\varepsilon","\\varphi","\\lambda","\\mu",
-			"\\rho","\\sigma","\\omega","\\Gamma","\\Delta","\\Theta","\\Lambda","\\Xi",
-			"\\Pi","\\Sigma","\\Upsilon","\\Phi","\\Psi","\\Omega"
-		],
-		[
 			"\\pm","\\mp","\\ast","\\cdot","\\div","\\bigtriangleup","\\bigtriangledown",
 			"\\triangleleft","\\triangleright",			
 			"\\angle","\\circ","\\bullet","\\sqcap","\\sqcup","\\vee","\\wedge","\\oplus","\\ominus","\\otimes",
 			"\\odot","\\bigcirc ","\\diamond","\\dagger","\\ddagger","\\times","\\infty","\\because","\\therefore",
-			"\\le","\\ge","\\neq"
-			
+			"\\le","\\ge","\\ne","\\prec","\\succ","\\equiv","\\preceq","\\succeq","\\doteq","\\ll","\\gg","\\sim",
+			"\\subseteq","\\supseteq","\\simeq","\\subset","\\supset","\\approx","\\sqsubset","\\sqsupset","\\cong",
+			"\\sqsubseteq","\\sqsupseteq","\\in","\\ni","\\propto","\\vdash","\\dashv","\\mid","\\models","\\perp",
+			"\\parallel","\\bowtie","\\leftarrow","\\rightarrow","\\Leftarrow","\\Rightarrow",
+			"\\leftrightarrow","\\Leftrightarrow"
+		],
+		
+		[
+			"\\alpha","\\beta","\\gamma","\\delta","\\varepsilon","\\varphi","\\lambda","\\mu",
+			"\\rho","\\sigma","\\omega","\\Gamma","\\Delta","\\Theta","\\Lambda","\\Xi",
+			"\\Pi","\\Sigma","\\Upsilon","\\Phi","\\Psi","\\Omega"
 		]
 	];
 	
@@ -131,6 +135,7 @@ $(".math_panel .math_type").click( function(){
 	                                              $(".math_show_buttons").html(ger_panel($(this).index(),"show"));
 												  $(".math_hide_buttons").html(ger_panel($(this).index(),"hide"));
 												  $(".math_panel .math_type").css("color","#000");
+												  $(".math_panel .math_type").css("font-weight","");
 												  $(this).css("color","#F96");
 												  $(this).css("font-weight","bold");
 												  
