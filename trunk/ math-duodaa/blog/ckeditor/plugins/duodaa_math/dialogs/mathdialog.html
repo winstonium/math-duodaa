@@ -106,8 +106,9 @@ div.math_panel div#duodaa_math
 //定义要生成的按纽命令
 var duodaaMath = [
 		[
-			"\\frac{}{}","^{}/_{}","x^{}","x_{}","x^{}_{}","\\overline{}","\\sqrt{}","\\nthroot{}{}",
-			"\\sum^{}_{n}","\\sum","\\log_{}","\\ln","\\int_{}^{}","\\oint_{}^{}"
+			"{a}^{b}","{a}_{b}","{a}_{b}^{c}","^{b}{a}","_{b}{a}","_{b}^{c}{a}","\\frac{b}{a}","\\int","\\int_{a}^{b}",
+			"\\oint","\\oint_{a}^{b}","\\sum","\\sum_{a}^{b}","\\prod","\\prod_{a}^{b}","\\coprod","\\coprod_{a}^{b}",
+			"\\sqrt{x}","\\sqrt[3]{x}","\\overline{abc}","\\underline{abc}"
 		],
 		[
 			"\\pm","\\mp","\\ast","\\cdot","\\div","\\bigtriangleup","\\bigtriangledown",
@@ -166,9 +167,12 @@ function ger_panel(panel_order,buttons_type)
 	
 	if(panel_order==0)
 	{
+	   iniLine = 6;
+	}
+	else if(panel_order==1)
+	{
 	   iniLine = 0;
 	}
-	
 	
 	
 	if(buttons_type=="show")
