@@ -85,7 +85,7 @@ div.math_panel div#duodaa_math
 <div class="clear"></div>
 
 <div class="math_showing" style="height:300px; vertical-align:middle;">
-<div id="dudoaa_math"  class="mathquill-editable"></div>
+<div id="duodaa_math"  class="mathquill-editable"></div>
 <div id="math_latex"></div>
 </div>
 
@@ -142,7 +142,7 @@ $(".math_panel .math_type").click( function(){
 												  
 												  $(".math_panel .math_button").click( function(){
 													                                    
-																						$("#dudoaa_math").mathquill("write",$(this).attr("title"));                                                                                                                                                                                                                                  }
+																						$("#duodaa_math").mathquill("write",$(this).attr("title"));                                                                                                                                                                                                                                  }
                                                                           );
 											      $(".math_panel .math_buttons").mouseover( function(){$(".math_hide_buttons").show();});
                                                   $(".math_panel .math_buttons").mouseout ( function(){$(".math_hide_buttons").hide();});
@@ -214,16 +214,16 @@ function ger_panel(panel_order,buttons_type)
 }
 
 
-var hl = $("#dudoaa_math").html();
-//$("#dudoaa_math").html("\\pm").css("font-size","30px").mathquill('editable').mathquill('write', "");
-//$("#dudoaa_math").css("font-size","30px").mathquill('editable').mathquill('write', "");
-$("#dudoaa_math").css("font-size","50px");
-$("#dudoaa_math").css("color","red").mathquill('editable');
+var hl = $("#duodaa_math").html();
+//$("#duodaa_math").html("\\pm").css("font-size","30px").mathquill('editable').mathquill('write', "");
+//$("#duodaa_math").css("font-size","30px").mathquill('editable').mathquill('write', "");
+//$("#duodaa_math").css("font-size","50px");
+$("#duodaa_math").css("color","red").mathquill('editable');
 
  
 function set_latex_buffer()
 {
-	 $("#math_latex").html($("#dudoaa_math").mathquill("latex"));
+	 $("#math_latex").html($("#duodaa_math").mathquill("latex"));
 }
 	
 	
