@@ -108,7 +108,8 @@ var duodaaMath = [
 		[
 			"{a}^{b}","{a}_{b}","{a}_{b}^{c}","^{b}{a}","_{b}{a}","_{b}^{c}{a}","\\frac{b}{a}","\\int","\\int_{a}^{b}",
 			"\\oint","\\oint_{a}^{b}","\\sum","\\sum_{a}^{b}","\\prod","\\prod_{a}^{b}","\\coprod","\\coprod_{a}^{b}",
-			"\\sqrt{x}","\\sqrt[3]{x}","\\overline{abc}","\\underline{abc}"
+			"\\sqrt{x}","\\sqrt[3]{x}","\\bigcup","\\bigcup_{a}^{b}","\\bigcap","\\bigcap_{a}^{b}","\\overline{abc}",
+			"\\underline{abc}","\\binom{n}{k}","\\sin","\\cos","\\tan","\\csc","\\sec","\\cot","\\ln"
 		],
 		[
 			"\\pm","\\mp","\\ast","\\cdot","\\div","\\bigtriangleup","\\bigtriangledown",
@@ -123,10 +124,12 @@ var duodaaMath = [
 		],
 		
 		[
-			"\\alpha","\\beta","\\gamma","\\delta","\\varepsilon","\\varphi","\\lambda","\\mu",
-			"\\rho","\\sigma","\\omega","\\Gamma","\\Delta","\\Theta","\\Lambda","\\Xi",
-			"\\Pi","\\Sigma","\\Upsilon","\\Phi","\\Psi","\\Omega"
+			"\\alpha","\\beta","\\gamma","\\delta","\\epsilon","\\varepsilon","\\zeta","\\eta","\\theta",
+			"\\vartheta","\\iota","\\kappa","\\lambda","\\mu","\\nu","\\xi","\\pi","\\varpi","\\rho","\\varrho",
+			"\\sigma","\\varsigma","\\tau","\\upsilon","\\phi","\\varphi","\\chi","\\psi","\\omega","\\Gamma","\\Delta","Theta",
+			"\\Lambda","\\Xi","\\Pi","\\Sigma","\\Upsilon","\\Phi","\\Psi","\\Omega","\\aleph"
 		]
+
 	];
 	
 $(".math_panel .math_show_buttons").mouseover( function(){$(".math_hide_buttons").show();});
@@ -173,7 +176,10 @@ function ger_panel(panel_order,buttons_type)
 	{
 	   iniLine = 0;
 	}
-	
+	else if(panel_order==2)
+	{
+	   iniLine = 9;
+	}
 	
 	if(buttons_type=="show")
 	{
