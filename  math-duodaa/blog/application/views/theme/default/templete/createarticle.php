@@ -36,12 +36,12 @@
 CKEDITOR.replace( 'CKeditor_main',
  {
 	//extraPlugins: 'devtools' ,
-	extraPlugins: 'autogrow,duodaa_math',
+	extraPlugins: 'autogrow,duodaa_math,abbr',
 	removePlugins: 'resize',
 	
 	toolbar : [ 
 		       	[  
-				   'duodaa_math',
+				   'duodaa_math','abbr',
 			       'Font','FontSize',
 			       'Bold','Italic','Underline',
 			       'TextColor','BGColor',
