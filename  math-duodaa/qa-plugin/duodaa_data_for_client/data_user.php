@@ -19,13 +19,14 @@ function duodaa_login($un,$psw)
     }
 
 
-    if(count($matchusers)==1){
+    if(count($matchusers)==1)
+    {
         $userid= $matchusers[0];
         $userinfo=qa_db_select_with_pending(qa_db_user_account_selectspec($userid, true));
 
         if (strtolower(qa_db_calc_passcheck($psw, $userinfo['passsalt'])) == strtolower($userinfo['passcheck']))
         {
-            $user=$userinfo;
+            $user=array_merge($userinfo,$user);
             //return true; //'登陆成功';
         }
 

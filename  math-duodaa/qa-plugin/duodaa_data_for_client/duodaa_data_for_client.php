@@ -65,24 +65,23 @@
             $username=$requests[1];
             $password=isset($requests[2])?$requests[2]:'0';
 
-            //var_dump( is_duodaa_login($username,'fff'));
+
             $usr=duodaa_login($username,$password);
-           // var_dump($usr);
-           /*
-            if(isset($usr['error']))
+
+            //var_dump($usr) ;
+            if($usr['error']=='')
             {
-                echo($usr['error']);
+                $json=duodaa_qlist();
             }
             else
             {
-                echo('<br>用户名：'.$usr['handle'].'<br>邮箱地址：'.$usr['email']);
-            }
-           */
 
-            $qs=duodaa_qlist();
-            //var_dump($qs);
-            echo $qs;
-            //echo '{}';
+            }
+
+            //网页编码UTF-8
+            header("Content-type:text/html;charset=utf-8");
+            echo $json;
+
             return null;
 		}
 
