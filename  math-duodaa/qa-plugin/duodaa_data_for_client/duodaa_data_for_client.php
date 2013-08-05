@@ -45,7 +45,7 @@
 		
 		function match_request($request)
 		{
-			if (stripos($request,'duodaaxmlfeed/')===0)
+			if (stripos($request,'duodaa_data/')===0)
             {
                 return true;
             }
@@ -68,6 +68,7 @@
             //var_dump( is_duodaa_login($username,'fff'));
             $usr=duodaa_login($username,$password);
            // var_dump($usr);
+           /*
             if(isset($usr['error']))
             {
                 echo($usr['error']);
@@ -76,9 +77,12 @@
             {
                 echo('<br>用户名：'.$usr['handle'].'<br>邮箱地址：'.$usr['email']);
             }
+           */
 
             $qs=duodaa_qlist();
-            var_dump($qs);
+            //var_dump($qs);
+            echo $qs;
+            //echo '{}';
             return null;
 		}
 
