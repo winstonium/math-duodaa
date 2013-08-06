@@ -38,3 +38,13 @@ function duodaa_qlist($un=null,$type=null,$isanswered=false)
 
         return $qlist;
      }
+
+function myQusetions($un,$strart,$end)
+{
+
+}
+
+function myAnsweredQusetions($un,$strart,$end)
+{
+
+}

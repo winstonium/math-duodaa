@@ -8,6 +8,7 @@ require_once QA_INCLUDE_DIR.'qa-app-search.php';
 //验证用户用户登录
 function duodaa_login($un,$psw)
 {
+    //echo $un;
     $user['error']='';
     if ( strpos($un, '@')!==false) // handles can't contain @ symbols
     {
@@ -18,7 +19,7 @@ function duodaa_login($un,$psw)
         $matchusers=qa_db_user_find_by_handle($un);
     }
 
-
+   // var_dump($matchusers) ;
     if(count($matchusers)==1)
     {
         $userid= $matchusers[0];
