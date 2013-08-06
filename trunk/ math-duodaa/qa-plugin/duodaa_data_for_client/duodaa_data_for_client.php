@@ -81,6 +81,7 @@
             //网页编码UTF-8
             header("Content-type:text/html;charset=utf-8");
             echo $json;
+            //var_dump($usr);
 
             return null;
 		}
