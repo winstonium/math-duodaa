@@ -62,31 +62,47 @@
             require_once 'data_user.php';
             require_once 'data_question.php';
             $requests = explode('/',$request);
-            $username=$requests[1];
-            $password=isset($requests[2])?$requests[2]:'0';
 
+            $username=isset($requests[1])?$requests[1]:'0';                          //第一个设置是用户名
+            $password=isset($requests[2])?$requests[2]:'0';                          //第二个设置是密码
+
+            $request_type=isset($requests[3])?$requests[3]:'0';                      //第三个是设置请求类型
+            // login - 登录
+            // logout - 登出
 
             $usr=duodaa_login($username,$password);
 
-            //var_dump($usr) ;
-            if($usr['error']=='')
+            switch($request_type)
             {
-                $json=duodaa_qlist();
-            }
-            else
-            {
+                case '0':
+                   //$request_type='login';
+                    break;
 
+                case 'login':
+                    $usr=duodaa_login($username,$password);
+                    $json_data = $this->to_JSON($usr);
+                    header("Content-type:text/html;charset=utf-8");
+                    echo $json_data;
+                    break;
+                default:break;
             }
 
-            //网页编码UTF-8
-            header("Content-type:text/html;charset=utf-8");
-            echo $json;
-            //var_dump($usr);
+
+
+
 
             return null;
 		}
 
+        function to_JSON($array_souce)
+        {
+            $json = json_encode($array_souce);
 
+            //以下处理中文问题
+            $json = preg_replace("#\\\u([0-9a-f]{4})#ie", "iconv('UCS-2BE', 'UTF-8', pack('H4', '\\1'))", $json);
+
+            return $json;
+        }
 
 	}
 	
