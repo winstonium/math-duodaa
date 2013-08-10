@@ -70,6 +70,10 @@
             // login - 登录
             // logout - 登出
 
+            $para_1=isset($requests[4])?$requests[4]:'0';
+            $para_2=isset($requests[5])?$requests[5]:'0';
+
+
             $usr=duodaa_login($username,$password);
 
             switch($request_type)
@@ -81,10 +85,15 @@
                 case 'login':
                     $usr=duodaa_login($username,$password);
                     $json_data = $this->to_JSON($usr);
-                    header("Content-type:text/html;charset=utf-8");
-                    echo $json_data;
+
+                    break;
+                case 'qlist':
+
                     break;
                 default:break;
+
+                header("Content-type:text/html;charset=utf-8");
+                echo $json_data;
             }
 
 
