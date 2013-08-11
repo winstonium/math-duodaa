@@ -69,12 +69,13 @@
             $request_type=isset($requests[3])?$requests[3]:'0';                      //第三个是设置请求类型
             // login - 登录
             // logout - 登出
+            // qlist - 问题列表
 
             $para_1=isset($requests[4])?$requests[4]:'0';
             $para_2=isset($requests[5])?$requests[5]:'0';
 
 
-            $usr=duodaa_login($username,$password);
+            //$usr=duodaa_login($username,$password);
 
             switch($request_type)
             {
@@ -88,7 +89,26 @@
 
                     break;
                 case 'qlist':
-                    $qlist=duodaa_qlist();
+                    $list_type=$para_1;
+                    switch($list_type)
+                    {
+                        case '0':
+                            $qlist=duodaa_qlist();
+                            break;
+                        case 'myquestion':
+                            $usr=duodaa_login($username,$password);
+                            if($usr['error']=='')
+                                {
+                                    $qlist=duodaa_qlist($usr['userid']);
+                                }
+                            else
+                                {
+                                    $qlist="{}";
+                                }
+                            break;
+
+                    }
+
                    // var_dump($qlist);
                     $json_data = $this->to_JSON($qlist);
                     break;
@@ -111,6 +131,9 @@
 
             //以下处理中文问题
             $json = preg_replace("#\\\u([0-9a-f]{4})#ie", "iconv('UCS-2BE', 'UTF-8', pack('H4', '\\1'))", $json);
+
+            //以下处理小于号"<"的问题
+            $json=str_replace('<','&lt;',$json);
 
             return $json;
         }
