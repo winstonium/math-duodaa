@@ -88,15 +88,17 @@
 
                     break;
                 case 'qlist':
-
+                    $qlist=duodaa_qlist();
+                   // var_dump($qlist);
+                    $json_data = $this->to_JSON($qlist);
                     break;
                 default:break;
 
-                header("Content-type:text/html;charset=utf-8");
-                echo $json_data;
+
             }
 
-
+            header("Content-type:text/html;charset=utf-8");
+            echo $json_data;
 
 
 
