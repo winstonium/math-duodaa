@@ -103,16 +103,29 @@
                                 }
                             else
                                 {
-                                    $qlist="{}";
+                                    $qlist=array();
                                 }
                             break;
+                        case 'myanswers':
+                            $usr=duodaa_login($username,$password);
+                            if($usr['error']=='')
+                            {
+                                $qlist=duodaa_qlist($usr['userid']);
+                            }
+                            else
+                            {
+                                $qlist=array();
+                            }
+                            break;
+
 
                     }
-
                    // var_dump($qlist);
                     $json_data = $this->to_JSON($qlist);
                     break;
-                default:break;
+
+                default:
+                    break;
 
 
             }

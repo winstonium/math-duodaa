@@ -46,9 +46,21 @@ function duodaa_qlist($userid=null,$categroryid=null,$type='Q',$start=0,$count=3
      }
 
 //
-function duodaa_getanswers()
+function duodaa_getanswers($userid=null,$categroryid=null,$type='Q',$start=0,$count=30,$isfull=false)
 {
-    //qa_post_get_question_answers();
+    $link=mysql_connect(QA_MYSQL_HOSTNAME,QA_MYSQL_USERNAME,QA_MYSQL_PASSWORD);
+    $slected = mysql_select_db(QA_MYSQL_DATABASE,$link);
+
+    $sql_query = 'SELECT *,IF(created < updated, updated,created) AS update_time '
+        .'FROM qa_posts '
+        .'WHERE '
+        .($userid===null?'1 ':'userid='.$userid.' ')
+        .($categroryid===null?'':'AND categroryid='.$categroryid.' ')
+        .($type===null?'':'AND type="'.$type.'" ')
+
+        .'ORDER BY update_time DESC LIMIT '.$start.', '.$count;
+
+    $result=mysql_query($sql_query,$link);
 }
 
 function myQusetions($un,$strart,$end)
