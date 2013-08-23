@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 	Question2Answer (c) Gideon Greenspan
@@ -80,12 +80,20 @@
             switch($request_type)
             {
                 case '0':
+                    $json_data= '{}';
                    //$request_type='login';
                     break;
 
                 case 'login':
                     $usr=duodaa_login($username,$password);
-                    $json_data = $this->to_JSON($usr);
+                    $usr1["error"]=$usr["error"];
+                    if($usr1["error"]=="")
+                    {
+                        $usr1["userid"]=$usr["userid"];
+                        $usr1["handle"]=$usr["handle"];
+                    }
+
+                    $json_data = $this->to_JSON($usr1);
 
                     break;
                 case 'qlist':
@@ -125,12 +133,15 @@
                     break;
 
                 default:
+                   // $json_data= '{"a":"a"}';
                     break;
 
 
             }
 
+            header("Access-Control-Allow-Origin: *");
             header("Content-type:text/html;charset=utf-8");
+            //echo('<meta http-equiv="Access-Control-Allow-Origin" content="*">');
             echo $json_data;
 
 
