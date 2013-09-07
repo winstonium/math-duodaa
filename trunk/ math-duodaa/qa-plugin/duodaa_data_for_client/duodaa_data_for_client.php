@@ -1,5 +1,5 @@
 ﻿<?php
-
+require_once QA_INCLUDE_DIR.'qa-app-users.php';
 /*
 	Question2Answer (c) Gideon Greenspan
 
@@ -101,7 +101,21 @@
                     switch($list_type)
                     {
                         case '0':
-                            $qlist=duodaa_qlist();
+
+                            $qlist_tmp=duodaa_qlist();
+                            $qlist=array();
+
+                            foreach($qlist_tmp as $key=>$qinfo)
+                            {
+                                $qlist[$key]["postid"]=$qinfo["postid"];
+                                $qlist[$key]["title"]=$qinfo["title"];
+                                $qlist[$key]["userid"]=$qinfo["userid"];
+                               // $qlist[$key]["handle"]=qa_userids_to_handles(array($qinfo["userid"]))[0];
+                                $temphandle = qa_userids_to_handles(array($qinfo["userid"]));
+                                $qlist[$key]["handle"]=$temphandle[$qinfo["userid"]];
+                                $qlist[$key]["update_time"]=$qinfo["update_time"];
+                            }
+
                             break;
                         case 'myquestion':
                             $usr=duodaa_login($username,$password);
