@@ -2,6 +2,7 @@
 require_once QA_INCLUDE_DIR.'qa-app-limits.php';
 require_once QA_INCLUDE_DIR.'qa-db-users.php';
 require_once QA_INCLUDE_DIR.'qa-db-selects.php';
+require_once QA_INCLUDE_DIR.'qa-app-posts.php';
 
 
 //验证用户用户登录
@@ -71,4 +72,10 @@ function myQusetions($un,$strart,$end)
 function myAnsweredQusetions($un,$strart,$end)
 {
 
+}
+
+function questioninfo($qid)
+{
+    $q = qa_post_get_full($qid);
+    return $q;
 }
