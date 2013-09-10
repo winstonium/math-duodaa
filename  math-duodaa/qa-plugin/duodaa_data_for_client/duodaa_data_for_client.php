@@ -70,6 +70,7 @@ require_once QA_INCLUDE_DIR.'qa-app-users.php';
             // login - 登录
             // logout - 登出
             // qlist - 问题列表
+            //q - 问题
 
             $para_1=isset($requests[4])?$requests[4]:'0';
             $para_2=isset($requests[5])?$requests[5]:'0';
@@ -82,6 +83,10 @@ require_once QA_INCLUDE_DIR.'qa-app-users.php';
                 case '0':
                     $json_data= '{}';
                    //$request_type='login';
+                    break;
+                case 'q':
+                    $q=questioninfo(3330);
+                    var_dump()
                     break;
 
                 case 'login':
