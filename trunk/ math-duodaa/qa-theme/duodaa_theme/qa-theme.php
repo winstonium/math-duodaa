@@ -135,8 +135,15 @@
 			while(!feof($file))
 			{
 			$linksource = explode(',',fgets($file));
-			$link = trim($linksource[1]);
+		
 			$linktext = trim($linksource[0]);
+			
+			if(isset($linksource[1]))
+			{$link=trim($linksource[1]);}
+			else
+			{$linktext = '#';
+			$link='#';}
+			
 			$html .= '<a href="'.$link.'" target="_blank">'.$linktext.'</a>';
 			
 			if( isset($linksource[2]))
