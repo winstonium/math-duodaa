@@ -85,8 +85,9 @@ require_once QA_INCLUDE_DIR.'qa-app-users.php';
                    //$request_type='login';
                     break;
                 case 'q':
-                    $q=questioninfo(3330);
-                    var_dump()
+                    $q=questioninfo(3248);
+                    var_dump($q);
+                    exit;
                     break;
 
                 case 'login':
